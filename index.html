@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archive</title>
+<meta name="description" content="개인 자료 보관용 페이지입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* ══════════════════════════════════════════════
+   TOKENS
+   ══════════════════════════════════════════════ */
+:root{
+  --ink:#070B10;
+  --ink-2:#0C121A;
+  --plate:rgba(232,238,242,.045);
+  --plate-hi:rgba(232,238,242,.075);
+  --plate-line:rgba(232,238,242,.11);
+  --milk:#E6EDF2;
+  --milk-2:#9FB0BD;
+  --milk-3:#5E707E;
+  --wall:#1B2530;
+  --wall-2:#131C25;
+  --blue:#9FB6EC;
+  --alert:#E0603F;
+  --iris:linear-gradient(100deg,#7FD8E8,#9FB6EC,#C79BE0,#EEA2BE,#F2D6A2);
+  --sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,sans-serif;
+  --tech:'Chakra Petch','Pretendard Variable',Pretendard,sans-serif;
+  --mono:'IBM Plex Mono','Pretendard Variable',monospace;
+  --accent:var(--blue);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--milk);font-family:var(--sans);
+  font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(900px 620px at 80% -10%,rgba(159,182,236,.10),transparent 62%),
+    radial-gradient(760px 540px at 6% 106%,rgba(199,155,224,.065),transparent 60%);
+}
+::selection{background:rgba(199,155,224,.32)}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+/* scrollbar */
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:var(--ink)}
+*::-webkit-scrollbar-thumb{background:var(--wall);border:3px solid var(--ink);border-radius:6px}
+*::-webkit-scrollbar-thumb:hover{background:#2A3A4A}
+
+/* ══════════════════════════════════════════════
+   SHELL
+   ══════════════════════════════════════════════ */
+.shell{display:grid;grid-template-columns:266px 1fr;max-width:1420px;margin:0 auto;position:relative;z-index:1}
+
+/* ── rail ── */
+.rail{
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+  padding:32px 20px 28px 30px;border-right:1px solid var(--wall);
+  display:flex;flex-direction:column;gap:24px;
+}
+.mark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.mark-glyph{width:28px;height:28px;position:relative;flex:none}
+.mark-glyph i{position:absolute;inset:0;border:1px solid var(--milk-3);border-radius:50% 50% 50% 0;opacity:.75;transition:opacity .3s}
+.mark-glyph i:nth-child(2){transform:rotate(45deg) scale(.8);opacity:.5}
+.mark-glyph i:nth-child(3){transform:rotate(90deg) scale(.6);opacity:.32}
+.mark:hover .mark-glyph i{opacity:1;border-color:var(--blue)}
+.mark-t{font-family:var(--tech);font-size:10.5px;letter-spacing:.22em;color:var(--milk-2);text-transform:uppercase}
+.mark-s{font-size:14px;font-weight:600;letter-spacing:-.015em;margin-top:1px}
+
+.navgroup{display:flex;flex-direction:column}
+.navgroup+.navgroup{margin-top:22px}
+.nav-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--milk-3);text-transform:uppercase;margin-bottom:10px;padding-left:16px}
+.navlist{display:flex;flex-direction:column;gap:1px;position:relative;padding-left:16px}
+.navlist::before{content:"";position:absolute;left:3px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--wall),rgba(159,182,236,.3),var(--wall))}
+.navlist a{
+  position:relative;text-decoration:none;color:var(--milk-2);font-size:13.5px;
+  padding:5px 8px 5px 0;display:flex;gap:10px;align-items:baseline;transition:color .18s;
+}
+.navlist a::before{content:"";position:absolute;left:-16px;top:13px;width:7px;height:7px;border-radius:50%;border:1px solid var(--wall);background:var(--ink);transition:all .18s}
+.navlist a .n{font-family:var(--mono);font-size:10px;color:var(--milk-3);flex:none;transition:color .18s}
+.navlist a .cs{font-family:var(--mono);font-size:9.5px;color:var(--milk-3);margin-left:auto;opacity:0;transition:opacity .18s}
+.navlist a:hover{color:var(--milk)}
+.navlist a:hover .cs{opacity:1}
+.navlist a:hover::before{border-color:var(--blue)}
+.navlist a.on{color:var(--milk);font-weight:600}
+.navlist a.on .n{color:var(--blue)}
+.navlist a.on .cs{opacity:1;color:var(--blue)}
+.navlist a.on::before{border-color:var(--blue);background:var(--blue);box-shadow:0 0 9px rgba(159,182,236,.85)}
+.navlist a:focus-visible{outline:1px solid var(--blue);outline-offset:3px;border-radius:2px}
+
+.rail-foot{margin-top:auto;padding-top:20px;font-family:var(--mono);font-size:10px;line-height:2;color:var(--milk-3)}
+.rail-foot b{color:var(--milk-2);font-weight:500}
+
+/* mobile top bar */
+.mobar{display:none;position:sticky;top:0;z-index:40;background:rgba(7,11,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--wall);padding:12px 18px;align-items:center;justify-content:space-between;gap:12px}
+.mobar .mark-s{font-size:13px}
+.menubtn{background:none;border:1px solid var(--wall);color:var(--milk-2);font-family:var(--mono);font-size:11px;letter-spacing:.14em;padding:7px 13px;border-radius:2px;cursor:pointer}
+.menubtn:hover{border-color:var(--blue);color:var(--milk)}
+
+/* ══════════════════════════════════════════════
+   MAIN
+   ══════════════════════════════════════════════ */
+main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
+.view{display:none;animation:fade .34s ease}
+.view.live{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+
+/* ── page head ── */
+.phead{padding:74px 0 34px;border-bottom:1px solid var(--wall);margin-bottom:44px;position:relative}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;color:var(--milk-3);text-transform:uppercase}
+.phead h1{font-size:clamp(34px,4.4vw,46px);line-height:1.12;font-weight:700;letter-spacing:-.035em;margin:12px 0 0}
+.phead h1 .en{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.2em;color:var(--milk-3);margin-top:12px;text-transform:uppercase}
+.phead .desc{max-width:56ch;color:var(--milk-2);margin-top:18px;font-size:15.5px}
+
+/* ══════════════════════════════════════════════
+   HOME
+   ══════════════════════════════════════════════ */
+.hero{padding:82px 0 62px;border-bottom:1px solid var(--wall);position:relative;overflow:hidden}
+.bloom{position:absolute;right:-30px;top:10px;width:360px;height:360px;pointer-events:none;opacity:.55}
+.bloom span{
+  position:absolute;left:50%;top:50%;width:220px;height:220px;margin:-110px 0 0 -110px;
+  border-radius:52% 48% 46% 54%;
+  background:linear-gradient(160deg,rgba(232,238,242,.16),rgba(232,238,242,.01));
+  border:1px solid rgba(232,238,242,.14);
+  animation:drift 22s ease-in-out infinite;
+}
+.bloom span:nth-child(1){transform:rotate(0deg) scale(1)}
+.bloom span:nth-child(2){transform:rotate(48deg) scale(.86);animation-delay:-4s}
+.bloom span:nth-child(3){transform:rotate(96deg) scale(.72);animation-delay:-8s}
+.bloom span:nth-child(4){transform:rotate(144deg) scale(.58);animation-delay:-12s}
+.bloom span:nth-child(5){transform:rotate(192deg) scale(.44);animation-delay:-16s}
+@keyframes drift{0%,100%{opacity:.5}50%{opacity:.95}}
+
+.hero h1{font-size:clamp(48px,7.4vw,92px);line-height:1;font-weight:700;letter-spacing:-.045em;margin:20px 0 0}
+.hero h1 em{font-style:normal;background:var(--iris);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{max-width:46ch;color:var(--milk-2);margin-top:22px;font-size:16px}
+.hero-stats{display:flex;gap:36px;margin-top:40px;flex-wrap:wrap}
+.stat .v{font-family:var(--tech);font-size:27px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.stat .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--milk-3);text-transform:uppercase}
+
+.home-sec{padding:56px 0 0}
+.home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px;margin-top:22px}
+.tile{
+  display:block;text-decoration:none;background:var(--plate);border:1px solid var(--plate-line);
+  border-radius:3px 14px 3px 3px;padding:20px 22px 22px;transition:.2s;
+}
+.tile:hover{border-color:rgba(159,182,236,.45);background:var(--plate-hi);transform:translateY(-2px)}
+.tile .n{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:.16em}
+.tile h3{font-size:16px;font-weight:600;margin:7px 0 6px;letter-spacing:-.01em}
+.tile h3::before{display:none}
+.tile p{font-size:13.5px;color:var(--milk-2);line-height:1.7}
+
+/* ══════════════════════════════════════════════
+   CONTENT PRIMITIVES
+   ══════════════════════════════════════════════ */
+.block{margin-bottom:52px}
+.block:last-child{margin-bottom:0}
+.bhead{display:flex;align-items:baseline;gap:13px;margin-bottom:20px}
+.bhead .idx{font-family:var(--mono);font-size:11px;color:var(--milk-3);flex:none}
+.bhead h2{font-size:23px;font-weight:600;letter-spacing:-.022em}
+.bhead .en{font-family:var(--mono);font-size:10px;color:var(--milk-3);letter-spacing:.16em;text-transform:uppercase;margin-left:auto;flex:none}
+
+.plates{display:grid;gap:12px}
+.plates.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.plate{
+  background:var(--plate);border:1px solid var(--plate-line);border-radius:3px 14px 3px 3px;
+  padding:23px 25px;transition:border-color .2s,background .2s;
+}
+.plate:hover{border-color:rgba(159,182,236,.32);background:var(--plate-hi)}
+.plate h3{font-size:14px;font-weight:600;letter-spacing:.01em;color:var(--milk);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.plate h3::before{content:"";width:14px;height:1px;background:var(--accent);flex:none}
+.plate p{color:var(--milk-2);font-size:14.5px}
+.plate p+p{margin-top:10px}
+.plate strong{color:var(--milk);font-weight:600}
+.plate ul{list-style:none;display:grid;gap:9px}
+.plate ul li{color:var(--milk-2);font-size:14.5px;padding-left:16px;position:relative}
+.plate ul li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:1px;background:var(--milk-3)}
+.plate ul li strong{color:var(--milk)}
+
+/* spec list */
+.spec{border-top:1px solid var(--wall)}
+.spec div{display:grid;grid-template-columns:118px 1fr;gap:20px;padding:11px 0;border-bottom:1px solid var(--wall)}
+.spec dt{font-family:var(--mono);font-size:11px;color:var(--milk-3);letter-spacing:.07em;padding-top:3px}
+.spec dd{color:var(--milk-2);font-size:14.5px}
+.spec dd strong{color:var(--milk);font-weight:600}
+
+/* warn */
+.warn{border-left:2px solid var(--alert);padding:3px 0 3px 16px;margin-top:16px;color:var(--milk-2);font-size:14px}
+.warn b{color:var(--alert);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;display:block;margin-bottom:3px}
+
+/* timeline */
+.tl{display:grid}
+.ev{display:grid;grid-template-columns:130px 1fr;gap:26px;padding:22px 0;border-top:1px solid var(--wall)}
+.ev:last-child{border-bottom:1px solid var(--wall)}
+.ev-date{font-family:var(--mono);font-size:12px;color:var(--milk-2);padding-top:2px}
+.ev-date b{display:block;color:var(--alert);font-weight:500;font-size:10px;letter-spacing:.14em;margin-top:5px}
+.ev h4{font-size:17px;font-weight:600;letter-spacing:-.012em;margin-bottom:8px}
+.ev p{color:var(--milk-2);font-size:14.5px;max-width:64ch}
+.ev p+p{margin-top:9px}
+.ev-fig{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:10.5px;border:1px solid var(--wall);padding:3px 9px;color:var(--milk-2);border-radius:2px}
+.chip.hot{border-color:rgba(224,96,63,.5);color:var(--alert)}
+
+/* ratio */
+.ratio{margin-top:20px}
+.ratio-bar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--wall)}
+.ratio-bar i{display:block}
+.ratio-legend{display:flex;gap:20px;margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--milk-2);flex-wrap:wrap}
+.ratio-legend span{display:flex;align-items:center;gap:7px}
+.ratio-legend em{width:8px;height:8px;border-radius:1px;font-style:normal;flex:none}
+
+/* dept grid */
+.depts{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;background:var(--wall);border:1px solid var(--wall);border-radius:3px;overflow:hidden}
+.dept{background:var(--ink-2);padding:18px 20px}
+.dept.core{background:rgba(159,182,236,.09)}
+.dept h4{font-size:14.5px;font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.dept.core h4::after{content:"본 자료 기준";font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--blue);border:1px solid rgba(159,182,236,.4);padding:1px 6px;border-radius:2px;font-weight:400}
+.dept p{font-size:13px;color:var(--milk-2);line-height:1.65}
+
+/* ══════════════════════════════════════════════
+   ROSTER
+   ══════════════════════════════════════════════ */
+.roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:12px}
+.rcard{
+  text-decoration:none;display:block;background:var(--plate);border:1px solid var(--plate-line);
+  border-radius:3px 14px 3px 3px;overflow:hidden;transition:.2s;
+}
+.rcard:hover{border-color:var(--accent);transform:translateY(-3px)}
+.rcard:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+.rframe{position:relative;aspect-ratio:3/4;background:var(--ink-2);overflow:hidden}
+.rframe img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2;filter:saturate(.92)}
+.rcard:hover .rframe img{filter:saturate(1.05)}
+.ph{
+  position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:
+    linear-gradient(150deg,rgba(232,238,242,.05),transparent 60%),
+    repeating-linear-gradient(-45deg,transparent 0 9px,rgba(232,238,242,.022) 9px 18px);
+  border-bottom:1px solid var(--plate-line);
+}
+.ph i{width:34px;height:34px;position:relative;opacity:.5}
+.ph i::before,.ph i::after{content:"";position:absolute;inset:0;border:1px solid var(--milk-3);border-radius:50% 50% 50% 0}
+.ph i::after{transform:rotate(60deg) scale(.7)}
+.ph code{font-family:var(--mono);font-size:9.5px;color:var(--milk-3);letter-spacing:.06em;text-align:center;padding:0 10px;word-break:break-all}
+.rmeta{padding:15px 16px 17px;border-top:1px solid var(--plate-line)}
+.rcs{font-family:var(--tech);font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
+.rname{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-top:3px}
+.rname small{font-family:var(--mono);font-size:10.5px;color:var(--milk-3);font-weight:400;letter-spacing:.05em;display:block;margin-top:3px}
+.rrole{font-size:12.5px;color:var(--milk-2);margin-top:9px;padding-top:9px;border-top:1px solid var(--wall)}
+
+/* ── character page ── */
+.cprofile{display:grid;grid-template-columns:300px 1fr;gap:36px;padding:70px 0 40px;border-bottom:1px solid var(--wall);margin-bottom:44px}
+.cframe{position:relative;aspect-ratio:3/4;background:var(--ink-2);border:1px solid var(--plate-line);border-radius:3px 20px 3px 3px;overflow:hidden}
+.cframe img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
+.cframe .ph{border-bottom:0}
+.cframe .ph i{width:52px;height:52px}
+.cframe::after{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,11,16,.55),transparent 42%);
+}
+.cframe-tag{position:absolute;left:14px;bottom:12px;z-index:4;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--milk-2);text-transform:uppercase}
+
+.cinfo{padding-top:6px;min-width:0}
+.callsign{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--tech);font-size:12px;font-weight:600;
+  letter-spacing:.24em;color:var(--accent);text-transform:uppercase;border:1px solid currentColor;
+  padding:4px 12px;border-radius:2px;
+}
+.callsign::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
+.cinfo h1{font-size:clamp(38px,5.2vw,56px);line-height:1.04;font-weight:700;letter-spacing:-.04em;margin:16px 0 0}
+.cinfo h1 .kanji{display:block;font-size:.36em;font-weight:400;letter-spacing:.34em;color:var(--milk-3);margin-bottom:12px}
+.ctags{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.ctag{font-family:var(--mono);font-size:11px;border:1px solid var(--wall);padding:5px 11px;color:var(--milk-2);border-radius:2px}
+.ctag b{color:var(--milk);font-weight:500}
+.ctag.w{border-color:currentColor;color:var(--accent)}
+.ctag.w b{color:var(--accent)}
+.cstyle{margin-top:22px;color:var(--milk-2);font-size:15px;max-width:56ch;padding-left:16px;border-left:2px solid var(--accent)}
+
+/* 호칭 */
+.calls{display:grid;gap:1px;background:var(--wall);border:1px solid var(--wall);border-radius:3px;overflow:hidden}
+.callrow{display:grid;grid-template-columns:150px 1fr;gap:0;background:var(--ink-2)}
+.callrow .who{padding:11px 16px;font-size:13px;color:var(--milk-2);border-right:1px solid var(--wall);display:flex;align-items:center;gap:8px}
+.callrow .who em{font-style:normal;font-family:var(--mono);font-size:9.5px;color:var(--milk-3);letter-spacing:.12em}
+.callrow .how{padding:11px 16px;font-size:13.5px;color:var(--milk);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.callrow .how q{font-style:normal;quotes:none;color:var(--accent);font-weight:600}
+.callrow .how span{font-family:var(--mono);font-size:10px;color:var(--milk-3);letter-spacing:.1em;border:1px solid var(--wall);padding:1px 7px;border-radius:2px}
+
+.backlink{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--milk-3);text-transform:uppercase;margin-bottom:-52px;padding-top:34px;transition:color .18s}
+.backlink:hover{color:var(--accent)}
+.backlink::before{content:"←"}
+
+.cnext{display:flex;gap:10px;flex-wrap:wrap;margin-top:52px;padding-top:26px;border-top:1px solid var(--wall)}
+.cnext a{text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--milk-2);border:1px solid var(--wall);padding:8px 14px;border-radius:2px;transition:.18s}
+.cnext a:hover{border-color:var(--accent);color:var(--milk)}
+
+/* footer */
+.foot{margin-top:70px;padding-top:24px;border-top:1px solid var(--wall);font-family:var(--mono);font-size:10px;color:var(--milk-3);letter-spacing:.06em;line-height:2}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════ */
+@media (max-width:960px){
+  .shell{grid-template-columns:1fr}
+  .mobar{display:flex}
+  .rail{
+    position:fixed;inset:0 auto 0 0;width:280px;z-index:50;background:var(--ink-2);
+    transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
+    box-shadow:20px 0 60px rgba(0,0,0,.6);
+  }
+  .rail.open{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(3,6,9,.7);z-index:49;opacity:0;pointer-events:none;transition:opacity .28s}
+  .scrim.on{opacity:1;pointer-events:auto}
+  main{padding-left:20px;padding-right:20px}
+  .hero{padding-top:48px}
+  .phead{padding-top:44px}
+  .bloom{display:none}
+  .cprofile{grid-template-columns:1fr;gap:24px;padding-top:40px}
+  .cframe{max-width:280px}
+  .backlink{padding-top:26px}
+}
+@media (max-width:620px){
+  body{font-size:15px}
+  .ev{grid-template-columns:1fr;gap:8px}
+  .spec div{grid-template-columns:1fr;gap:2px}
+  .callrow{grid-template-columns:1fr}
+  .callrow .who{border-right:0;border-bottom:1px solid var(--wall);padding-bottom:7px}
+  .callrow .how{padding-top:7px}
+  .hero-stats{gap:24px}
+  .plate{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!--
+  ══════════════════════════════════════════════════════════════
+  이미지 넣는 법
+  ──────────────────────────────────────────────────────────────
+  저장소 루트에 assets/characters/ 폴더를 만들고 아래 이름으로 넣으세요.
+  파일이 없으면 자동으로 빈 슬롯 플레이스홀더가 표시됩니다.
+
+    assets/characters/amane.jpg     — 키도 아마네
+    assets/characters/homare.jpg    — 카부라기 호마레
+    assets/characters/sumito.jpg    — 마시바 스미토
+    assets/characters/katsumi.jpg   — 마카베 카츠미
+    assets/characters/tomonari.jpg  — 시키 토모나리
+
+  권장 비율 3:4 (예: 900×1200). jpg/png/webp 모두 가능하며,
+  확장자를 바꾸려면 아래 <img src="..."> 값을 함께 수정하세요.
+  ══════════════════════════════════════════════════════════════
+-->
+
+<div class="mobar">
+  <a class="mark" href="#/home">
+    <div class="mark-glyph"><i></i><i></i><i></i></div>
+    <div><div class="mark-s">백화 아카이브</div></div>
+  </a>
+  <button class="menubtn" id="menubtn" aria-label="메뉴 열기">MENU</button>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<div class="shell">
+
+  <!-- ═══════════ RAIL ═══════════ -->
+  <aside class="rail" id="rail">
+    <a class="mark" href="#/home">
+      <div class="mark-glyph"><i></i><i></i><i></i></div>
+      <div>
+        <div class="mark-t">BSDMA / ARCHIVE</div>
+        <div class="mark-s">특이재해관리국 자료실</div>
+      </div>
+    </a>
+
+    <div class="navgroup">
+      <div class="nav-label">설정</div>
+      <div class="navlist">
+        <a href="#/bloom"><span class="n">01</span>백화와 뿌리</a>
+        <a href="#/beast"><span class="n">02</span>이수</a>
+        <a href="#/kokusho"><span class="n">03</span>흑정과 개인무기</a>
+        <a href="#/zone"><span class="n">04</span>제0구</a>
+        <a href="#/society"><span class="n">05</span>사회 현상</a>
+        <a href="#/bureau"><span class="n">06</span>특이재해관리국</a>
+        <a href="#/field"><span class="n">07</span>실동부</a>
+      </div>
+    </div>
+
+    <div class="navgroup">
+      <div class="nav-label">인물</div>
+      <div class="navlist">
+        <a href="#/people"><span class="n">◇</span>전체 명단</a>
+        <a href="#/p/amane"><span class="n">01</span>키도 아마네<span class="cs">PULSE</span></a>
+        <a href="#/p/homare"><span class="n">02</span>카부라기 호마레<span class="cs">VANTA</span></a>
+        <a href="#/p/sumito"><span class="n">03</span>마시바 스미토<span class="cs">SILK</span></a>
+        <a href="#/p/katsumi"><span class="n">04</span>마카베 카츠미<span class="cs">GRID</span></a>
+        <a href="#/p/tomonari"><span class="n">05</span>시키 토모나리<span class="cs">PUCHI</span></a>
+      </div>
+    </div>
+
+    <div class="rail-foot">
+      기준시점 <b>2068.09</b><br>
+      최종갱신 <b>2068.08.24</b><br>
+      열람등급 <b>일반</b>
+    </div>
+  </aside>
+
+  <!-- ═══════════ MAIN ═══════════ -->
+  <main id="main">
+
+  <!-- ────────── HOME ────────── -->
+  <section class="view" data-view="home">
+    <header class="hero">
+      <div class="bloom"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="eyebrow">특이생성체 제1호 · 2043.09.12 출현</div>
+      <h1>백화<em>白華</em></h1>
+      <p class="hero-sub">신주쿠 지반을 뚫고 솟아난 유백색 구조물. 25년째 아무 반응도 하지 않는다. 다만 뿌리만이 조용히 자란다.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="v">820m</div><div class="k">본체 높이</div></div>
+        <div class="stat"><div class="v">25년</div><div class="k">무반응 경과</div></div>
+        <div class="stat"><div class="v">8–12㎢</div><div class="k">제0구 면적</div></div>
+        <div class="stat"><div class="v">150회/년</div><div class="k">민간생활권 출동</div></div>
+      </div>
+    </header>
+
+    <div class="home-sec">
+      <div class="bhead"><span class="idx">◇</span><h2>2068년 도쿄</h2><span class="en">Overview</span></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>격벽 밖은 평범하다</h3>
+          <p>격벽 바깥에서는 정상적인 대도시 생활이 유지된다. 지하 위험도는 날씨나 지도처럼 일상적으로 조회되고, 백화는 도쿄의 대표적인 랜드마크이자 관광자원이 되었다.</p>
+          <p>그러는 사이 뿌리는 계속 자라 이미 민간지역에 도달했다. <strong>민간생활권 출동은 3년 연속 증가 중이며, 현장 미지종 판정도 함께 늘고 있다.</strong> 원인은 밝혀지지 않았다.</p>
+        </div>
+        <div class="plate">
+          <h3>죽이는 방법은 하나뿐</h3>
+          <p>이수는 살아 있는 인간만 공격하고 먹지는 않는다. 체내 <strong>정핵</strong>을 <strong>흑정</strong>으로 물리적으로 파괴하지 않는 한 몇 초 만에 재생한다.</p>
+          <p>정핵의 위치는 외부에서 확정할 수 없다. 그래서 실동부 대원들은 총이 아니라, 정핵에 확정 타격이 가능한 근접 무기를 들고 나간다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-sec">
+      <div class="bhead"><span class="idx">◇</span><h2>자료 목록</h2><span class="en">Index</span></div>
+      <div class="home-grid">
+        <a class="tile" href="#/bloom"><div class="n">01</div><h3>백화와 뿌리</h3><p>820m의 무반응 구조물과, 25년째 지하로 뻗어가는 뿌리망.</p></a>
+        <a class="tile" href="#/beast"><div class="n">02</div><h3>이수</h3><p>외형, 행동 원리, 분류 체계, 그리고 정핵.</p></a>
+        <a class="tile" href="#/kokusho"><div class="n">03</div><h3>흑정과 개인무기</h3><p>정핵을 파괴할 수 있는 유일한 소재와 개별 제작 장비.</p></a>
+        <a class="tile" href="#/zone"><div class="n">04</div><h3>제0구</h3><p>다중 격벽 봉쇄 구역의 지상 무인 체계와 방치된 지하.</p></a>
+        <a class="tile" href="#/society"><div class="n">05</div><h3>사회 현상</h3><p>집값, 보험료, 추도식, 그리고 25주년 상업행사.</p></a>
+        <a class="tile" href="#/bureau"><div class="n">06</div><h3>특이재해관리국</h3><p>이케부쿠로 본부와 8개 부서.</p></a>
+        <a class="tile" href="#/field"><div class="n">07</div><h3>실동부</h3><p>약 120명. 고정 조 없음. 사건마다 새로 편성한다.</p></a>
+        <a class="tile" href="#/people"><div class="n">◇</div><h3>인물</h3><p>제1~3과 주요 대원 5명의 신상 자료.</p></a>
+      </div>
+    </div>
+
+    <div class="foot">특이재해관리국 공개 자료실 · 기준시점 2068.09<br>본 문서는 창작 세계관 설정 자료입니다.</div>
+  </section>
+
+  <!-- ────────── 01 백화와 뿌리 ────────── -->
+  <section class="view" data-view="bloom">
+    <header class="phead">
+      <div class="eyebrow">자료 01</div>
+      <h1>백화와 뿌리<span class="en">White Bloom / Root Network</span></h1>
+      <p class="desc">25년 동안 아무것도 하지 않은 구조물과, 25년 동안 멈추지 않은 뿌리에 관한 기록.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">01-A</span><h2>형태와 명칭</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>정식명 <strong>특이생성체 제1호</strong>. 높이 약 820m. 유백색 반투명 판이 겹겹이 벌어진 형상으로, 거대한 흰 꽃이 피어난 것처럼 보여 <strong>백화(白華)</strong>라 불린다. 야간에는 미약하게 발광한다.</p>
+          <p>외부 자극에 대한 반응은 확인된 바 없다. 25년간 뿌리를 제외한 움직임과 성장이 관측되지 않았다.</p>
+          <div class="warn"><b>주변 지반</b>상시 불안정. 뿌리 활동에 따라 얕은 진동, 침하·융기, 균열이 반복된다. 중심부로 갈수록 심해 본체 주변은 무인관측 구역이다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">01-B</span><h2>뿌리의 성장</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>속도</h3>
+          <p>간선 뿌리는 매우 느리게 자란다. 말단 세근은 훨씬 빠르게 뻗지만 발아 능력이 없거나 극히 낮으며, 세근이 발아 가능한 굵기에 도달하는 데 다시 오랜 시간이 걸린다.</p>
+        </div>
+        <div class="plate">
+          <h3>도달</h3>
+          <p>25년에 걸쳐 제0구에서 민간지역까지 도달했다. 현재의 민간 발아 증가는 <strong>과거의 세근들이 이제 발아 가능한 굵기에 도달한 결과</strong>로 추정된다.</p>
+        </div>
+      </div>
+      <div class="plates" style="margin-top:12px">
+        <div class="plate">
+          <div class="warn"><b>봉쇄 한계</b>격벽은 지하 수십 미터까지 박혀 있으나 뿌리는 그 아래로 자란다. 뿌리를 완전히 봉쇄하는 것은 불가능하다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">01-C</span><h2>활성화</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <dl class="spec">
+            <div><dt>필요조건</dt><dd>일정 굵기에 도달한 뿌리만 발아 능력을 가질 수 있다. 다만 굵기는 필요조건일 뿐이며, 발아 가능한 뿌리도 평상시에는 대부분 비활성 상태다.</dd></div>
+            <div><dt>예측</dt><dd><strong>어느 뿌리가 언제 활성화될지는 예측할 수 없다.</strong></dd></div>
+            <div><dt>지속</dt><dd>각 활성화 사건은 일회성으로 종료된다. 1~수 체를 발아시킨 뒤 비활성으로 돌아간다. 장기 휴면 후 다시 활성화된 사례가 있지만 극소수다.</dd></div>
+            <div><dt>징후</dt><dd>발아 시 지반이 융기·균열하며, 그때 생기는 개구부로 이수가 나온다.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">01-D</span><h2>기록된 두 날</h2><span class="en">Records</span></div>
+      <div class="tl">
+        <article class="ev">
+          <div class="ev-date">2043.09.12<b>출현</b></div>
+          <div>
+            <h4>오전 4시 40분, 신주쿠</h4>
+            <p>지반을 뚫고 출현. 도심이 광범위하게 붕괴했고 직후 수백 체 이상의 이수가 발아했다. 붕괴·화재·이수 공격이 겹치며 사망·실종자가 10만 명을 넘었다.</p>
+            <p>통상 화기로는 이수를 사살할 수 없어, 초기 대응은 반복 타격으로 이동을 저지하며 주민을 철수시키고 발생지역을 봉쇄하는 데 집중되었다. 봉쇄선은 여러 차례 후퇴했고, 신주쿠 일대에 넓은 무인 완충구역이 형성되었다. 이후 원격 감시·화력체계를 중심으로 단일 격벽이 건설되었으며, 당시 뿌리망은 전부 이 안에 있었다.</p>
+            <p>정핵이 재생의 중심임이 밝혀졌으나 파괴 수단이 없었고, 이후 정핵을 파괴할 수 있는 유일한 신소재로 흑정이 개발되면서 비로소 대응이 가능해졌다.</p>
+            <div class="ev-fig"><span class="chip hot">사망·실종 10만+</span><span class="chip">봉쇄선 수차례 후퇴</span><span class="chip">단일 격벽 건설</span><span class="chip">흑정 개발의 계기</span></div>
+          </div>
+        </article>
+        <article class="ev">
+          <div class="ev-date">2049.05.03<b>대발아</b></div>
+          <div>
+            <h4>간선 뿌리 절단, 그리고 세 시간</h4>
+            <p>격벽 공사 당시 기초 진로를 막는 잔뿌리를 여러 차례 절단했으나 문제가 없었다. 이후 대형 흑정 절단 설비가 실전 운용 단계에 이르자, 뿌리 활동범위 축소를 위해 본체 부근의 간선 뿌리를 절단했다.</p>
+            <p>약 3시간 뒤 뿌리망 전반에서 <strong>4,000체 이상이 동시 발아</strong>했다. 산발적 발아를 전제로 설계된 단일 격벽은 돌파당했다. 사망·실종 약 7만 명. 수 주에 걸친 진압 끝에 잔존 이수의 처치가 완료되었다.</p>
+            <p>원인은 불명이며, 뿌리망 전역이 동시에 활성화된 유일한 사례다. 이후 본체·뿌리의 훼손이 전면 금지되어 현재까지 백화에 대한 연구는 보수적이다. 이후 수년에 걸쳐 다중 격벽 체제로 전환하며 현재의 제0구 운영체계를 정립했다.</p>
+            <div class="warn"><b>남지 않은 성과</b>현재 뿌리 절단면은 거의 원상복구되었다. 7만 명의 대가로 얻은 성과는 남지 않았다.</div>
+            <div class="ev-fig"><span class="chip hot">사망·실종 약 7만</span><span class="chip">동시 발아 4,000체+</span><span class="chip">원인 불명 · 유일 사례</span><span class="chip">다중 격벽 체제 전환</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 02 이수 ────────── -->
+  <section class="view" data-view="beast">
+    <header class="phead">
+      <div class="eyebrow">자료 02</div>
+      <h1>이수<span class="en">異獸 / Anomalous Beast</span></h1>
+      <p class="desc">활성근에서 발아하는 생물. 살아 있는 인간만 공격하고, 먹지 않는다.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">02-A</span><h2>외형</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>크기와 외피</h3>
+          <p>대형견 정도부터 약 10m까지. 외피는 유리질과 단단한 갑각의 복합 구조이며 경도는 계통마다 다르다. 빛이 비치면 무지갯빛으로 산란한다.</p>
+        </div>
+        <div class="plate">
+          <h3>체액</h3>
+          <p>체액 표면에 무지갯빛 유막이 뜬다. 노출되어도 인체에 무해하지만, 화학약품과 비슷한 독한 냄새가 난다.</p>
+        </div>
+        <div class="plate">
+          <h3>구조</h3>
+          <p>구조는 개체마다 전부 다르다. 기지종의 대부분은 4족 보행형이며, 현재까지 <strong>비행이 가능한 형태는 확인되지 않았다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">02-B</span><h2>행동</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>전 관측 사례에서 <strong>살아 있는 인간을 공격</strong>했다. 먹지는 않는다.</li>
+            <li>감지 범위 안에 인간이 있으면 무조건 그쪽으로 이동한다. 벽이나 구조물에 막히면 파괴하려 시도한다.</li>
+            <li>감지 범위는 계통마다 다르나 미지종의 경우 수백 미터까지 발견된 사례가 있다. 범위 밖에서는 인간을 인식하지 못하고 목표 없이 머무르거나 배회한다.</li>
+            <li>소리·진동으로 잠시 주의를 돌릴 수 있으나 장기 유도는 불가능하다. 더 가까운 인간이 나타나거나 공격당하면 목표를 바꾼다.</li>
+            <li><strong>인간 식별 원리는 불명이다.</strong> 무인기·로봇·시체에는 반응하지 않는다.</li>
+            <li>울음소리가 매우 크나, 공격당하기 전에는 소리를 내지 않는다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">02-C</span><h2>분류</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>공식 분류는 약 <strong>18개 계통</strong>. 미지종의 경우 상황이 허용되면 행동 데이터를 확보하며 처치한다.</p>
+          <div class="ratio">
+            <div class="ratio-bar">
+              <i style="width:70%;background:#9FB6EC"></i>
+              <i style="width:25%;background:#C79BE0"></i>
+              <i style="width:5%;background:var(--alert)"></i>
+            </div>
+            <div class="ratio-legend">
+              <span><em style="background:#9FB6EC"></em>기지종 약 70%</span>
+              <span><em style="background:#C79BE0"></em>유사종 약 25%</span>
+              <span><em style="background:var(--alert)"></em>미지종 약 5%</span>
+              <span style="color:var(--milk-3)">— 현장 판정 기준</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">02-D</span><h2>정핵</h2><span class="en">晶核</span></div>
+      <div class="plates">
+        <div class="plate">
+          <dl class="spec">
+            <div><dt>개수</dt><dd>모든 이수의 체내에 정핵 하나.</dd></div>
+            <div><dt>위치</dt><dd>항상 심부에 있으나 위치는 개체마다 다르다. <strong>외부에서 확정할 수 없다.</strong> 기지종은 계통별 위치 경향이 축적되어 있으나 어디까지나 경향이다.</dd></div>
+            <div><dt>재생</dt><dd>정핵이 기능하는 동안에는 신체 대부분이 파괴되어도 살아 있는 조직이 정핵 쪽으로 모여 신체를 재구성한다. 재구성에는 수 초가 걸린다.</dd></div>
+            <div><dt>사살</dt><dd>정핵 파괴만이 확실한 사살 수단이다.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 03 흑정 ────────── -->
+  <section class="view" data-view="kokusho">
+    <header class="phead">
+      <div class="eyebrow">자료 03</div>
+      <h1>흑정과 개인무기<span class="en">黑晶 / Personal Armament</span></h1>
+      <p class="desc">정핵을 물리적으로 파괴할 수 있는 유일한 소재, 그리고 그것으로 만든 개별 제작 장비.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">03-A</span><h2>소재 원리</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>흑정은 정핵을 물리적으로 파괴할 수 있는 <strong>유일한 소재</strong>다. 원료 자체는 흔하지만 고품질 제조 및 가공이 까다로워 단가가 매우 높다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">03-B</span><h2>장비</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>개별 제작</h3>
+          <p>실동부 개인무기 및 전투복은 사용자의 전투방식과 요청에 맞춰 개별 제작된다. <strong>통일 규격은 없다.</strong> 설계·제작·정비는 연구기술부가 담당한다.</p>
+        </div>
+        <div class="plate">
+          <h3>관리</h3>
+          <p>개인무기는 관리국 소유의 등록 장비로, 출동·훈련·정비 외의 상시 휴대는 금지된다. 평상시에는 실동부 전용 무기고에 보관한다.</p>
+        </div>
+      </div>
+      <div class="plates" style="margin-top:12px">
+        <div class="plate">
+          <h3>왜 근접 무기인가</h3>
+          <p>흑정 탄자는 제식화되지 않았다. 정핵의 위치를 외부에서 확정할 수 없고, 노출되더라도 재생까지 수 초밖에 걸리지 않아 사격의 확정성과 경제성이 낮기 때문이다.</p>
+          <p>흑정을 이용한 폭발물 역시 외피에서 폭발하므로 정핵에 직접 물리력을 가하기 어렵다. 이 때문에 실동부 대원들은 <strong>정핵에 확정 타격이 가능한 근접 무기</strong>를 사용한다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 04 제0구 ────────── -->
+  <section class="view" data-view="zone">
+    <header class="phead">
+      <div class="eyebrow">자료 04</div>
+      <h1>제0구<span class="en">Zone Zero</span></h1>
+      <p class="desc">다중 격벽 봉쇄 구역. 발아 대부분이 여기서 발생한다.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">04-A</span><h2>구역</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <dl class="spec">
+            <div><dt>범위</dt><dd>신주쿠에서 남쪽으로 요요기공원·메이지신궁 녹지대를 따라 시부야 북부에 이르는 남북 4~5km의 띠.</dd></div>
+            <div><dt>면적</dt><dd>8~12㎢</dd></div>
+            <div><dt>봉쇄</dt><dd>다중 격벽 차단. 발아 대부분이 여기서 발생한다.</dd></div>
+            <div><dt>한계</dt><dd>지상·지하 봉쇄로 제0구에서 발아한 이수를 가두고 처리하는 역할이지만, <strong>뿌리가 격벽 밖으로 자라는 것은 막을 수 없다.</strong></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">04-B</span><h2>지상 — 무인 체계</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>표준 처리</h3>
+          <p>제0구 지상은 대부분의 작전이 무인화되어 있다. 중화기로 신체를 반복 파괴해 이동을 막은 뒤 무인 중장비로 처리시설까지 운반한다. 개체는 대형 흑정 압쇄설비에 투입되어 정핵째 파괴되며, 남은 조직은 시설 내부에서 폐기 처리된다.</p>
+        </div>
+        <div class="plate">
+          <h3>실동부가 직접 나가는 경우</h3>
+          <p>소형·고속·비정형 기동의 개체이거나, 중화기 사용이 까다로운 격벽 인접부인 경우에는 실동부가 직접 처리한다. 무인기 지원을 받기 쉬워 <strong>수습 대원들이 자주 투입된다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">04-C</span><h2>지하</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>제0구 지하는 과거의 지하철역·상가·연결통로 등이 광범위하게 남아 있다. 25년간 무보수 방치되어 정해진 경로 외에는 침수·붕락·부분 매몰 상태이며, 뿌리의 성장으로 전파·센서 오작동이 잦다.</p>
+          <p>중장비 진입이 불가능하고 화기 사용 시 붕락 위험이 있어, <strong>지상의 무인 처치 방식을 쓸 수 없다.</strong></p>
+          <p>격벽 기초부와 주요 지하 구역에는 활성 징후 감지 센서가 설치되어 있으며, 지하 위험도 산정과 사전 경보의 핵심 데이터원으로 사용된다. 통신 중계기·CCTV·조명은 점검로와 관측망 유지 경로에만 설치되어 있다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">04-D</span><h2>지하 임무</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <dl class="spec">
+            <div><dt>발생</dt><dd>감지 센서와 격벽 기초부는 무인 시스템으로 상시 감시된다. 현장 수리가 필요한 경우에만 감시분석부·연구기술부·봉쇄관리부 직원이 투입되며, 실동부가 작업 중 호위를 맡는다.</dd></div>
+            <div><dt>편성</dt><dd>기술직 1~3명 + 실동부 3~5명 + 상황실 모니터링.</dd></div>
+            <div><dt>원칙</dt><dd>진입 즉시 이수의 접근을 전제로 작전하며, <strong>경로 이탈은 중대 사고로 취급된다.</strong> 체류 시간은 최대한 단축한다.</dd></div>
+            <div><dt>평판</dt><dd>타 부서에서는 대표적인 기피 업무다. 실동부 책임관이 필수로 들어간다.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 05 사회 현상 ────────── -->
+  <section class="view" data-view="society">
+    <header class="phead">
+      <div class="eyebrow">자료 05</div>
+      <h1>사회 현상<span class="en">Society</span></h1>
+      <p class="desc">지하 위험도는 날씨처럼 조회되고, 백화는 관광자원이 되었다.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">05-A</span><h2>도시의 재편</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>신주쿠 상실 직후 대규모 인구 유출과 기업·기관 이전이 발생했다. 이후 교통·행정 기능은 이케부쿠로 등 다른 도심으로 분산되었으며, 중앙정부와 대기업의 수도권 외 백업 거점도 크게 확대되어 <strong>과거의 일극집중은 약화되어 있다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">05-B</span><h2>발아와 대응</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>출동 추이</h3>
+          <p>민간생활권 출동은 연 150회 내외로, 3년 전 약 100회에서 증가했다. 대부분 제0구 격벽 주변과 지하 위험도가 높은 인접지역에 집중된다.</p>
+          <p>뿌리의 재발아 확률은 극히 낮기에 한 번 발아된 구역은 안전 확인과 복구 후 다시 사용된다.</p>
+        </div>
+        <div class="plate">
+          <h3>지하 위험도</h3>
+          <p>지하 뿌리망의 밀도와 굵기를 등급화한 지표로, <strong>날씨·지도·부동산 정보처럼 일상적으로 제공된다.</strong> 발아 직전 지반 이상을 감지하는 사전경보도 있지만 오탐이 잦다.</p>
+        </div>
+        <div class="plate">
+          <h3>민간 발아 시</h3>
+          <p>방재 셔터와 대피시설이 자동 가동되고, 재해대응부가 경찰·소방과 대응을 조율한다. 실동부는 이수 처치를 담당한다. 고위험지역의 신축 건물에는 관련 방재설비가 의무화되어 있다.</p>
+        </div>
+        <div class="plate">
+          <h3>부동산과 분쟁</h3>
+          <p>격벽 위치와 지하 위험도는 집값·보험료·개발계획에 직접 영향을 준다. 위험등급 산정을 둘러싼 주민·지자체·개발업체의 분쟁도 잦다. 격벽 확장론은 반복해서 제기되지만 낮은 실효성 때문에 추진되지 않는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">05-C</span><h2>백화를 대하는 방식</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <h3>신앙</h3>
+          <p>백화를 숭배하거나 특별한 생명체로 해석하는 집단 및 종교단체가 존재한다.</p>
+        </div>
+        <div class="plate">
+          <h3>관광과 추도</h3>
+          <p>백화는 도쿄의 대표적인 랜드마크이자 관광자원이 되었다. 전망·촬영 명소와 관련 상품이 발달했으며, 25주년을 앞두고 상업행사도 늘고 있다.</p>
+          <p>한편 <strong>9월 12일과 5월 3일에는 공식 추도식이 열리며</strong>, 일부 생존자·유가족은 재난의 상업화에 반발한다.</p>
+          <div class="warn"><b>고지</b>관련 관광·상품 사업은 모두 민간 운영이며, 관리국은 공식 매장이나 굿즈를 운영하지 않는다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 06 관리국 ────────── -->
+  <section class="view" data-view="bureau">
+    <header class="phead">
+      <div class="eyebrow">자료 06</div>
+      <h1>특이재해관리국<span class="en">Bureau of Singular Disaster Management</span></h1>
+      <p class="desc">이케부쿠로 본부와 8개 부서.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">06-A</span><h2>본부</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>현 도쿄 서북부의 주요 교통·업무 결절점으로 성장한 <strong>이케부쿠로</strong>에 위치한다. 일대는 비교적 지하 위험도가 낮으며, 제0구와 민간생활권 양쪽에 접근성이 높다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">06-B</span><h2>부서</h2><span class="en">8 Divisions</span></div>
+      <div class="depts">
+        <div class="dept"><h4>감시분석부</h4><p>뿌리망 관측, 활성 징후 분석, 지하 위험도 산정</p></div>
+        <div class="dept"><h4>봉쇄관리부</h4><p>격벽 유지·보수, 제0구 출입 통제 및 경계</p></div>
+        <div class="dept"><h4>연구기술부</h4><p>이수·정핵·흑정 연구, 개인무기·전투복 설계·제작, 특수장비 관리</p></div>
+        <div class="dept"><h4>의료지원부</h4><p>부상자 치료, 검진, 대원 건강·심리 관리, 복귀 판정</p></div>
+        <div class="dept"><h4>처리회수부</h4><p>사체·잔해 회수, 처리시설 운영</p></div>
+        <div class="dept"><h4>재해대응부</h4><p>주민 대피, 재난문자, 피해 복구, 경찰·소방 연계</p></div>
+        <div class="dept"><h4>운영지원부</h4><p>인사·예산·보급·시설, 양성소 운영, 홍보·대외 창구</p></div>
+        <div class="dept core"><h4>실동부</h4><p>이수 직접 처치, 고위험 구역 진입·확보, 기술인력 호위</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 07 실동부 ────────── -->
+  <section class="view" data-view="field">
+    <header class="phead">
+      <div class="eyebrow">자료 07</div>
+      <h1>실동부<span class="en">Field Operations Division</span></h1>
+      <p class="desc">약 120명. 고정 전투팀은 없다. 사건마다 출동조를 새로 편성한다.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-A</span><h2>규모와 편성</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>현원 약 <strong>120명</strong>. 실동부장 아래 제1~3과가 있으며, 각 과는 책임관 3명을 포함한 약 40명으로 구성된다. 과별 수행 임무에는 차이가 없다.</li>
+            <li>사건마다 개체 특성, 현장 조건, 가용 인원을 고려해 출동조를 새로 편성한다. <strong>최소 출동 인원은 2명.</strong></li>
+            <li>각 출동팀은 원칙적으로 담당 과의 당번 인원 내에서 편성한다. 다른 과 인원이 함께 투입되는 경우는 대형 사고나 인력 부족 등 예외적인 상황에 한정된다.</li>
+            <li>고정 조는 없으나, 궁합이 맞는 대원끼리 자주 함께 배치되는 경우는 있다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-B</span><h2>근무</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>당직제</h3>
+          <p>24시간 당직제. 각 과 내부에서 개인별로 당번 / 비번 / 휴무가 순환한다. 각 과가 자체 근무표를 관리하며, 하루 근무자는 평균 13~14명씩 총 약 40명이다. 휴가·부상·교육·외근 등에 따라 변동한다.</p>
+        </div>
+        <div class="plate">
+          <h3>당직 중</h3>
+          <p>출동대기, 제0구 처치, 지하 작업 동행, 훈련·장비점검·타부서 교육 등을 수행한다. 예정 업무가 없을 때는 운동·정비·휴식 등을 비교적 자유롭게 하며, 야간에는 즉응인원을 남기고 순번대로 휴식한다.</p>
+          <p>민간생활권 출동은 통상 2~3일에 한 건이나 최근 증가하는 추세다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-C</span><h2>인계와 출동</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>교대 시 전·후 당번 책임관이 상황을 인계하고, 새 당번 책임관이 당번자들에게 5~10분 정도의 브리핑을 진행한다.</p>
+          <p>사건 발생 시 당번 책임관이 출동조를 편성하고 핵심 상황을 즉시 전달한다. 대원들은 브리핑과 동시에 장비를 갖춰 출발하며, 상세 정보는 이동 중 관제실에서 추가 전달한다. <strong>민간생활권 발아에는 최우선 긴급출동 지령이 내려진다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-D</span><h2>책임관</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>역할</h3>
+          <p>각 과의 책임관 3명은 과 운영을 공동으로 맡으며 당직 순환에 따라 하루 1명씩 근무한다. 당번 책임관은 인계, 가용인원 파악, 당일 인원·임무 운용을 담당한다.</p>
+        </div>
+        <div class="plate">
+          <h3>선발</h3>
+          <p>대체로 30대~40대 초반의 베테랑으로, 다양한 이수와 복합 현장을 경험한 대원 중 선발된다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-E</span><h2>대원과 양성소</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <dl class="spec">
+            <div><dt>지원</dt><dd>실동양성소는 만 18세부터 지원 가능하다.</dd></div>
+            <div><dt>교육</dt><dd>필기·실기 시험을 거쳐 1년간 기숙 교육을 받으며, <strong>탈락·이탈률이 높다.</strong></dd></div>
+            <div><dt>수습</dt><dd>수료 후 6개월의 수습과 최종 평가를 거쳐 정식 대원이 된다. 수습대원은 고위험 임무에 투입되지 않는다.</dd></div>
+            <div><dt>연령</dt><dd>정식대원은 20대~30대가 대부분이며, 40대부터는 현장을 떠나는 비율이 높아진다.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-F</span><h2>사무실과 생활시설</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>사무실</h3>
+          <p>제1~3과는 같은 층의 각기 다른 사무실을 사용한다. 고정석은 두지 않으며 당번자는 공용 책상, 책임관은 고정석을 사용한다. 출동·훈련·외근 등으로 자리를 비우는 경우가 많아 평상시 사무실 인원은 적다.</p>
+        </div>
+        <div class="plate">
+          <h3>시설</h3>
+          <p>같은 층에 공용 휴게공간과 회의실이 있으며, 청사에는 락커·탈의실·샤워실·수면실·체력단련실·전투훈련장·세미나실 등이 있다. 직원증은 출입·근태·락커·구내시설 이용에 사용하며, 무기보관구역 등은 추가 생체인증을 요구한다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-G</span><h2>복장과 개인장비</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <dl class="spec">
+            <div><dt>평상시</dt><dd>관리국·소속 표시가 들어간 네이비색 기능성 상의와 카고팬츠 형태의 근무복.</dd></div>
+            <div><dt>훈련</dt><dd>개인 단련에는 개인 운동복, 단체훈련에는 지급된 검은 운동복.</dd></div>
+            <div><dt>출동</dt><dd>개인별 전투복과 장비.</dd></div>
+            <div><dt>행사</dt><dd>공식 행사·추도식·대외업무에는 별도의 정복.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-H</span><h2>조직 문화와 콜사인</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>문화</h3>
+          <p>실동대원은 국가공무원이다. 입직이 어렵고 개인 전문성이 강해, 단순한 상하관계보다 <strong>서로 다른 분야의 현장 전문가로 대하는 경향</strong>이 있다.</p>
+          <p>내부문화는 비교적 자유롭지만 현장지휘자의 정당한 지시에 대한 불복종은 징계 대상이다. 모든 대원이 유명한 것은 아니나 SNS를 통해 일부 대원에게 팬덤이 형성되기도 한다.</p>
+        </div>
+        <div class="plate">
+          <h3>콜사인</h3>
+          <p>대원이 후보를 제출하면 중복·발음·통신상 혼선을 검토해 승인한다. 변경은 가능하지만 절차와 혼선 문제로 대부분 처음 받은 콜사인을 계속 사용한다.</p>
+          <p>현장 무전에서는 본명보다 콜사인을 우선하며, 유명 대원은 대중에게도 콜사인으로 알려진다. 동료끼리 별명처럼 사용하기도 한다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 인물 명단 ────────── -->
+  <section class="view" data-view="people">
+    <header class="phead">
+      <div class="eyebrow">인물</div>
+      <h1>주요 인물<span class="en">Personnel Roster</span></h1>
+      <p class="desc">실동부 제1~3과 소속 대원 5명. 각 항목에는 전투방식, 외모, 성격, 백스토리, 호칭 관계가 포함된다.</p>
+    </header>
+
+    <div class="block">
+      <div class="roster">
+
+        <a class="rcard" href="#/p/amane" style="--accent:#F2C86A">
+          <div class="rframe">
+            <div class="ph"><i></i><code>assets/characters/amane.jpg</code></div>
+            <img src="assets/characters/amane.jpg" alt="키도 아마네" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="rmeta">
+            <div class="rcs">Pulse</div>
+            <div class="rname">키도 아마네<small>城戸 周 · 26</small></div>
+            <div class="rrole">제1과 · 동력 건틀릿</div>
+          </div>
+        </a>
+
+        <a class="rcard" href="#/p/homare" style="--accent:#8FA6C9">
+          <div class="rframe">
+            <div class="ph"><i></i><code>assets/characters/homare.jpg</code></div>
+            <img src="assets/characters/homare.jpg" alt="카부라기 호마레" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="rmeta">
+            <div class="rcs">Vanta</div>
+            <div class="rname">카부라기 호마레<small>鏑木 誉 · 23</small></div>
+            <div class="rrole">제2과 · 흑정 도검</div>
+          </div>
+        </a>
+
+        <a class="rcard" href="#/p/sumito" style="--accent:#9FD8C8">
+          <div class="rframe">
+            <div class="ph"><i></i><code>assets/characters/sumito.jpg</code></div>
+            <img src="assets/characters/sumito.jpg" alt="마시바 스미토" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="rmeta">
+            <div class="rcs">Silk</div>
+            <div class="rname">마시바 스미토<small>真柴 澄人 · 25</small></div>
+            <div class="rrole">제2과 · 동력 와이어</div>
+          </div>
+        </a>
+
+        <a class="rcard" href="#/p/katsumi" style="--accent:#E0603F">
+          <div class="rframe">
+            <div class="ph"><i></i><code>assets/characters/katsumi.jpg</code></div>
+            <img src="assets/characters/katsumi.jpg" alt="마카베 카츠미" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="rmeta">
+            <div class="rcs">Grid</div>
+            <div class="rname">마카베 카츠미<small>真壁 克己 · 28</small></div>
+            <div class="rrole">제3과 책임관 · 천공창</div>
+          </div>
+        </a>
+
+        <a class="rcard" href="#/p/tomonari" style="--accent:#A8D48A">
+          <div class="rframe">
+            <div class="ph"><i></i><code>assets/characters/tomonari.jpg</code></div>
+            <img src="assets/characters/tomonari.jpg" alt="시키 토모나리" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="rmeta">
+            <div class="rcs">Puchi</div>
+            <div class="rname">시키 토모나리<small>志岐 伴成 · 20</small></div>
+            <div class="rrole">제3과 · 폴액스</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 키도 아마네 ══════════ -->
+  <section class="view" data-view="p/amane" style="--accent:#F2C86A">
+    <a class="backlink" href="#/people">전체 명단</a>
+    <div class="cprofile">
+      <div class="cframe">
+        <div class="ph"><i></i><code>assets/characters/amane.jpg</code></div>
+        <img src="assets/characters/amane.jpg" alt="키도 아마네" onerror="this.style.display='none'">
+        <div class="cframe-tag">제1과 / KIDO AMANE</div>
+      </div>
+      <div class="cinfo">
+        <div class="callsign">Pulse</div>
+        <h1><span class="kanji">城戸 周</span>키도 아마네</h1>
+        <div class="ctags">
+          <span class="ctag">26세</span>
+          <span class="ctag">178cm</span>
+          <span class="ctag"><b>제1과</b></span>
+          <span class="ctag w"><b>동력 건틀릿</b></span>
+        </div>
+        <p class="cstyle">초근접 전투원. 동력 건틀릿으로 이수의 외피와 재생조직을 부수며 정핵까지 파고들어 파괴한다. 민첩성을 살려 대형 개체의 몸을 직접 타고 오르는 전투도 서슴지 않는다.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>인상</h3>
+          <p>짙은 갈색의 짧은 머리와 노란 눈. 화려한 미남형보다는 생기 있고 친근한 인상이 강하다. 체격 자체가 크게 보이지는 않지만 잔근육이 단단한 체형으로, 특히 어깨·등·전완이 발달했다. 몸 곳곳에 오래된 상처와 가슴·등의 큰 흉터가 남아 있다.</p>
+        </div>
+        <div class="plate">
+          <h3>복장</h3>
+          <p>전투복은 가볍고 활동성이 높다. 오른손과 전완을 덮는 건틀릿은 손가락 관절까지 개별 구동하며, 손바닥과 타격면에 흑정을 사용한다.</p>
+          <p>평상복은 편한 옷을 좋아하지만, 알아보는 사람이 많아 외출할 때는 차림에 신경 쓰는 편이다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>밝고 활기차며 넉살이 좋다. 애교와 장난기가 많고 능글맞으며 말재주와 유머감각도 뛰어나다.</p>
+          <p>공익홍보영상·예능·인터뷰에 자주 출연하며, 높은 인지도와 친근한 이미지로 <strong>'관리국의 아이돌'</strong>이라 불린다. 카메라와 관심을 즐기고 팬서비스도 좋다.</p>
+          <p>전투 중에도 농담을 던질 만큼 가벼워 보이지만, 계산과 판단이 빠르고 민첩성·완력 모두 뛰어난 올라운더다.</p>
+          <p>혼자 있기보다 사람과 어울리며 말하는 것을 좋아한다. 퇴근 후 누군가를 붙잡아 밥을 먹고, 별 내용 없는 연락을 자주 보내며, 지나가다 만난 지인을 붙잡고 오래 떠들거나 개인 SNS 라이브를 켜기도 한다.</p>
+          <div class="warn"><b>이면</b>반면 깊은 속마음이나 과거 이야기는 언급을 피하고, 농담으로 얼버무리는 버릇이 있다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>폭력적인 아버지 아래에서 자랐다. 시각장애가 있는 어머니와는 매우 가까워, 귀가하면 하루 있었던 일을 떠들고 장난과 애교를 부리는 다정한 아들이었다. 십대부터는 어머니를 지키겠다며 아버지와 몸싸움을 벌이기도 했다.</p>
+          <p>열다섯 살 때 귀가해 죽어 있는 아버지와 쓰러진 어머니, 그리고 집 안의 소형 이수를 발견했다. 어머니는 도망가라고 했지만 아마네는 이수의 표적을 자신에게 돌렸다. 손에 잡히는 것을 닥치는 대로 휘두르며 버텼고, 중상을 입으면서도 <strong>어머니를 안심시키기 위해 계속 말을 걸며 버텼다.</strong></p>
+          <p>그가 의식을 잃은 직후 실동부 대원이 도착했다. 며칠 뒤 중환자실에서 어머니의 사망 소식을 들었다.</p>
+          <p>이후 재해대응부의 지원으로 기숙형 청소년보호시설에서 생활하며 학업을 이어갔다. 그를 구조한 실동대원 <strong>쿠제 나오토</strong>는 가족의 장례를 돕고 이후에도 종종 찾아오며 보호자 역할을 했고, 아마네에게 처음으로 믿고 의지할 수 있는 아버지 같은 존재가 되었다.</p>
+          <p>만 18세에 실동양성소에 입소해, 이후 쿠제와 같은 제1과에서 근무했다. 쿠제는 현재 현역에서 물러나 양성소 교관으로 일하고 있으며, 지금도 만나면 습관처럼 '아저씨'라고 불러 잔소리를 듣는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>호칭</h2><span class="en">How he calls</span></div>
+      <div class="calls">
+        <div class="callrow"><div class="who">카부라기 호마레 <em>VANTA</em></div><div class="how"><q>호마레</q><span>반말</span><span>장난칠 때 '반타 군'</span></div></div>
+        <div class="callrow"><div class="who">마시바 스미토 <em>SILK</em></div><div class="how"><q>스미토</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">마카베 카츠미 <em>GRID</em></div><div class="how"><q>카츠미 씨</q><span>경어</span><span>유일하게 경어를 쓰는 상대</span></div></div>
+        <div class="callrow"><div class="who">시키 토모나리 <em>PUCHI</em></div><div class="how"><q>토모나리</q><span>반말</span><span>장난칠 때 '푸치쨩'</span></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">E</span><h2>트리비아</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>음식을 가리지 않고 대부분 맛있다고 느낀다. 남에게 추천했다가 의도치 않게 피해자를 만들곤 한다.</li>
+            <li>휴일에도 집에 혼자 있는 것을 별로 좋아하지 않는다. 약속을 잡거나 헬스장에 가고, 새로운 취미를 찾느라 늘 바쁘다.</li>
+            <li>봉사, 기부, 모금행사 홍보 등의 활동을 적극적으로 한다.</li>
+            <li>팬레터는 버리지 못하며, 악성 댓글은 웃긴 것만 캡처해 저장한다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">F</span><h2>러브타입</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>장난을 위한 플러팅은 거리낌 없지만, 진심으로 좋아하게 되면 오히려 조심스러워지고 부드러운 면이 드러난다.</p>
+          <p>연애가 시작되면 매우 다정하고 애정표현이 많다. 상대의 기분을 자주 살피며 웃게 해주려 한다.</p>
+          <p>반면 질투·서운함·상처받은 일은 잘 말하지 못한다. 상대에게 싫은 소리를 하기 어려워하고, 자신이 힘든 일도 혼자 감추는 편이다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <a href="#/people">← 전체 명단</a>
+      <a href="#/p/homare">카부라기 호마레 →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ 카부라기 호마레 ══════════ -->
+  <section class="view" data-view="p/homare" style="--accent:#8FA6C9">
+    <a class="backlink" href="#/people">전체 명단</a>
+    <div class="cprofile">
+      <div class="cframe">
+        <div class="ph"><i></i><code>assets/characters/homare.jpg</code></div>
+        <img src="assets/characters/homare.jpg" alt="카부라기 호마레" onerror="this.style.display='none'">
+        <div class="cframe-tag">제2과 / KABURAGI HOMARE</div>
+      </div>
+      <div class="cinfo">
+        <div class="callsign">Vanta</div>
+        <h1><span class="kanji">鏑木 誉</span>카부라기 호마레</h1>
+        <div class="ctags">
+          <span class="ctag">23세</span>
+          <span class="ctag">186cm</span>
+          <span class="ctag"><b>제2과</b></span>
+          <span class="ctag w"><b>흑정 도검</b></span>
+        </div>
+        <p class="cstyle">관절과 외피의 이음새를 빠르게 절개해 정핵까지 최단경로를 만든다. 속도와 정확도가 뛰어나며, 빠르고 유려한 검술로 전투가 화려하다.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>인상</h3>
+          <p>검은 머리, 창백한 피부, 짙은 검은 눈. 이목구비가 뚜렷한 미남으로 키가 크고 팔다리가 긴 날렵한 체형이다. 차갑고 접근하기 어려운 인상을 준다.</p>
+        </div>
+        <div class="plate">
+          <h3>복장</h3>
+          <p>전투복은 몸에 맞는 슬림한 형태로, 올블랙에 실버 벨트 같은 포인트를 넣었다. 도검은 허리 뒤에 비스듬히 차며 <strong>뽑았을 때의 실루엣까지 신경 쓴다.</strong></p>
+          <p>평상복도 소재와 핏을 중시하며 재킷과 신발이 많다. 액세서리를 하나 이상 착용하고 옷에 돈을 아끼지 않는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>말수가 적고 반응도 크지 않다. 기본적으로 시큰둥하고 귀찮다는 태도다.</p>
+          <p>자기 실력에 대한 확신이 강하고 겸손한 척하지 않아 건방지게 보인다. 배속 초기 소형 기지종 여러 체를 허가 없이 단독처치해 징계를 받았으며, 당시 경위서의 <strong>'내가 뭘 잘못했는지 모르겠음'</strong>은 실동부 내에서 유명하다.</p>
+          <p>자존심과 승부욕이 강하다. 불가능하다는 말을 들으면 오히려 해낼 이유가 생긴다. 한번 할 수 있다고 한 일은 끝까지 물고 늘어져 결과를 만들어낸다. 그 과정에서 무모한 선택도 서슴지 않는다.</p>
+          <p>자신의 눈에 띄지 않는 사람에게는 놀랄 만큼 무관심하다. 도발에는 매우 잘 걸리고, 아무리 유치한 승부라도 패배한 일은 오래 기억한다.</p>
+          <div class="warn"><b>비밀도 아닌 비밀</b>멋있게 보이는 걸 좋아하지만 들키기 싫어한다. 콜사인은 지금까지 두 번 바꿨으며, 현재 사용하는 '반타'는 제법 마음에 들어 하는 듯하다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>어릴 때부터 운동과 경쟁을 좋아했고, 남들이 어렵다고 하는 일을 해내는 데 강한 만족감을 느꼈다. 합격자가 적고 실력이 그대로 결과로 드러나는 실동부에 끌려 지원했다.</p>
+          <p>양성소에서 여러 무기를 접한 뒤 <strong>가장 멋있다는 이유로</strong> 도검을 골랐다. 다루기 까다로워 선택하는 사람이 드문 무기였고, 처음에는 호마레 역시 생각만큼 잘 다루지 못해 다른 무기로 바꾸라는 권유를 받았다. 하지만 고집을 꺾지 않고 집요하게 연습해 결국 자신의 주무기로 만들었다.</p>
+          <p>배속 후 빠르게 실전 경험을 쌓았으나 자존심과 독단성 때문에 선배·동료들과 충돌하고 징계를 받기도 했다. 다루기 까다로운 문제아라는 평가는 여전하지만, 실력만큼은 누구도 부정하지 않는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>호칭</h2><span class="en">How he calls</span></div>
+      <div class="calls">
+        <div class="callrow"><div class="who">키도 아마네 <em>PULSE</em></div><div class="how"><q>키도</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">마시바 스미토 <em>SILK</em></div><div class="how"><q>마시바</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">마카베 카츠미 <em>GRID</em></div><div class="how"><q>마카베 씨</q><span>건조한 경어</span></div></div>
+        <div class="callrow"><div class="who">시키 토모나리 <em>PUCHI</em></div><div class="how"><q>덩치</q><span>반말</span></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">E</span><h2>트리비아</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>한때 백발로 탈색했다. 본인은 꽤 마음에 들어 했지만 머릿결이 심하게 상한 뒤로는 하지 않는다.</li>
+            <li>팬들이 붙여주는 멋있는 별명은 은근히 좋아하지만 귀여운 계열은 질색한다.</li>
+            <li>무광 블랙의 커스텀 바이크로 출퇴근한다.</li>
+            <li>향수나 옷을 고를 때는 오래 걸린다. 직원 설명을 한참 듣고도 결국 처음부터 마음에 들었던 제품을 사는 경우가 많다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">F</span><h2>러브타입</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>좋아하면 감출 생각도 없이 직진한다. 다만 하는 말들이 전부 당당하고 자기중심적이며, 부끄러움이 없다.</p>
+          <p>상대에게 멋있게 보이려고 더 과감하게 행동하고, 경쟁자가 생기면 노골적으로 신경 쓴다.</p>
+          <p>처음부터 직선적이기에 연애가 시작되어도 별로 달라지지 않는다. 싸우면 자존심 때문에 사과는 늦지만 <strong>냉전은 더 못 견딘다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <a href="#/p/amane">← 키도 아마네</a>
+      <a href="#/people">전체 명단</a>
+      <a href="#/p/sumito">마시바 스미토 →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ 마시바 스미토 ══════════ -->
+  <section class="view" data-view="p/sumito" style="--accent:#9FD8C8">
+    <a class="backlink" href="#/people">전체 명단</a>
+    <div class="cprofile">
+      <div class="cframe">
+        <div class="ph"><i></i><code>assets/characters/sumito.jpg</code></div>
+        <img src="assets/characters/sumito.jpg" alt="마시바 스미토" onerror="this.style.display='none'">
+        <div class="cframe-tag">제2과 / MASHIBA SUMITO</div>
+      </div>
+      <div class="cinfo">
+        <div class="callsign">Silk</div>
+        <h1><span class="kanji">真柴 澄人</span>마시바 스미토</h1>
+        <div class="ctags">
+          <span class="ctag">25세</span>
+          <span class="ctag">183cm</span>
+          <span class="ctag"><b>제2과</b></span>
+          <span class="ctag w"><b>동력 와이어</b></span>
+        </div>
+        <p class="cstyle">고강도 동력 와이어를 이수의 관절이나 외피 틈에 걸어 조이고, 사지를 뜯어내 정핵을 노출시킨다. 와이어 끝의 흑정제 앵커로 정핵을 파괴한다. 구조물이나 개체에 와이어를 걸어 이동과 자세 제어에도 활용하며, 이수의 골격과 신체 구조를 파악하는 능력이 뛰어나다.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>인상</h3>
+          <p>갈색 눈의 부드러운 눈매. 연한 베이지색 단발을 반쯤 묶고 다닌다. 단정하고 편안한 인상에 잔잔한 목소리와 웃는 얼굴이 더해져 <strong>상냥한 선배 같은 분위기</strong>를 준다.</p>
+        </div>
+        <div class="plate">
+          <h3>복장</h3>
+          <p>전투복은 와이어가 걸리지 않는 밀착형 바디수트로, 등과 허리 양쪽에 릴과 고정부가 있다. 보호력보다 조작감을 중시해 얇은 장갑을 고집하며, 섬세한 손에는 잔흉터와 굳은살이 많다.</p>
+          <p>평상복도 편안하고 단정한 스타일을 선호한다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>온화하고 말투가 부드러워 사람들과 자연스럽게 어울린다. 웬만한 일에는 동요하지 않으며, 당황한 사람을 진정시키거나 분위기를 누그러뜨리는 데 능하다.</p>
+          <p>호기심이 매우 강해 남들이 물러설 상황에서도 궁금하면 먼저 들여다본다. <strong>이수를 좋아한다는 사실도 숨기지 않으며</strong>, 뒤틀린 관절이나 기묘한 턱 구조조차 귀엽다고 여긴다.</p>
+          <p>은근히 장난기가 많고 사람의 반응을 보는 것을 즐긴다. 끔찍하거나 이상한 말을 태연하게 꺼냈다가 상대가 굳으면 웃으며 농담으로 넘긴다. 특히 반응이 크고 솔직한 사람을 재미있어한다.</p>
+          <p>사람을 자기 페이스로 끌어들이는 데 능하다. 칭찬이나 부탁을 자연스럽게 건네고, 가까워질수록 상대의 반응을 살피며 거리를 조금씩 좁힌다.</p>
+          <div class="warn"><b>관심의 온도</b>누구에게나 상냥하지만 관심의 깊이는 분명히 다르다. 한 번 흥미를 느낀 대상에게는 유난히 집요해져 사소한 변화까지 기억하고 오래 관찰한다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>어린 시절부터 이수 관련 영상과 자료를 찾아보며 골격과 움직임에 강한 관심을 보였다. 무섭거나 혐오스럽기보다, 같은 계통에서도 구조가 조금씩 달라지는 점을 흥미롭게 여겼다.</p>
+          <p>양성소에서도 이수 구조와 계통 분석 관련 과목에서 높은 성적을 냈다. 연구직도 권유받았지만 자료나 사체를 분석하는 것보다 <strong>살아 움직이는 개체와 직접 접촉하는 쪽이 더 끌려</strong> 실동부를 선택했다.</p>
+          <p>현장에 나온 뒤에는 같은 이수가 하나도 없다는 점에 더욱 매료되었다. 새로운 구조나 변이를 발견하면 전투 후 가장 먼저 기록을 확인하며, 연구기술부에도 지인이 많다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>호칭</h2><span class="en">How he calls</span></div>
+      <div class="calls">
+        <div class="callrow"><div class="who">키도 아마네 <em>PULSE</em></div><div class="how"><q>키도 씨</q><span>경어</span></div></div>
+        <div class="callrow"><div class="who">카부라기 호마레 <em>VANTA</em></div><div class="how"><q>카부라기 군</q><span>경어</span></div></div>
+        <div class="callrow"><div class="who">마카베 카츠미 <em>GRID</em></div><div class="how"><q>마카베 씨</q><span>경어</span></div></div>
+        <div class="callrow"><div class="who">시키 토모나리 <em>PUCHI</em></div><div class="how"><q>시키 군</q><span>경어</span></div></div>
+        <div class="callrow"><div class="who">전원 공통</div><div class="how"><span>기본적으로 누구에게나 경어를 유지한다</span></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">E</span><h2>트리비아</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>곤충을 싫어한다. 큰 나방이 사무실에 들어오면 조용히 방을 나간다. 이수는 귀여워하면서 곤충은 징그럽다고 여긴다.</li>
+            <li>베이킹을 좋아해 주변에 자주 나눠준다. 완성품은 대체로 기괴하게 생겼지만 맛은 상당히 좋다는 평가를 받는다.</li>
+            <li>아침에 매우 약하다. 기상 직후에는 평소의 미소와 존댓말도 사라지고 눈도 제대로 못 뜬 채 단답만 한다. 꼭 모닝커피를 마신다.</li>
+            <li>운전이 거칠다. 차선 변경과 주차를 지나치게 과감하게 하면서도 본인은 안전운전이라고 주장한다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">F</span><h2>러브타입</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>조용히 상대의 일상에 침투한다. 상대가 알아차릴 때쯤에는 이미 꽤 가까워져 있다.</p>
+          <p>자기 얼굴과 분위기가 상대에게 통한다는 걸 알고 필요하면 은근히 이용한다. 웃으며 가까이 기대거나 거절하기 어려운 방식으로 부탁한다.</p>
+          <p>연애가 시작되면 예상보다 응석이 많다. 관심을 받고 싶어 하고, 상대가 자기에게 집중해 주면 매우 만족한다. <strong>웃으면서 무서운 소리를 하는 버릇은 그대로다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <a href="#/p/homare">← 카부라기 호마레</a>
+      <a href="#/people">전체 명단</a>
+      <a href="#/p/katsumi">마카베 카츠미 →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ 마카베 카츠미 ══════════ -->
+  <section class="view" data-view="p/katsumi" style="--accent:#E0603F">
+    <a class="backlink" href="#/people">전체 명단</a>
+    <div class="cprofile">
+      <div class="cframe">
+        <div class="ph"><i></i><code>assets/characters/katsumi.jpg</code></div>
+        <img src="assets/characters/katsumi.jpg" alt="마카베 카츠미" onerror="this.style.display='none'">
+        <div class="cframe-tag">제3과 책임관 / MAKABE KATSUMI</div>
+      </div>
+      <div class="cinfo">
+        <div class="callsign">Grid</div>
+        <h1><span class="kanji">真壁 克己</span>마카베 카츠미</h1>
+        <div class="ctags">
+          <span class="ctag">28세</span>
+          <span class="ctag">182cm</span>
+          <span class="ctag"><b>제3과 책임관</b></span>
+          <span class="ctag w"><b>천공창</b></span>
+        </div>
+        <p class="cstyle">길고 가는 천공창으로 내부 저항을 읽어 정핵 위치를 좁힌 뒤, 깊게 찔러 각도를 바꾸며 천공한다. 동작이 절제되어 있고 불필요한 움직임이 거의 없는 실전형 전투방식. 실동부 제3과 책임관 중 한 명으로, 지정 당시 최연소였다.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>인상</h3>
+          <p>짧고 단정한 은색 머리, 붉은 눈과 날카로운 눈매. 대체로 무표정하거나 인상을 쓰고 있어 차갑고 까다로운 인상을 준다. 피곤할수록 눈 밑 그늘이 짙어진다.</p>
+        </div>
+        <div class="plate">
+          <h3>복장</h3>
+          <p>전투복은 움직임을 방해하지 않는 수트 스타일로, 장비 배치도 최소화되어 있다. 천공창은 길고 가는 형태로 정밀한 찌르기와 내부 탐색에 특화되어 있다.</p>
+          <p>평상복은 셔츠, 니트, 어두운 팬츠처럼 단정한 차림을 선호한다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>퉁명스럽고 무뚝뚝하며 말이 거칠다. 평소에도 욕설이 종종 섞이고, 짜증이 나면 바로 티가 난다. 위계를 엄격히 따지지는 않지만 <strong>교전 중에는 안전수칙과 확인 절차에 엄격하며</strong>, 고성과 욕설도 훨씬 잦아진다. 애매한 보고나 변명을 특히 싫어한다.</p>
+          <p>장황한 설명이나 훈계를 싫어하며 사실과 결론부터 짧게 말하는 편이다.</p>
+          <p>현장 판단에 관해서는 자신에게도 가혹하다. 자신의 판단이 늦었거나 불필요한 위험을 만들었다고 여기면 오래 곱씹지만, <strong>그 책임을 남에게 돌리지는 않는다.</strong></p>
+          <p>표현은 거칠지만 후임을 은근히 잘 챙기는 편이다. 감사라도 받으면 귀찮다는 듯 돌려보낸다. 체력·수면·식사 관리도 업무의 일부라고 여기며, 컨디션을 핑계로 평소보다 못하는 것을 용납하지 않는다.</p>
+          <div class="warn"><b>민간인 앞에서</b>전투에서는 고성을 지르다가도, 민간인 앞에서는 침착하게 상황을 설명하고 안심시키며 구조한다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>19세에 실동부에 들어왔다. 적성이 맞고 전문성이 분명한 직업이라 선택했으며, 당시에는 지금보다 훨씬 유연한 성격이었다.</p>
+          <p>5년 전, 23세 때 익숙한 기지종의 지하 대응임무에 참가했다. 경험 많은 대원들로 구성된 통상 출동이었고, 작은 이상징후가 있었지만 누구도 작전을 멈출 정도로 여기지 않았다. 카츠미 역시 그대로 넘어갔다.</p>
+          <p>이후 예상 밖의 변이와 추가 발아, 통신두절이 겹치며 상황이 붕괴했다. 초기에 넘긴 이상징후와 확인 누락이 치명적으로 돌아왔고, <strong>함께 진입한 대원들은 모두 사망했다. 카츠미만 살아 돌아왔다.</strong></p>
+          <p>공식 조사에서는 특정 개인의 책임으로 결론 나지 않았지만, 카츠미는 자신이 한 번만 더 확인했거나 이상징후를 더 강하게 보고했더라면 결과가 달랐을 거라는 생각을 버리지 못한다. 이후 현장 안전과 관련된 이상징후와 확인 누락을 특히 경계하게 되었고, 현재의 엄격한 지휘 방식도 그 사건 이후 굳어졌다.</p>
+          <p>그 후 경력을 쌓아 최연소 책임관으로 지정되었다. 여전히 매년 사망한 동료들의 묘소를 혼자 찾는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>호칭</h2><span class="en">How he calls</span></div>
+      <div class="calls">
+        <div class="callrow"><div class="who">키도 아마네 <em>PULSE</em></div><div class="how"><q>키도</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">카부라기 호마레 <em>VANTA</em></div><div class="how"><q>카부라기</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">마시바 스미토 <em>SILK</em></div><div class="how"><q>마시바</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">시키 토모나리 <em>PUCHI</em></div><div class="how"><q>시키</q><span>반말</span></div></div>
+        <div class="callrow"><div class="who">전원 공통</div><div class="how"><span>성으로 부르며 전원에게 반말</span></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">E</span><h2>트리비아</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>사소한 부탁을 의외로 잘 거절하지 못한다. 말로는 안 해줄 것처럼 한소리 해놓고, 나중에 결국 조용히 해결해둔다.</li>
+            <li>유행어와 인터넷 밈에 약하다. 후임들 대화를 듣다가 못 알아듣는 말이 반복되면 "아까부터 그게 뭔데" 하고 묻는다. 설명을 들어도 대체로 왜 웃긴지는 이해하지 못한다.</li>
+            <li>메신저가 쌓이는 걸 싫어해 확인은 빠르지만 답장은 대체로 지나치게 짧다. 자신이 할 말이 있으면 문자보다 전화부터 건다.</li>
+            <li>술은 끊었지만 회식자리에는 종종 참석한다. 취한 대원을 데려다주는 경우가 많으며, 다음 날 생색은 내지 않지만 후임이 하는 술주정은 꽤 오래 기억한다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">F</span><h2>러브타입</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>연애감정을 쉽게 인정하지 못하고 자꾸 이유를 붙이려다 오히려 더 꼬인다. 왜 보고 싶은지, 왜 질투하는지 스스로도 납득이 안 되면 괜히 짜증이 난다.</p>
+          <p>상대를 보려고 일정을 바꾸고, 필요 없는 선물을 사고, 싸운 뒤 업무에 집중하지 못하는 등 평소라면 비합리적이라 여길 행동을 자괴감과 함께 반복한다.</p>
+          <p>기분이 좋고 경계가 풀리면 은근히 다정하다. 바라보는 눈이나 머리를 쓰다듬는 손에서 애정이 드러나지만 <strong>본인은 잘 자각하지 못한다.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <a href="#/p/sumito">← 마시바 스미토</a>
+      <a href="#/people">전체 명단</a>
+      <a href="#/p/tomonari">시키 토모나리 →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ 시키 토모나리 ══════════ -->
+  <section class="view" data-view="p/tomonari" style="--accent:#A8D48A">
+    <a class="backlink" href="#/people">전체 명단</a>
+    <div class="cprofile">
+      <div class="cframe">
+        <div class="ph"><i></i><code>assets/characters/tomonari.jpg</code></div>
+        <img src="assets/characters/tomonari.jpg" alt="시키 토모나리" onerror="this.style.display='none'">
+        <div class="cframe-tag">제3과 / SHIKI TOMONARI</div>
+      </div>
+      <div class="cinfo">
+        <div class="callsign">Puchi</div>
+        <h1><span class="kanji">志岐 伴成</span>시키 토모나리</h1>
+        <div class="ctags">
+          <span class="ctag">20세</span>
+          <span class="ctag">190cm</span>
+          <span class="ctag"><b>제3과</b></span>
+          <span class="ctag w"><b>폴액스</b></span>
+        </div>
+        <p class="cstyle">체격과 완력을 살린 정면전 특화. 도끼날로 외피와 관절을 파쇄해 움직임을 막고, 노출된 정핵은 반대쪽 흑정 해머로 파괴한다. 무기의 중량을 힘으로 보완해 연속 타격하며, 대형 개체의 진로 차단과 밀어붙이기에 강하다.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>인상</h3>
+          <p>190cm의 큰 키와 넓은 어깨. 등과 허벅지가 두껍고 손도 크다. <strong>감정이 얼굴에 그대로 드러나며</strong>, 순진한 인상의 초록색 눈을 가졌다. 늦잠이 잦아 금발은 대체로 대충 흐트러져 있다.</p>
+        </div>
+        <div class="plate">
+          <h3>복장</h3>
+          <p>전투복은 폴액스를 크게 휘두를 수 있도록 어깨와 팔의 가동성을 중시한다. 무기는 넓은 도끼날과 반대편 흑정 타격부를 가진 중량형 폴액스.</p>
+          <p>평상복은 편한 옷 일색. 패션에 관심이 없어 정체불명의 행사 티셔츠나 이상한 프린트도 거리낌 없이 입는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>심성이 착하며 마음이 여리다. 순진하고 잘 속아, 누가 진지한 얼굴로 말하면 웬만한 농담도 그대로 믿는다. 놀리면 반응이 커서 선배들이 자주 장난치는 대상이다.</p>
+          <p>겁이 많고 이수의 생김새를 특히 싫어한다. 전투 중에도 질색하며 소리를 지르지만, <strong>물러나기보다 빨리 끝내려고 앞으로 나가는 타입.</strong></p>
+          <p>실전 경험이 적어 돌발상황에서는 판단을 망설이지만, 해야 할 일이 명확해지면 주저하지 않는다. 힘과 실행력, 정면 돌파력이 뛰어나다.</p>
+          <p>정의감이 강해 도움이 필요한 사람을 지나치지 못한다. 스스로 겁이 많다는 걸 알기에, 무서워도 누군가 앞에 설 수 있는 사람이 되고 싶어 한다.</p>
+          <div class="warn"><b>최근</b>수습을 마친 뒤 후배가 생길 것을 의식해 괜히 듬직한 척하지만 오래가지는 못한다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>어린 시절 지하수로에서 이수에게 고립되었다. 출동한 실동부 대원이 토모나리와 이수 사이를 막아섰고, 그는 그 뒤에서 구조되었다.</p>
+          <p>구조자의 얼굴과 이름은 기억하지 못하지만 <strong>자신을 지키던 등은 또렷이 기억한다.</strong> 어린 토모나리에게 그 사람은 아무것도 무서워하지 않는 것처럼 보였고, 자신도 그렇게 될 수 있다고 믿었다. 그날 이후 누군가를 지키는 실동부 대원이 되는 것이 꿈이 되었다.</p>
+          <p>성인이 되어 간신히 실동양성소에 합격했지만 겁은 사라지지 않았다. 처음에는 자질이 없는 건가 고민했지만, 수습기간 동안 두려워하면서도 필요한 순간에는 앞으로 나서는 경험을 거듭하며 생각이 바뀌었다. 지금은 무서워하지 않는 사람이 아니라, <strong>무서워도 물러서지 않는 사람</strong>이 되는 것을 목표로 한다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>호칭</h2><span class="en">How he calls</span></div>
+      <div class="calls">
+        <div class="callrow"><div class="who">키도 아마네 <em>PULSE</em></div><div class="how"><q>키도상</q><span>또는 '선배'</span></div></div>
+        <div class="callrow"><div class="who">카부라기 호마레 <em>VANTA</em></div><div class="how"><q>카부라기상</q></div></div>
+        <div class="callrow"><div class="who">마시바 스미토 <em>SILK</em></div><div class="how"><q>마시바상</q></div></div>
+        <div class="callrow"><div class="who">마카베 카츠미 <em>GRID</em></div><div class="how"><q>책임관님</q></div></div>
+        <div class="callrow"><div class="who">전원 공통</div><div class="how"><span>전원에게 경어</span></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">E</span><h2>트리비아</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>콜사인을 고민하던 토모나리에게 동기들이 '푸치'가 강하고 센스 있는 이름이라고 입을 맞춰 속였다. 그대로 제출한 뒤에야 장난이었다는 걸 알았지만, 이미 주변에 완전히 굳어져 변경 신청을 내기가 눈치보인다.</li>
+            <li>공포영화를 못 본다. 귀신이 나오면 쿠션으로 얼굴을 가린다.</li>
+            <li>지하 순찰 전 맨홀을 세 번 두드려야 한다는 가짜 규정을 한 달 가까이 믿었다.</li>
+            <li>호마레의 쿨한 이미지를 은근히 동경하며, 호마레의 SNS 게시글에는 거의 빠짐없이 좋아요를 누른다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">F</span><h2>러브타입</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>좋아하는 사람 앞에서는 목소리부터 어색해지고, 평범한 칭찬 하나 하려고 혼자 연습한다. 주변 사람들이 먼저 눈치채기 쉽다.</p>
+          <p>정작 결정적인 순간에는 참던 말을 전부 쏟아낸다. 이후 혼자 발언을 복기하며 괴로워한다.</p>
+          <p>연애가 시작되면 상당한 팔불출. 연애에 대한 로망이 많아 흔히 말하는 커플 이벤트는 웬만하면 다 해보고 싶어 한다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <a href="#/p/katsumi">← 마카베 카츠미</a>
+      <a href="#/people">전체 명단</a>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var views = document.querySelectorAll('.view');
+  var links = document.querySelectorAll('.navlist a');
+  var rail  = document.getElementById('rail');
+  var scrim = document.getElementById('scrim');
+  var btn   = document.getElementById('menubtn');
+
+  function closeMenu(){ rail.classList.remove('open'); scrim.classList.remove('on'); }
+
+  function route(){
+    var id = (location.hash || '#/home').replace(/^#\//,'') || 'home';
+    var found = false;
+    views.forEach(function(v){
+      var on = v.dataset.view === id;
+      v.classList.toggle('live', on);
+      if(on) found = true;
+    });
+    if(!found){
+      document.querySelector('[data-view="home"]').classList.add('live');
+      id = 'home';
+    }
+    links.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href') === '#/' + id);
+    });
+    window.scrollTo(0,0);
+    closeMenu();
+    var t = document.querySelector('.view.live h1');
+    document.title = (t ? t.textContent.replace(/\s+/g,' ').trim() + ' — ' : '') + '백화 아카이브';
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+
+  btn.addEventListener('click', function(){
+    var open = rail.classList.toggle('open');
+    scrim.classList.toggle('on', open);
+  });
+  scrim.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+})();
+</script>
+</body>
+</html>

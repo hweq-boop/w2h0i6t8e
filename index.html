@@ -304,6 +304,12 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
 .cnext a{text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--milk-2);border:1px solid var(--wall);padding:8px 14px;border-radius:2px;transition:.18s}
 .cnext a:hover{border-color:var(--accent);color:var(--milk)}
 
+/* 말투 */
+.lines{display:grid;gap:11px;margin-top:15px}
+.line{border-left:2px solid var(--accent);padding:3px 0 3px 15px;color:var(--milk);font-size:15px;line-height:1.7}
+.line::before{content:"“"}
+.line::after{content:"”"}
+
 /* footer */
 .foot{margin-top:70px;padding-top:24px;border-top:1px solid var(--wall);font-family:var(--mono);font-size:10px;color:var(--milk-3);letter-spacing:.06em;line-height:2}
 
@@ -349,29 +355,28 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
   ══════════════════════════════════════════════════════════════
   이미지 넣는 법
   ──────────────────────────────────────────────────────────────
-  저장소 루트에 assets/characters/ 폴더를 만들고 아래 이름으로 넣으세요.
+  저장소 루트에 assets 폴더를 만들고 아래 경로 그대로 넣으세요.
   파일이 없으면 자동으로 빈 슬롯 플레이스홀더가 표시됩니다.
 
   [인물]  권장 비율 3:4 (예: 900×1200)
-    assets/characters/amane.jpg     — 키도 아마네
-    assets/characters/homare.jpg    — 카부라기 호마레
-    assets/characters/sumito.jpg    — 마시바 스미토
-    assets/characters/katsumi.jpg   — 마카베 카츠미
-    assets/characters/tomonari.jpg  — 시키 토모나리
+    assets/characters/amane.jpg     — 키도 아마네 / PULSE
+    assets/characters/sumito.jpg    — 마시바 스미토 / SILK
+    assets/characters/homare.jpg    — 카부라기 호마레 / VANTA
+    assets/characters/katsumi.jpg   — 마카베 카츠미 / GRID
+    assets/characters/tomonari.jpg  — 시키 토모나리 / PUCHI
 
-  [자료 도판]  권장 비율 16:10 (예: 1600×1000) / wide 표시는 21:8
+  [자료 도판]  wide 표시는 21:8 (1600×610), 나머지는 16:10 (1600×1000)
     assets/bloom/main.jpg     — 백화 본체 원경 (wide)
     assets/bloom/root.jpg     — 지하 뿌리
-    assets/bloom/sprout.jpg   — 발아 개구부
+    assets/bloom/sprout.jpg   — 출현 출구
     assets/beast/body.jpg     — 이수 전신
     assets/beast/hide.jpg     — 외피 근접
-    assets/beast/core.jpg     — 정핵
+    assets/beast/core.jpg     — 코어 (wide)
 
   jpg/png/webp 모두 가능하며, 확장자를 바꾸려면
-  해당 <img src="..."> 값을 함께 수정하세요.
+  해당 <img src="..."> 값과 바로 위 <code> 안의 경로를 함께 수정하세요.
   ══════════════════════════════════════════════════════════════
 -->
-
 <div class="mobar">
   <a class="mark" href="#/home">
     <div class="mark-glyph"><i></i><i></i><i></i></div>
@@ -396,12 +401,12 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     <div class="navgroup">
       <div class="nav-label">설정</div>
       <div class="navlist">
-        <a href="#/bloom"><span class="n">01</span>백화와 뿌리</a>
+        <a href="#/bloom"><span class="n">01</span>백화</a>
         <a href="#/beast"><span class="n">02</span>이수</a>
-        <a href="#/kokusho"><span class="n">03</span>흑정과 개인무기</a>
+        <a href="#/kokusho"><span class="n">03</span>흑정</a>
         <a href="#/zone"><span class="n">04</span>제0구</a>
-        <a href="#/society"><span class="n">05</span>사회 현상</a>
-        <a href="#/bureau"><span class="n">06</span>특이재해관리국</a>
+        <a href="#/bureau"><span class="n">05</span>특이재해관리국</a>
+        <a href="#/society"><span class="n">06</span>사회 현상</a>
         <a href="#/field"><span class="n">07</span>실동부</a>
       </div>
     </div>
@@ -411,8 +416,8 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="navlist">
         <a href="#/people"><span class="n">◇</span>전체 명단</a>
         <a class="pl" href="#/p/amane"><span class="n">01</span>Pulse<span class="cs">키도 아마네</span></a>
-        <a class="pl" href="#/p/homare"><span class="n">02</span>Vanta<span class="cs">카부라기 호마레</span></a>
-        <a class="pl" href="#/p/sumito"><span class="n">03</span>Silk<span class="cs">마시바 스미토</span></a>
+        <a class="pl" href="#/p/sumito"><span class="n">02</span>Silk<span class="cs">마시바 스미토</span></a>
+        <a class="pl" href="#/p/homare"><span class="n">03</span>Vanta<span class="cs">카부라기 호마레</span></a>
         <a class="pl" href="#/p/katsumi"><span class="n">04</span>Grid<span class="cs">마카베 카츠미</span></a>
         <a class="pl" href="#/p/tomonari"><span class="n">05</span>Puchi<span class="cs">시키 토모나리</span></a>
       </div>
@@ -439,7 +444,7 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
         <div class="stat"><div class="v">820m</div><div class="k">본체 높이</div></div>
         <div class="stat"><div class="v">25년</div><div class="k">무반응 경과</div></div>
         <div class="stat"><div class="v">8–12㎢</div><div class="k">제0구 면적</div></div>
-        <div class="stat"><div class="v">150회/년</div><div class="k">민간생활권 출동</div></div>
+        <div class="stat"><div class="v">150건/년</div><div class="k">민간 구역 출동</div></div>
       </div>
     </header>
 
@@ -448,33 +453,13 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="plates two">
         <div class="plate">
           <h3>2043년, 신주쿠가 무너졌다</h3>
-          <p>어느 날 새벽, 거대한 흰 구조물이 지반을 뚫고 솟아올랐다. 도심이 광범위하게 붕괴했고, 그 뿌리에서 정체불명의 짐승이 쏟아져 나와 사람들을 습격했다. 사망·실종자는 10만 명을 넘었다.</p>
-          <p>구조물은 그날 이후 25년째 아무 반응도 하지 않는다. 다만 지하로 뻗은 뿌리만이 조용히 자라고, 뿌리가 닿은 곳에서는 지금도 같은 일이 일어난다.</p>
+          <p>어느 날 새벽, 거대한 흰 구조물이 지면을 뚫고 솟아올랐다. 도심이 광범위하게 붕괴했고, 그 뿌리에서 정체불명의 짐승이 쏟아져 나와 사람들을 습격했다. 사망·실종자는 10만 명을 넘었다.</p>
+          <p>구조물은 그날 이후 25년째 아무 반응도 보이지 않는다. 다만 지하로 퍼진 뿌리만이 계속 자라고, 뿌리가 닿은 곳에서는 지금도 같은 일이 일어난다.</p>
         </div>
         <div class="plate">
           <h3>2068년, 도시는 그것과 함께 산다</h3>
-          <p>구조물 일대는 여러 겹의 차단벽으로 봉쇄되어 사람이 살지 않는 구역이 되었다. 그 바깥에서는 평범한 대도시 생활이 이어진다. 땅 밑 위험도는 날씨처럼 조회되고, 구조물은 도쿄의 랜드마크이자 관광자원이 되었다.</p>
-          <p>하지만 뿌리는 이미 차단벽 밖 주거지까지 뻗어 있다. 민간지역 출동은 3년 연속 늘고 있으며, 원인은 밝혀지지 않았다.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="home-sec">
-      <div class="bhead"><span class="idx">◇</span><h2>기본 용어</h2><span class="en">Glossary</span></div>
-      <div class="plates">
-        <div class="plate">
-          <p>이 자료실은 아래 용어를 전제로 작성되어 있다. 순서대로 읽으면 자연히 익혀지지만, 먼저 훑어두면 편하다.</p>
-          <dl class="spec" style="margin-top:16px">
-            <div><dt>백화 白華</dt><dd>2043년 신주쿠에 출현한 높이 820m의 유백색 구조물. 정식명은 특이생성체 제1호. 거대한 흰 꽃처럼 보여 이렇게 불린다. → 자료 01</dd></div>
-            <div><dt>뿌리</dt><dd>백화에서 지하로 뻗어나가는 망. 백화에서 유일하게 지금도 자라는 부분이며, 25년에 걸쳐 이미 민간지역까지 도달했다. → 자료 01</dd></div>
-            <div><dt>발아</dt><dd>뿌리 일부가 활성화되어 지반을 갈라내고 그 틈으로 이수를 내보내는 현상. 어느 뿌리가 언제 발아할지는 예측할 수 없다. → 자료 01</dd></div>
-            <div><dt>이수 異獸</dt><dd>발아로 나오는 생물. 살아 있는 인간만 공격하며 먹지는 않는다. 몸이 부서져도 수 초 만에 재생한다. → 자료 02</dd></div>
-            <div><dt>정핵 晶核</dt><dd>모든 이수의 몸속에 하나씩 있는 핵. 재생의 중심이며, 이것을 부수는 것만이 확실한 사살 수단이다. 위치는 밖에서 확정할 수 없다. → 자료 02</dd></div>
-            <div><dt>흑정 黑晶</dt><dd>정핵을 물리적으로 파괴할 수 있는 유일한 소재. 대원들의 근접무기에 사용된다. → 자료 03</dd></div>
-            <div><dt>격벽 · 제0구</dt><dd>백화 일대를 둘러싼 다중 차단벽과 그 안쪽 봉쇄구역. 발아 대부분은 이 안에서 일어난다. → 자료 04</dd></div>
-            <div><dt>특이재해관리국</dt><dd>백화와 이수 대응을 전담하는 국가기관. 여덟 개 부서로 이루어져 있다. → 자료 06</dd></div>
-            <div><dt>실동부</dt><dd>관리국 소속 부서 중 이수를 직접 상대하는 현장 부서. 이 자료실의 인물들이 속한 곳이다. → 자료 07</dd></div>
-          </dl>
+          <p>구조물 일대는 여러 겹의 격벽으로 봉쇄되어 제0구가 되었다. 격벽 밖에서는 평범한 대도시의 일상이 이어진다. 지하 위험도는 날씨처럼 조회되고, 백화는 도쿄의 주요 랜드마크 중 하나가 되었다.</p>
+          <p>그러나 뿌리는 이미 격벽 밖 민간 구역까지 도달했다. 민간 구역 출동과 현장 분류상 미지종은 3년 연속 증가하고 있으며, 원인은 밝혀지지 않았다. 2068년 9월은 백화 출현 25주년이다.</p>
         </div>
       </div>
     </div>
@@ -482,35 +467,35 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     <div class="home-sec">
       <div class="bhead"><span class="idx">◇</span><h2>자료 목록</h2><span class="en">Index</span></div>
       <div class="home-grid">
-        <a class="tile" href="#/bloom"><div class="n">01</div><h3>백화와 뿌리</h3><p>820m의 무반응 구조물과, 25년째 지하로 뻗어가는 뿌리망.</p></a>
-        <a class="tile" href="#/beast"><div class="n">02</div><h3>이수</h3><p>외형, 행동 원리, 분류 체계, 그리고 정핵.</p></a>
-        <a class="tile" href="#/kokusho"><div class="n">03</div><h3>흑정과 개인무기</h3><p>정핵을 파괴할 수 있는 유일한 소재와 개별 제작 장비.</p></a>
-        <a class="tile" href="#/zone"><div class="n">04</div><h3>제0구</h3><p>다중 격벽 봉쇄 구역의 지상 무인 체계와 방치된 지하.</p></a>
-        <a class="tile" href="#/society"><div class="n">05</div><h3>사회 현상</h3><p>집값, 보험료, 추도식, 그리고 25주년 상업행사.</p></a>
-        <a class="tile" href="#/bureau"><div class="n">06</div><h3>특이재해관리국</h3><p>이케부쿠로 본부와 8개 부서.</p></a>
-        <a class="tile" href="#/field"><div class="n">07</div><h3>실동부</h3><p>이수를 직접 처치하는 현장 부서. 근무 방식과 조직 문화.</p></a>
+        <a class="tile" href="#/bloom"><div class="n">01</div><h3>백화</h3><p>820m의 무반응 구조물과, 25년째 지하로 뻗어가는 뿌리망.</p></a>
+        <a class="tile" href="#/beast"><div class="n">02</div><h3>이수</h3><p>외형, 행동 원리, 분류 체계, 그리고 코어.</p></a>
+        <a class="tile" href="#/kokusho"><div class="n">03</div><h3>흑정</h3><p>코어를 파괴할 수 있는 유일한 물질과 주문 제작 장비.</p></a>
+        <a class="tile" href="#/zone"><div class="n">04</div><h3>제0구</h3><p>다중 격벽 봉쇄 구역의 무인 체계와 방치된 지하.</p></a>
+        <a class="tile" href="#/bureau"><div class="n">05</div><h3>특이재해관리국</h3><p>이케부쿠로 본부와 8개 부서.</p></a>
+        <a class="tile" href="#/society"><div class="n">06</div><h3>사회 현상</h3><p>집값, 보험료, 추도식, 그리고 25주년 상업행사.</p></a>
+        <a class="tile" href="#/field"><div class="n">07</div><h3>실동부</h3><p>이수를 직접 제거하는 현장 부서. 편성, 당직, 조직 문화.</p></a>
         <a class="tile" href="#/people"><div class="n">◇</div><h3>인물</h3><p>실동부 제1~3과 주요 대원 5명의 신상 자료.</p></a>
       </div>
     </div>
 
-    <div class="foot">특이재해관리국 공개 자료실 · 기준시점 2068.09<br>본 문서는 창작 세계관 설정 자료입니다.</div>
+    <div class="foot">특이재해관리국(ADMB) 공개 자료실 · 기준시점 2068.09<br>본 문서는 창작 세계관 설정 자료입니다.</div>
   </section>
 
-  <!-- ────────── 01 백화와 뿌리 ────────── -->
+  <!-- ────────── 01 백화 ────────── -->
   <section class="view" data-view="bloom">
     <header class="phead">
       <div class="eyebrow">자료 01</div>
-      <h1>백화와 뿌리<span class="en">White Bloom / Root Network</span></h1>
+      <h1>백화<span class="en">White Bloom / Root Network</span></h1>
       <p class="desc">25년 동안 아무것도 하지 않은 구조물과, 25년 동안 멈추지 않은 뿌리. 그리고 그 뿌리에서 이수가 나오는 현상에 관한 기록.</p>
     </header>
 
     <div class="block">
-      <div class="bhead"><span class="idx">01-A</span><h2>백화란 무엇인가</h2></div>
+      <div class="bhead"><span class="idx">01-A</span><h2>형태와 명칭</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>정식명 특이생성체 제1호. 높이 약 820m. 유백색 반투명 판이 겹겹이 벌어진 형상으로, 거대한 흰 꽃이 피어난 것처럼 보여 백화(白華)라 불린다. 야간에는 미약하게 발광한다.</p>
-          <p>2043년 9월 12일 신주쿠 지반을 뚫고 출현한 이래, 외부 자극에 대한 반응은 한 번도 확인된 바 없다. 25년간 뿌리를 제외한 움직임과 성장이 관측되지 않았다. 무엇인지, 어디서 왔는지, 왜 멈춰 있는지는 전부 밝혀지지 않았다.</p>
-          <div class="warn"><b>주변 지반</b>상시 불안정. 뿌리 활동에 따라 얕은 진동, 침하·융기, 균열이 반복된다. 중심부로 갈수록 심해 본체 주변은 무인관측 구역이다.</div>
+          <p>공식 명칭은 특이생성체 제1호. 높이는 약 820m다. 유백색의 반투명 판상 구조물이 겹겹이 바깥으로 펼쳐져 거대한 흰 꽃이 핀 모습을 닮았기 때문에 백화(白華)라 불린다. 밤에는 희미하게 빛난다.</p>
+          <p>외부 자극에 반응한다는 사실은 확인되지 않았다. 뿌리를 제외하면 지난 25년 동안 움직이거나 성장한 흔적도 관측되지 않았다.</p>
+          <div class="warn"><b>주변 지반</b>상시 불안정하다. 뿌리의 활동으로 얕은 진동, 침하, 융기, 균열이 반복되며 중심부에 가까울수록 심해진다. 본체 주변은 무인 관측 구역이다.</div>
         </div>
       </div>
       <div class="figs">
@@ -525,12 +510,12 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">01-B</span><h2>뿌리와 발아</h2><span class="en">Root / Sprouting</span></div>
+      <div class="bhead"><span class="idx">01-B</span><h2>뿌리와 이수의 출현</h2><span class="en">Root / Emergence</span></div>
       <div class="plates">
         <div class="plate">
-          <p>백화에서 유일하게 지금도 움직이는 것은 지하로 뻗은 뿌리다. 뿌리는 사방으로 자라며 거대한 망을 이루고 있고, 지상에서는 보이지 않는다.</p>
-          <p>이 뿌리의 일부가 어느 순간 활성화되면, 그 지점의 지반이 부풀어 오르다 갈라진다. 그리고 벌어진 틈으로 이수라 불리는 생물이 기어 나온다. 이 일련의 현상을 발아라고 부른다.</p>
-          <p>발아한 이수는 즉시 주변의 인간을 찾아 움직인다. 통상 화기로는 죽일 수 없기 때문에, 발아가 확인되면 실동부가 출동해 직접 처치한다. 이수 자체에 관해서는 자료 02를, 처치 수단에 관해서는 자료 03을 참조.</p>
+          <p>백화에서 유일하게 지금도 움직이는 것은 지하로 퍼진 뿌리다. 뿌리는 사방으로 자라며 거대한 망을 이루고 있고, 지상에서는 보이지 않는다.</p>
+          <p>이 뿌리의 일부가 어느 순간 활성화되면 그 지점의 지면이 부풀고 갈라져 출구가 형성된다. 그리고 그 틈으로 이수라 불리는 생물이 나온다. 2043년 9월 12일의 최초 출현과 2049년 5월 3일의 동시다발 출현은 각각 발아, 대발아라 불린다.</p>
+          <p>출현한 이수는 즉시 주변의 살아 있는 인간을 찾아 움직인다. 통상 화기로는 죽일 수 없기 때문에, 출현이 확인되면 실동부가 직접 제거한다. 이수 자체에 관해서는 자료 02를, 제거 수단에 관해서는 자료 03을 참조.</p>
         </div>
       </div>
       <div class="figs">
@@ -544,9 +529,9 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
         <div class="fig">
           <div class="fig-frame">
             <div class="ph"><i></i><code>assets/bloom/sprout.jpg</code></div>
-            <img src="assets/bloom/sprout.jpg" alt="발아 개구부" loading="lazy" onerror="this.style.display='none'">
+            <img src="assets/bloom/sprout.jpg" alt="출현 출구" loading="lazy" onerror="this.style.display='none'">
           </div>
-          <div class="fig-cap"><b>Fig. 03</b><span>발아 직후의 개구부. 지반이 융기하며 갈라진 흔적.</span></div>
+          <div class="fig-cap"><b>Fig. 03</b><span>출현 직후의 출구. 지면이 융기하며 갈라진 흔적.</span></div>
         </div>
       </div>
     </div>
@@ -556,29 +541,29 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="plates two">
         <div class="plate">
           <h3>속도</h3>
-          <p>간선 뿌리는 매우 느리게 자란다. 말단 세근은 훨씬 빠르게 뻗지만 발아 능력이 없거나 극히 낮으며, 세근이 발아 가능한 굵기에 도달하는 데 다시 오랜 시간이 걸린다.</p>
+          <p>주근은 극도로 느리게 자란다. 세근은 훨씬 빠르게 뻗지만 이수를 생성할 능력이 거의 없거나 전혀 없다. 이수가 출현할 만큼 굵어지려면 훨씬 긴 시간이 필요하다.</p>
         </div>
         <div class="plate">
           <h3>도달</h3>
-          <p>25년에 걸쳐 봉쇄구역에서 민간지역까지 도달했다. 현재의 민간 발아 증가는 과거의 세근들이 이제 발아 가능한 굵기에 도달한 결과로 추정된다.</p>
+          <p>25년에 걸쳐 뿌리는 제0구에서 민간 구역까지 퍼졌다. 최근 민간 구역의 이수 출현이 증가한 것은 오래된 세근이 마침내 충분한 굵기에 도달했기 때문으로 추정된다.</p>
         </div>
       </div>
       <div class="plates" style="margin-top:12px">
         <div class="plate">
-          <div class="warn"><b>봉쇄의 한계</b>백화 일대는 격벽으로 둘러싸여 있으나(자료 04), 격벽은 지하 수십 미터까지만 박혀 있고 뿌리는 그 아래로 자란다. 뿌리를 완전히 봉쇄하는 것은 불가능하다.</div>
+          <div class="warn"><b>봉쇄의 한계</b>격벽은 지하 수십 미터까지 이어지지만 뿌리는 그 아래로 자란다. 완전한 봉쇄는 불가능하다.</div>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">01-D</span><h2>언제 발아하는가</h2></div>
+      <div class="bhead"><span class="idx">01-D</span><h2>활성화</h2></div>
       <div class="plates">
         <div class="plate">
           <dl class="spec">
-            <div><dt>필요조건</dt><dd>일정 굵기에 도달한 뿌리만 발아 능력을 가질 수 있다. 다만 굵기는 필요조건일 뿐이며, 발아 가능한 뿌리도 평상시에는 대부분 비활성 상태다.</dd></div>
-            <div><dt>예측</dt><dd>어느 뿌리가 언제 활성화될지는 예측할 수 없다.</dd></div>
-            <div><dt>지속</dt><dd>각 활성화 사건은 일회성으로 종료된다. 1~수 체를 발아시킨 뒤 비활성으로 돌아간다. 장기 휴면 후 다시 활성화된 사례가 있지만 극소수다.</dd></div>
-            <div><dt>징후</dt><dd>발아 시 지반이 융기·균열하며, 그때 생기는 개구부로 이수가 나온다.</dd></div>
+            <div><dt>조건</dt><dd>일정 굵기 이상의 뿌리만 이수를 생성할 수 있다. 굵기는 필요조건일 뿐이며, 조건을 충족한 뿌리도 대부분 평소에는 비활성 상태다.</dd></div>
+            <div><dt>예측</dt><dd>어느 뿌리가 언제 활성화할지는 예측할 수 없다.</dd></div>
+            <div><dt>지속</dt><dd>활성화는 일시적이다. 한 마리에서 수 마리의 이수를 생성한 뒤 뿌리는 다시 비활성 상태로 돌아간다. 오랜 휴면 후 재활성화한 사례도 관측됐으나 극히 드물다.</dd></div>
+            <div><dt>징후</dt><dd>이수가 출현할 때 지면이 부풀고 갈라져 출구가 형성된다.</dd></div>
           </dl>
         </div>
       </div>
@@ -588,24 +573,25 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">01-E</span><h2>기록된 두 날</h2><span class="en">Records</span></div>
       <div class="tl">
         <article class="ev">
-          <div class="ev-date">2043.09.12<b>출현</b></div>
+          <div class="ev-date">2043.09.12<b>발아</b></div>
           <div>
             <h4>오전 4시 40분, 신주쿠</h4>
-            <p>지반을 뚫고 출현. 도심이 광범위하게 붕괴했고 직후 수백 체 이상의 이수가 발아했다. 붕괴·화재·이수 공격이 겹치며 사망·실종자가 10만 명을 넘었다.</p>
-            <p>통상 화기로는 이수를 사살할 수 없어, 초기 대응은 반복 타격으로 이동을 저지하며 주민을 철수시키고 발생지역을 봉쇄하는 데 집중되었다. 봉쇄선은 여러 차례 후퇴했고, 신주쿠 일대에 넓은 무인 완충구역이 형성되었다. 이후 원격 감시·화력체계를 중심으로 단일 격벽이 건설되었으며, 당시 뿌리망은 전부 이 안에 있었다.</p>
-            <p>정핵이 재생의 중심임이 밝혀졌으나 파괴 수단이 없었고, 이후 정핵을 파괴할 수 있는 유일한 신소재로 흑정이 개발되면서 비로소 대응이 가능해졌다.</p>
+            <p>백화가 지면을 뚫고 솟아오르며 광범위한 도시 붕괴를 일으켰다. 직후 수백 마리의 이수가 출현했다. 건축물 붕괴와 화재, 이수의 공격이 겹치며 사망·실종자는 10만 명을 넘었다.</p>
+            <p>통상 화기로 이수를 죽일 수 없었기 때문에 초기 대응은 반복적으로 신체를 파괴해 움직임을 늦추는 동안 시민을 대피시키고 피해 지역을 봉쇄하는 데 집중됐다.</p>
+            <p>봉쇄선은 여러 차례 후퇴했고, 신주쿠 주변에는 넓은 무인 완충 지대가 형성됐다. 이후 원격 감시·화력 체계의 지원을 받는 단일 격벽이 그 둘레에 건설됐다. 당시에는 뿌리망 전체가 격벽 안에 있었다.</p>
+            <p>이후 코어가 재생의 중심이라는 사실이 밝혀졌으나, 이를 파괴할 유일한 물질인 흑정이 개발되기 전까지는 제거 수단이 없었다.</p>
             <div class="ev-fig"><span class="chip hot">사망·실종 10만+</span><span class="chip">봉쇄선 수차례 후퇴</span><span class="chip">단일 격벽 건설</span><span class="chip">흑정 개발의 계기</span></div>
           </div>
         </article>
         <article class="ev">
           <div class="ev-date">2049.05.03<b>대발아</b></div>
           <div>
-            <h4>간선 뿌리 절단, 그리고 세 시간</h4>
-            <p>격벽 공사 당시 기초 진로를 막는 잔뿌리를 여러 차례 절단했으나 문제가 없었다. 이후 대형 흑정 절단 설비가 실전 운용 단계에 이르자, 뿌리 활동범위 축소를 위해 본체 부근의 간선 뿌리를 절단했다.</p>
-            <p>약 3시간 뒤 뿌리망 전반에서 4,000체 이상이 동시 발아했다. 산발적 발아를 전제로 설계된 단일 격벽은 돌파당했다. 사망·실종 약 7만 명. 수 주에 걸친 진압 끝에 잔존 이수의 처치가 완료되었다.</p>
-            <p>원인은 불명이며, 뿌리망 전역이 동시에 활성화된 유일한 사례다. 이후 본체·뿌리의 훼손이 전면 금지되어 현재까지 백화에 대한 연구는 보수적이다. 이후 수년에 걸쳐 다중 격벽 체제로 전환하며 현재의 제0구 운영체계를 정립했다.</p>
-            <div class="warn"><b>남지 않은 성과</b>현재 뿌리 절단면은 거의 원상복구되었다. 7만 명의 대가로 얻은 성과는 남지 않았다.</div>
-            <div class="ev-fig"><span class="chip hot">사망·실종 약 7만</span><span class="chip">동시 발아 4,000체+</span><span class="chip">원인 불명 · 유일 사례</span><span class="chip">다중 격벽 체제 전환</span></div>
+            <h4>주근 절단, 그리고 세 시간</h4>
+            <p>최초 격벽을 건설할 당시 기초 공사를 방해하는 세근을 몇 차례 절단했으나 별다른 이상은 없었다. 대형 흑정 절삭 장비가 실용화된 뒤, 뿌리망의 활성 범위를 줄이려는 목적으로 백화 인근의 주근 하나를 절단했다.</p>
+            <p>약 3시간 뒤 뿌리망 전역에서 4천 마리가 넘는 이수가 동시에 출현했다. 산발적 출현을 전제로 설계된 단일 격벽은 돌파당했다. 약 7만 명이 사망하거나 실종됐으며, 남은 이수는 수주간의 봉쇄 작전 끝에 제거됐다.</p>
+            <p>원인은 여전히 밝혀지지 않았다. 뿌리망 전체가 동시에 활성화한 유일한 기록이다. 이후 백화와 뿌리를 훼손하는 행위는 전면 금지됐고, 관련 연구도 극도로 보수적으로 이루어진다. 이후 수년에 걸쳐 단일 격벽 체계가 다중 격벽 체계로 교체되면서 현재의 제0구 봉쇄 체계가 확립됐다.</p>
+            <div class="warn"><b>남지 않은 성과</b>절단된 뿌리는 현재 거의 완전히 재생됐다. 7만 명의 희생으로 얻은 것은 아무것도 남지 않았다.</div>
+            <div class="ev-fig"><span class="chip hot">사망·실종 약 7만</span><span class="chip">동시 출현 4,000마리+</span><span class="chip">원인 불명 · 유일 사례</span><span class="chip">다중 격벽 체계로 전환</span></div>
           </div>
         </article>
       </div>
@@ -617,7 +603,7 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     <header class="phead">
       <div class="eyebrow">자료 02</div>
       <h1>이수<span class="en">異獸 / Anomalous Beast</span></h1>
-      <p class="desc">활성근에서 발아하는 생물. 살아 있는 인간만 공격하고, 먹지 않는다.</p>
+      <p class="desc">활성근에서 출현하는 생물. 살아 있는 인간만 공격하고, 먹지 않는다.</p>
     </header>
 
     <div class="block">
@@ -625,15 +611,15 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="plates two">
         <div class="plate">
           <h3>크기와 외피</h3>
-          <p>대형견 정도부터 약 10m까지. 외피는 유리질과 단단한 갑각의 복합 구조이며 경도는 계통마다 다르다. 빛이 비치면 무지갯빛으로 산란한다.</p>
+          <p>크기는 대형견 정도부터 약 10m까지다. 외피는 유리질과 단단한 갑각이 뒤섞인 구조이며, 경도는 종류마다 다르다. 빛을 무지갯빛으로 산란시킨다.</p>
         </div>
         <div class="plate">
           <h3>체액</h3>
-          <p>체액 표면에 무지갯빛 유막이 뜬다. 노출되어도 인체에 무해하지만, 화학약품과 비슷한 독한 냄새가 난다.</p>
+          <p>체액은 표면에 무지갯빛 막을 형성한다. 인체에 닿아도 해롭지 않지만 강한 화학 약품 냄새가 난다.</p>
         </div>
         <div class="plate">
           <h3>구조</h3>
-          <p>구조는 개체마다 전부 다르다. 기지종의 대부분은 4족 보행형이며, 현재까지 비행이 가능한 형태는 확인되지 않았다.</p>
+          <p>신체 구조는 종류 간에도, 같은 종류 안에서도 큰 차이를 보인다. 기지종은 대부분 사족형이며 비행형은 아직 확인되지 않았다.</p>
         </div>
       </div>
       <div class="figs">
@@ -642,7 +628,7 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
             <div class="ph"><i></i><code>assets/beast/body.jpg</code></div>
             <img src="assets/beast/body.jpg" alt="이수 전신" loading="lazy" onerror="this.style.display='none'">
           </div>
-          <div class="fig-cap"><b>Fig. 01</b><span>기지종 4족 보행형 개체. 전신 기록사진.</span></div>
+          <div class="fig-cap"><b>Fig. 01</b><span>기지종 사족형 개체. 전신 기록사진.</span></div>
         </div>
         <div class="fig">
           <div class="fig-frame">
@@ -659,12 +645,12 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="plates">
         <div class="plate">
           <ul>
-            <li>전 관측 사례에서 살아 있는 인간을 공격했다. 먹지는 않는다.</li>
-            <li>감지 범위 안에 인간이 있으면 무조건 그쪽으로 이동한다. 벽이나 구조물에 막히면 파괴하려 시도한다.</li>
-            <li>감지 범위는 계통마다 다르나 미지종의 경우 수백 미터까지 발견된 사례가 있다. 범위 밖에서는 인간을 인식하지 못하고 목표 없이 머무르거나 배회한다.</li>
-            <li>소리·진동으로 잠시 주의를 돌릴 수 있으나 장기 유도는 불가능하다. 더 가까운 인간이 나타나거나 공격당하면 목표를 바꾼다.</li>
-            <li>인간 식별 원리는 불명이다. 무인기·로봇·시체에는 반응하지 않는다.</li>
-            <li>울음소리가 매우 크나, 공격당하기 전에는 소리를 내지 않는다.</li>
+            <li>관측된 모든 사례에서 살아 있는 인간을 공격하지만 먹지는 않는다.</li>
+            <li>인간이 감지 범위 안에 들어오면 반드시 그쪽으로 이동한다. 벽이나 구조물에 가로막히면 파괴해서라도 통과하려 한다.</li>
+            <li>감지 범위는 종류마다 다르다. 미지종 중에는 수백 미터 밖의 인간을 감지한 사례도 있다. 범위 밖에서는 가만히 있거나 목표 없이 배회한다.</li>
+            <li>소리와 진동으로 잠시 주의를 돌릴 수는 있지만 오랫동안 유도할 수는 없다. 더 가까운 인간이 나타나거나 다른 인간이 자신을 공격한 경우에만 인간 목표를 바꾼다.</li>
+            <li>인간을 어떻게 식별하는지는 불명이다. 드론이나 로봇이 사격하더라도 공격 대상으로 인식하지 않는다. 무인 화력으로 비틀거리게 하거나 잠시 주의를 끌 수는 있지만, 이수는 계속 살아 있는 인간을 찾는다. 시체에는 반응하지 않는다.</li>
+            <li>울음소리는 매우 크지만 공격받기 전까지는 소리를 내지 않는다.</li>
           </ul>
         </div>
       </div>
@@ -674,7 +660,7 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">02-C</span><h2>분류</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>공식 분류는 약 18개 계통. 미지종의 경우 상황이 허용되면 행동 데이터를 확보하며 처치한다.</p>
+          <p>공식적으로 인정된 종류는 약 18종이다. 미지종은 여건이 허락할 경우 제거 과정에서 행동 데이터를 수집한다.</p>
           <div class="ratio">
             <div class="ratio-bar">
               <i style="width:70%;background:#9FB6EC"></i>
@@ -685,7 +671,7 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
               <span><em style="background:#9FB6EC"></em>기지종 약 70%</span>
               <span><em style="background:#C79BE0"></em>유사종 약 25%</span>
               <span><em style="background:var(--alert)"></em>미지종 약 5%</span>
-              <span style="color:var(--milk-3)">— 현장 판정 기준</span>
+              <span style="color:var(--milk-3)">— 현장 분류 기준</span>
             </div>
           </div>
         </div>
@@ -693,14 +679,14 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">02-D</span><h2>정핵</h2><span class="en">晶核</span></div>
+      <div class="bhead"><span class="idx">02-D</span><h2>코어</h2><span class="en">Core</span></div>
       <div class="plates">
         <div class="plate">
           <dl class="spec">
-            <div><dt>개수</dt><dd>모든 이수의 체내에 정핵 하나.</dd></div>
-            <div><dt>위치</dt><dd>항상 심부에 있으나 위치는 개체마다 다르다. 외부에서 확정할 수 없다. 기지종은 계통별 위치 경향이 축적되어 있으나 어디까지나 경향이다.</dd></div>
-            <div><dt>재생</dt><dd>정핵이 기능하는 동안에는 신체 대부분이 파괴되어도 살아 있는 조직이 정핵 쪽으로 모여 신체를 재구성한다. 재구성에는 수 초가 걸린다.</dd></div>
-            <div><dt>사살</dt><dd>정핵 파괴만이 확실한 사살 수단이다. 파괴 가능한 소재는 흑정뿐이다(자료 03).</dd></div>
+            <div><dt>개수</dt><dd>모든 이수는 코어 하나를 지닌다.</dd></div>
+            <div><dt>위치</dt><dd>코어는 항상 몸 깊숙한 곳에 있지만 위치는 개체마다 달라 외부에서 확인할 수 없다. 기지종은 종류별로 위치 경향성이 있으나 어디까지나 경향일 뿐이다.</dd></div>
+            <div><dt>재생</dt><dd>코어가 기능하는 동안에는 몸 대부분이 파괴돼도 남은 조직이 코어 주위로 모여 신체를 재구성한다. 재구성에는 수초가 걸린다.</dd></div>
+            <div><dt>사살</dt><dd>코어를 파괴하는 것이 확인된 유일한 사살법이다. 파괴할 수 있는 물질은 흑정뿐이다(자료 03).</dd></div>
           </dl>
         </div>
       </div>
@@ -708,9 +694,9 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
         <div class="fig wide">
           <div class="fig-frame">
             <div class="ph"><i></i><code>assets/beast/core.jpg</code></div>
-            <img src="assets/beast/core.jpg" alt="정핵" loading="lazy" onerror="this.style.display='none'">
+            <img src="assets/beast/core.jpg" alt="코어" loading="lazy" onerror="this.style.display='none'">
           </div>
-          <div class="fig-cap"><b>Fig. 03</b><span>회수된 정핵. 파괴 후에는 급속히 광택을 잃는다.</span></div>
+          <div class="fig-cap"><b>Fig. 03</b><span>회수된 코어. 파괴 후에는 급속히 광택을 잃는다.</span></div>
         </div>
       </div>
     </div>
@@ -720,15 +706,15 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
   <section class="view" data-view="kokusho">
     <header class="phead">
       <div class="eyebrow">자료 03</div>
-      <h1>흑정과 개인무기<span class="en">黑晶 / Personal Armament</span></h1>
-      <p class="desc">정핵을 물리적으로 파괴할 수 있는 유일한 소재, 그리고 그것으로 만든 개별 제작 장비.</p>
+      <h1>흑정<span class="en">黑晶 / Personal Armament</span></h1>
+      <p class="desc">코어를 물리적으로 파괴할 수 있는 유일한 물질, 그리고 그것으로 만든 주문 제작 장비.</p>
     </header>
 
     <div class="block">
-      <div class="bhead"><span class="idx">03-A</span><h2>소재 원리</h2></div>
+      <div class="bhead"><span class="idx">03-A</span><h2>소재</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>흑정은 정핵을 물리적으로 파괴할 수 있는 유일한 소재다. 원료 자체는 흔하지만 고품질 제조 및 가공이 까다로워 단가가 매우 높다.</p>
+          <p>코어를 물리적으로 파괴할 수 있는 유일한 물질이다. 원료는 흔하지만 고품질 흑정을 생산하고 가공하기는 어렵고 비용도 극도로 높다.</p>
         </div>
       </div>
     </div>
@@ -737,19 +723,23 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">03-B</span><h2>장비</h2></div>
       <div class="plates two">
         <div class="plate">
-          <h3>개별 제작</h3>
-          <p>실동부 개인무기 및 전투복은 사용자의 전투방식과 요청에 맞춰 개별 제작된다. 통일 규격은 없다. 설계·제작·정비는 연구기술부가 담당한다.</p>
+          <h3>주문 제작</h3>
+          <p>실동부의 무기와 전투복은 각 대원의 전투 방식과 요구에 맞춰 주문 제작되며 표준화된 설계가 없다. 설계·제작·정비는 연구기술부가 담당한다.</p>
         </div>
         <div class="plate">
           <h3>관리</h3>
-          <p>개인무기는 관리국 소유의 등록 장비로, 출동·훈련·정비 외의 상시 휴대는 금지된다. 평상시에는 실동부 전용 무기고에 보관한다.</p>
+          <p>개인 무기는 ADMB 자산으로 등록되며 출동·훈련·정비 때만 휴대할 수 있다. 그 외에는 실동부 무기고에 보관한다.</p>
         </div>
       </div>
-      <div class="plates" style="margin-top:12px">
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">03-C</span><h2>왜 근접 무기인가</h2></div>
+      <div class="plates">
         <div class="plate">
-          <h3>왜 근접 무기인가</h3>
-          <p>흑정 탄자는 제식화되지 않았다. 정핵의 위치를 외부에서 확정할 수 없고, 노출되더라도 재생까지 수 초밖에 걸리지 않아 사격의 확정성과 경제성이 낮기 때문이다.</p>
-          <p>흑정을 이용한 폭발물 역시 외피에서 폭발하므로 정핵에 직접 물리력을 가하기 어렵다. 이 때문에 실동부 대원들은 정핵에 확정 타격이 가능한 근접 무기를 사용한다.</p>
+          <p>흑정 탄환은 제식화되지 않았다. 코어 위치를 외부에서 확인할 수 없고, 노출된 뒤에는 수초 안에 재생이 시작되므로 총격은 신뢰성이 낮고 낭비가 크다.</p>
+          <p>흑정 폭발물 또한 외피에서 폭발할 뿐 코어에 직접 충격을 가하지 못해 효과가 없다. 민간 구역에서는 중화기와 폭발성 탄약이 시민과 기반 시설에 과도한 위험을 초래한다.</p>
+          <p>따라서 실동부는 노출된 코어를 확실하게 타격할 수 있는 근접 무기를 사용한다.</p>
         </div>
       </div>
     </div>
@@ -760,7 +750,7 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     <header class="phead">
       <div class="eyebrow">자료 04</div>
       <h1>제0구<span class="en">Zone Zero</span></h1>
-      <p class="desc">다중 격벽 봉쇄 구역. 발아 대부분이 여기서 발생한다.</p>
+      <p class="desc">다중 격벽 봉쇄 구역. 이수 출현의 대부분이 여기서 발생한다. 지상 작전과 지하 작전을 모두 포함한다.</p>
     </header>
 
     <div class="block">
@@ -768,10 +758,10 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="plates">
         <div class="plate">
           <dl class="spec">
-            <div><dt>범위</dt><dd>신주쿠에서 남쪽으로 요요기공원·메이지신궁 녹지대를 따라 시부야 북부에 이르는 남북 4~5km의 띠.</dd></div>
-            <div><dt>면적</dt><dd>8~12㎢</dd></div>
-            <div><dt>봉쇄</dt><dd>다중 격벽 차단. 발아 대부분이 여기서 발생한다.</dd></div>
-            <div><dt>한계</dt><dd>지상·지하 봉쇄로 제0구에서 발아한 이수를 가두고 처리하는 역할이지만, 뿌리가 격벽 밖으로 자라는 것은 막을 수 없다.</dd></div>
+            <div><dt>범위</dt><dd>신주쿠에서 요요기 공원과 메이지 신궁 부지를 지나 시부야 북부까지 이어지는 남북 4~5km의 띠 모양 구역.</dd></div>
+            <div><dt>면적</dt><dd>약 8~12km²</dd></div>
+            <div><dt>봉쇄</dt><dd>여러 격벽으로 봉쇄돼 있다. 이수 출현의 대부분이 이곳에서 발생한다.</dd></div>
+            <div><dt>한계</dt><dd>지상·지하 봉쇄 체계는 제0구에서 출현한 이수를 제거할 때까지 내부에 가두지만, 뿌리가 격벽 밖으로 자라는 것은 막지 못한다.</dd></div>
           </dl>
         </div>
       </div>
@@ -781,12 +771,12 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">04-B</span><h2>지상 — 무인 체계</h2></div>
       <div class="plates two">
         <div class="plate">
-          <h3>표준 처리</h3>
-          <p>제0구 지상은 대부분의 작전이 무인화되어 있다. 중화기로 신체를 반복 파괴해 이동을 막은 뒤 무인 중장비로 처리시설까지 운반한다. 개체는 대형 흑정 압쇄설비에 투입되어 정핵째 파괴되며, 남은 조직은 시설 내부에서 폐기 처리된다.</p>
+          <h3>표준 제거 방식</h3>
+          <p>제0구 지상 작전은 대부분 무인으로 수행한다. 중화기로 신체를 반복 파괴해 이수를 움직이지 못하게 만든 뒤, 완전한 재생을 막기 위한 제압 사격을 계속하면서 무인 중장비로 처리 시설까지 운반한다. 대형 흑정 분쇄기가 신체와 코어 전체를 파괴하고 남은 조직은 시설 내부에서 처리한다.</p>
         </div>
         <div class="plate">
-          <h3>실동부가 직접 나가는 경우</h3>
-          <p>소형·고속·비정형 기동의 개체이거나, 중화기 사용이 까다로운 격벽 인접부인 경우에는 실동부가 직접 처리한다. 무인기 지원을 받기 쉬워 수습 대원들이 자주 투입된다.</p>
+          <h3>실동부가 나가는 경우</h3>
+          <p>중화기를 사용하기 어려운 소형·고속·불규칙 기동 이수와 격벽 인근 사건을 담당한다. 무인 화력의 지원을 받기 쉬워 수습 대원이 자주 투입된다.</p>
         </div>
       </div>
     </div>
@@ -795,113 +785,114 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">04-C</span><h2>지하</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>제0구 지하는 과거의 지하철역·상가·연결통로 등이 광범위하게 남아 있다. 25년간 무보수 방치되어 정해진 경로 외에는 침수·붕락·부분 매몰 상태이며, 뿌리의 성장으로 전파·센서 오작동이 잦다.</p>
-          <p>중장비 진입이 불가능하고 화기 사용 시 붕락 위험이 있어, 지상의 무인 처치 방식을 쓸 수 없다.</p>
-          <p>격벽 기초부와 주요 지하 구역에는 활성 징후 감지 센서가 설치되어 있으며, 지하 위험도 산정과 사전 경보의 핵심 데이터원으로 사용된다. 통신 중계기·CCTV·조명은 점검로와 관측망 유지 경로에만 설치되어 있다.</p>
+          <p>제0구 지하에는 과거의 지하철역, 지하상가, 연결 통로가 광범위하게 남아 있다. 25년 동안 정비되지 않아 지정 경로 밖은 침수·붕괴되거나 일부가 매몰됐으며, 뿌리가 자라면서 통신과 센서도 빈번히 방해한다.</p>
+          <p>중장비가 들어갈 수 없고 총격은 추가 붕괴를 일으킬 위험이 있어 지상과 같은 무인 제거 방식을 사용할 수 없다.</p>
+          <p>격벽 기초부와 주요 지하 구역에는 활성화 센서가 설치돼 지하 위험도 산정과 조기 경보에 필요한 핵심 데이터를 제공한다. 통신 중계기, CCTV, 조명은 점검 경로와 관측망 정비 경로에만 설치돼 있다.</p>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">04-D</span><h2>지하 임무</h2></div>
+      <div class="bhead"><span class="idx">04-D</span><h2>제0구 지하 임무</h2></div>
       <div class="plates">
         <div class="plate">
           <dl class="spec">
-            <div><dt>발생</dt><dd>감지 센서와 격벽 기초부는 무인 시스템으로 상시 감시된다. 현장 수리가 필요한 경우에만 감시분석부·연구기술부·봉쇄관리부 직원이 투입되며, 실동부가 작업 중 호위를 맡는다.</dd></div>
-            <div><dt>편성</dt><dd>기술직 1~3명 + 실동부 3~5명 + 상황실 모니터링.</dd></div>
-            <div><dt>원칙</dt><dd>진입 즉시 이수의 접근을 전제로 작전하며, 경로 이탈은 중대 사고로 취급된다. 체류 시간은 최대한 단축한다.</dd></div>
-            <div><dt>평판</dt><dd>타 부서에서는 대표적인 기피 업무다. 실동부 책임관이 필수로 들어간다.</dd></div>
+            <div><dt>발생</dt><dd>센서와 격벽 기초부는 무인 시스템이 상시 감시한다. 정기 순찰은 하지 않으며 진입은 사건 발생 시에만 이루어진다. 무인 시스템의 이상 감지 → 담당 부서의 진입 요청 → 당직 책임관의 팀 편성 순서다.</dd></div>
+            <div><dt>편성</dt><dd>기술 인력 1~3명과 책임관을 포함한 실동부 인원 3~5명. 감시분석부·연구기술부·봉쇄관리부 인력이 현장 수리를 위해 진입하고 실동부가 호위한다.</dd></div>
+            <div><dt>책임관</dt><dd>제0구 지하 임무에는 책임관 한 명이 현장에 반드시 동행해야 한다. 가용 책임관이 없으면 진입할 수 없다. 책임관 현장 동행이 필수인 임무는 이것뿐이다.</dd></div>
+            <div><dt>원칙</dt><dd>진입 직후 이수가 접근할 가능성을 전제로 한다. 지정 경로 이탈은 중대 사건으로 취급하며 체류 시간은 가능한 한 짧게 유지한다. 우회하거나 배정받지 않은 점검을 해서는 안 된다.</dd></div>
+            <div><dt>구분</dt><dd>제0구 지하 업무는 민간 구역 지하 업무와 별개다. 이 규칙은 격벽 내부에만 적용된다.</dd></div>
           </dl>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ────────── 05 사회 현상 ────────── -->
-  <section class="view" data-view="society">
+  <!-- ────────── 05 관리국 ────────── -->
+  <section class="view" data-view="bureau">
     <header class="phead">
       <div class="eyebrow">자료 05</div>
+      <h1>특이재해관리국<span class="en">ADMB / Bureau of Singular Disaster Management</span></h1>
+      <p class="desc">이케부쿠로 본부와 8개 부서. 백화와 이수 대응을 전담한다.</p>
+    </header>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">05-A</span><h2>본부</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>도쿄 북서부의 주요 교통·업무 중심지로 성장한 이케부쿠로에 있다. 지하 위험도가 비교적 낮고 제0구와 민간 구역 양쪽으로 신속하게 접근할 수 있다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">05-B</span><h2>부서</h2><span class="en">8 Divisions</span></div>
+      <div class="depts">
+        <div class="dept"><h4>감시분석부</h4><p>뿌리 감시, 활성화 분석, 지하 위험도 산정</p></div>
+        <div class="dept"><h4>봉쇄관리부</h4><p>격벽 유지·보수, 제0구 출입 통제와 경비</p></div>
+        <div class="dept"><h4>연구기술부</h4><p>이수·코어·흑정 연구, 무기·전투복·특수 장비</p></div>
+        <div class="dept"><h4>의료지원부</h4><p>치료, 검사, 신체·심리 관리, 복귀 판정</p></div>
+        <div class="dept"><h4>처리회수부</h4><p>사체와 잔해 회수, 처리 시설 운영</p></div>
+        <div class="dept"><h4>재해대응부</h4><p>대피, 긴급 경보, 복구, 경찰·소방과의 협조</p></div>
+        <div class="dept"><h4>운영지원부</h4><p>인사, 예산, 보급, 시설, 실동부 양성소, 홍보와 대외 업무</p></div>
+        <div class="dept core"><h4>실동부</h4><p>이수 제거, 고위험 구역 진입·확보, 기술 인력 호위</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── 06 사회 현상 ────────── -->
+  <section class="view" data-view="society">
+    <header class="phead">
+      <div class="eyebrow">자료 06</div>
       <h1>사회 현상<span class="en">Society</span></h1>
       <p class="desc">지하 위험도는 날씨처럼 조회되고, 백화는 관광자원이 되었다.</p>
     </header>
 
     <div class="block">
-      <div class="bhead"><span class="idx">05-A</span><h2>도시의 재편</h2></div>
+      <div class="bhead"><span class="idx">06-A</span><h2>도시의 재편</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>신주쿠 상실 직후 대규모 인구 유출과 기업·기관 이전이 발생했다. 이후 교통·행정 기능은 이케부쿠로 등 다른 도심으로 분산되었으며, 중앙정부와 대기업의 수도권 외 백업 거점도 크게 확대되어 과거의 일극집중은 약화되어 있다.</p>
+          <p>신주쿠 상실 이후 인구 유출과 기업 이전이 이어졌다. 교통·행정 기능은 이케부쿠로 같은 거점으로 분산됐고, 중앙정부와 대기업은 수도권 밖의 예비 거점을 확충하면서 과거 도쿄에 집중됐던 기능이 약화됐다.</p>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">05-B</span><h2>발아와 대응</h2></div>
+      <div class="bhead"><span class="idx">06-B</span><h2>출현과 대응</h2></div>
       <div class="plates two">
         <div class="plate">
           <h3>출동 추이</h3>
-          <p>민간생활권 출동은 연 150회 내외로, 3년 전 약 100회에서 증가했다. 대부분 제0구 격벽 주변과 지하 위험도가 높은 인접지역에 집중된다.</p>
-          <p>뿌리의 재발아 확률은 극히 낮기에 한 번 발아된 구역은 안전 확인과 복구 후 다시 사용된다.</p>
+          <p>민간 구역 출동은 3년 전 연간 약 100건에서 현재 약 150건으로 늘었다. 대부분 제0구 격벽 인근과 그 주변 고위험 지역에서 발생한다.</p>
+          <p>같은 뿌리가 재활성화하는 사례는 극히 드물기 때문에 피해 지역은 안전 점검과 복구를 마친 뒤 다시 사용된다.</p>
         </div>
         <div class="plate">
           <h3>지하 위험도</h3>
-          <p>지하 뿌리망의 밀도와 굵기를 등급화한 지표로, 날씨·지도·부동산 정보처럼 일상적으로 제공된다. 발아 직전 지반 이상을 감지하는 사전경보도 있지만 오탐이 잦다.</p>
+          <p>뿌리의 밀도와 굵기에 따라 지역을 분류하며 날씨나 부동산 정보처럼 일상적으로 제공된다. 조기 경보 체계는 이수 출현 직전 지반 이상을 감지하지만 오경보가 잦다.</p>
         </div>
         <div class="plate">
-          <h3>민간 발아 시</h3>
-          <p>방재 셔터와 대피시설이 자동 가동되고, 재해대응부가 경찰·소방과 대응을 조율한다. 실동부는 이수 처치를 담당한다. 고위험지역의 신축 건물에는 관련 방재설비가 의무화되어 있다.</p>
+          <h3>민간 구역 출현 시</h3>
+          <p>재난 셔터와 대피 시설이 자동으로 작동한다. 재해대응부가 경찰·소방과 협조하고 실동부가 제거를 담당한다. 고위험 지역의 신축 건물에는 재난 대응 설비를 의무적으로 설치해야 한다.</p>
         </div>
         <div class="plate">
           <h3>부동산과 분쟁</h3>
-          <p>격벽 위치와 지하 위험도는 집값·보험료·개발계획에 직접 영향을 준다. 위험등급 산정을 둘러싼 주민·지자체·개발업체의 분쟁도 잦다. 격벽 확장론은 반복해서 제기되지만 낮은 실효성 때문에 추진되지 않는다.</p>
+          <p>위험도 등급과 격벽 위치는 부동산 가격, 보험료, 개발 계획에 직접적인 영향을 준다. 주민·지자체·개발업체 간 등급 분쟁도 흔하다. 격벽 확장안이 반복적으로 제기되지만 실효성이 제한적이라 실제 추진되는 경우는 드물다.</p>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">05-C</span><h2>백화를 대하는 방식</h2></div>
-      <div class="plates">
+      <div class="bhead"><span class="idx">06-C</span><h2>백화를 대하는 방식</h2></div>
+      <div class="plates two">
         <div class="plate">
-          <h3>신앙</h3>
-          <p>백화를 숭배하거나 특별한 생명체로 해석하는 집단 및 종교단체가 존재한다.</p>
+          <h3>관광과 상품</h3>
+          <p>백화는 현재 도쿄의 주요 랜드마크 중 하나다. 주변에 전망 명소, 상품, 관련 사업이 형성돼 있고 25주년을 앞두고 상업 행사도 늘고 있다.</p>
+          <p>관광과 상품 사업은 모두 민간이 운영하며 ADMB는 관여하지 않는다.</p>
         </div>
         <div class="plate">
-          <h3>관광과 추도</h3>
-          <p>백화는 도쿄의 대표적인 랜드마크이자 관광자원이 되었다. 전망·촬영 명소와 관련 상품이 발달했으며, 25주년을 앞두고 상업행사도 늘고 있다.</p>
-          <p>한편 9월 12일과 5월 3일에는 공식 추도식이 열리며, 일부 생존자·유가족은 재난의 상업화에 반발한다.</p>
-          <div class="warn"><b>고지</b>관련 관광·상품 사업은 모두 민간 운영이며, 관리국은 공식 매장이나 굿즈를 운영하지 않는다.</div>
+          <h3>추도와 신앙</h3>
+          <p>9월 12일과 5월 3일에는 공식 추도식이 열리며, 일부 생존자와 유가족은 상업화에 반대한다.</p>
+          <p>백화를 숭배하거나 특별한 생명체로 여기는 단체와 종교 조직도 존재한다.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── 06 관리국 ────────── -->
-  <section class="view" data-view="bureau">
-    <header class="phead">
-      <div class="eyebrow">자료 06</div>
-      <h1>특이재해관리국<span class="en">Bureau of Singular Disaster Management</span></h1>
-      <p class="desc">이케부쿠로 본부와 8개 부서.</p>
-    </header>
-
-    <div class="block">
-      <div class="bhead"><span class="idx">06-A</span><h2>본부</h2></div>
-      <div class="plates">
-        <div class="plate">
-          <p>현 도쿄 서북부의 주요 교통·업무 결절점으로 성장한 이케부쿠로에 위치한다. 일대는 비교적 지하 위험도가 낮으며, 제0구와 민간생활권 양쪽에 접근성이 높다.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="bhead"><span class="idx">06-B</span><h2>부서</h2><span class="en">8 Divisions</span></div>
-      <div class="depts">
-        <div class="dept"><h4>감시분석부</h4><p>뿌리망 관측, 활성 징후 분석, 지하 위험도 산정</p></div>
-        <div class="dept"><h4>봉쇄관리부</h4><p>격벽 유지·보수, 제0구 출입 통제 및 경계</p></div>
-        <div class="dept"><h4>연구기술부</h4><p>이수·정핵·흑정 연구, 개인무기·전투복 설계·제작, 특수장비 관리</p></div>
-        <div class="dept"><h4>의료지원부</h4><p>부상자 치료, 검진, 대원 건강·심리 관리, 복귀 판정</p></div>
-        <div class="dept"><h4>처리회수부</h4><p>사체·잔해 회수, 처리시설 운영</p></div>
-        <div class="dept"><h4>재해대응부</h4><p>주민 대피, 재난문자, 피해 복구, 경찰·소방 연계</p></div>
-        <div class="dept"><h4>운영지원부</h4><p>인사·예산·보급·시설, 양성소 운영, 홍보·대외 창구</p></div>
-        <div class="dept core"><h4>실동부</h4><p>이수 직접 처치, 고위험 구역 진입·확보, 기술인력 호위. 약 120명</p></div>
       </div>
     </div>
   </section>
@@ -911,34 +902,36 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
     <header class="phead">
       <div class="eyebrow">자료 07</div>
       <h1>실동부<span class="en">Field Operations Division</span></h1>
-      <p class="desc">이수를 직접 상대하는 관리국의 현장 부서. 발아 신고가 들어오면 출동해 정핵을 파괴하고, 고위험 구역에 들어가는 기술인력을 호위한다. 이 자료실의 인물들이 속한 곳이다.</p>
+      <p class="desc">인간이 직접 전투해야 할 때 최종 제거를 담당하는 현장 부서. 약 120명, 제1~3과. 고정 전투팀은 없으며 사건마다 새로운 출동팀을 편성한다.</p>
     </header>
 
     <div class="block">
-      <div class="bhead"><span class="idx">07-A</span><h2>규모와 편성</h2></div>
+      <div class="bhead"><span class="idx">07-A</span><h2>구조와 편성</h2></div>
       <div class="plates">
         <div class="plate">
           <ul>
-            <li>현원 약 120명. 실동부장 아래 제1~3과가 있으며, 각 과는 책임관 3명을 포함한 약 40명으로 구성된다. 과별 수행 임무에는 차이가 없다.</li>
-            <li>사건마다 개체 특성, 현장 조건, 가용 인원을 고려해 출동조를 새로 편성한다. 최소 출동 인원은 2명.</li>
-            <li>각 출동팀은 원칙적으로 담당 과의 당번 인원 내에서 편성한다. 다른 과 인원이 함께 투입되는 경우는 대형 사고나 인력 부족 등 예외적인 상황에 한정된다.</li>
-            <li>고정 조는 없으나, 궁합이 맞는 대원끼리 자주 함께 배치되는 경우는 있다.</li>
+            <li>실동부장 아래 약 120명이 있으며 제1과부터 제3과까지 나뉜다. 각 과는 책임관 세 명을 포함해 약 40명으로 구성되며 모두 같은 임무를 수행한다.</li>
+            <li>사건이 발생할 때마다 이수, 현장, 가용 인원에 따라 최소 두 명 이상의 팀을 새로 편성한다.</li>
+            <li>원칙적으로 담당 과의 당직자 중에서 편성하며, 과를 섞은 출동은 대형 사건이나 인원 부족 때만 이루어진다.</li>
+            <li>고정 팀은 없지만 호흡이 잘 맞는 대원들이 자주 함께 배정될 수는 있다.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">07-B</span><h2>근무</h2></div>
+      <div class="bhead"><span class="idx">07-B</span><h2>당직 체계</h2></div>
       <div class="plates two">
         <div class="plate">
-          <h3>당직제</h3>
-          <p>24시간 당직제. 각 과 내부에서 개인별로 당번 / 비번 / 휴무가 순환한다. 각 과가 자체 근무표를 관리하며, 하루 근무자는 평균 13~14명씩 총 약 40명이다. 휴가·부상·교육·외근 등에 따라 변동한다.</p>
+          <h3>3일 주기</h3>
+          <p>각 대원은 1일 차 당직(09:00~다음 날 09:00) → 2일 차 비번 / 당직 종료일 → 3일 차 공휴의 3일 주기로 근무한다.</p>
+          <p>당직은 시설 내 야간 휴식을 포함한 24시간 전체이며 별도의 야간조는 없다. 오전 9시에 인계한 뒤 다음 당직은 48시간 후 시작된다.</p>
+          <p>당직 외에는 각자 외부에서 생활하며 비상시 소집될 수 있지만, 평상시 인력 운용에는 당직자만 투입된다.</p>
         </div>
         <div class="plate">
           <h3>당직 중</h3>
-          <p>출동대기, 제0구 처치, 지하 작업 동행, 훈련·장비점검·타부서 교육 등을 수행한다. 예정 업무가 없을 때는 운동·정비·휴식 등을 비교적 자유롭게 하며, 야간에는 즉응인원을 남기고 순번대로 휴식한다.</p>
-          <p>민간생활권 출동은 통상 2~3일에 한 건이나 최근 증가하는 추세다.</p>
+          <p>각 과에서는 매일 13~14명이 당직한다. 당직 업무에는 대기, 제0구 이수 제거, 지하 호위, 훈련, 임무 검토, 보고서 작성, 장비 점검, 식사, 휴식, 수면이 포함된다.</p>
+          <p>민간 구역 출동은 2~3일에 한 번꼴이며 증가하는 추세다.</p>
         </div>
       </div>
     </div>
@@ -947,63 +940,73 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">07-C</span><h2>인계와 출동</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>교대 시 전·후 당번 책임관이 상황을 인계하고, 새 당번 책임관이 당번자들에게 5~10분 정도의 브리핑을 진행한다.</p>
-          <p>사건 발생 시 당번 책임관이 출동조를 편성하고 핵심 상황을 즉시 전달한다. 대원들은 브리핑과 동시에 장비를 갖춰 출발하며, 상세 정보는 이동 중 관제실에서 추가 전달한다. 민간생활권 발아에는 최우선 긴급출동 지령이 내려진다.</p>
+          <p>오전 9시에 전임 책임관이 후임 책임관에게 상황을 인계하고, 후임은 당직자들에게 5~10분간 브리핑한다.</p>
+          <p>사건이 발생하면 당직 책임관이 대응팀을 편성하고 브리핑한다. 대원들은 즉시 장비를 갖춰 출발하며 이동 중 관제실에서 추가 정보를 받는다. 민간 구역의 이수 출현에 가장 높은 출동 우선순위가 부여된다.</p>
+          <p>출동 명령은 배정된 대원의 단말기로 직접 전송되며 통보받은 사람만 출동한다. 통상 출동을 시설 전체 방송으로 알리지 않는다.</p>
         </div>
       </div>
     </div>
 
     <div class="block">
       <div class="bhead"><span class="idx">07-D</span><h2>책임관</h2></div>
-      <div class="plates two">
+      <div class="plates">
         <div class="plate">
-          <h3>역할</h3>
-          <p>각 과의 책임관 3명은 과 운영을 공동으로 맡으며 당직 순환에 따라 하루 1명씩 근무한다. 당번 책임관은 인계, 가용인원 파악, 당일 인원·임무 운용을 담당한다.</p>
+          <p>각 과에는 책임관이 세 명 있으며 하루에 한 명씩 당직한다. 별도 지시가 없는 한 자기 과의 인원과 출동만 관리한다. 당직 책임관은 인계, 가용 인원 파악, 당일 인원·임무 운용을 담당한다.</p>
+        </div>
+      </div>
+      <div class="plates two" style="margin-top:12px">
+        <div class="plate">
+          <h3>제1과</h3>
+          <p>아틀라스 · 파이크 · 베일</p>
         </div>
         <div class="plate">
-          <h3>선발</h3>
-          <p>대체로 30대~40대 초반의 베테랑으로, 다양한 이수와 복합 현장을 경험한 대원 중 선발된다.</p>
+          <h3>제2과</h3>
+          <p>다이스 · 코일 · 리드</p>
+        </div>
+        <div class="plate">
+          <h3>제3과</h3>
+          <p>그리드 · 크라운 · 녹스</p>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">07-E</span><h2>대원과 양성소</h2></div>
+      <div class="bhead"><span class="idx">07-E</span><h2>양성소와 대원</h2></div>
       <div class="plates">
         <div class="plate">
           <dl class="spec">
-            <div><dt>지원</dt><dd>실동양성소는 만 18세부터 지원 가능하다.</dd></div>
-            <div><dt>교육</dt><dd>필기·실기 시험을 거쳐 1년간 기숙 교육을 받으며, 탈락·이탈률이 높다.</dd></div>
-            <div><dt>수습</dt><dd>수료 후 6개월의 수습과 최종 평가를 거쳐 정식 대원이 된다. 수습대원은 고위험 임무에 투입되지 않는다.</dd></div>
-            <div><dt>연령</dt><dd>정식대원은 20대~30대가 대부분이며, 40대부터는 현장을 떠나는 비율이 높아진다.</dd></div>
+            <div><dt>지원</dt><dd>실동부 양성소는 만 18세부터 지원할 수 있으며 필기와 실기 시험으로 선발한다.</dd></div>
+            <div><dt>훈련</dt><dd>합격자는 중도 탈락률이 높은 1년간의 합숙 훈련을 마친다.</dd></div>
+            <div><dt>수습</dt><dd>이후 6개월간 수습 대원으로 근무한다. 수습 대원은 고위험 임무에 배정되지 않는다.</dd></div>
+            <div><dt>연령</dt><dd>자격을 취득한 대원은 대부분 20~30대이며 40대부터 잔류율이 낮아진다.</dd></div>
           </dl>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">07-F</span><h2>사무실과 생활시설</h2></div>
+      <div class="bhead"><span class="idx">07-F</span><h2>사무실과 시설</h2></div>
       <div class="plates two">
         <div class="plate">
           <h3>사무실</h3>
-          <p>제1~3과는 같은 층의 각기 다른 사무실을 사용한다. 고정석은 두지 않으며 당번자는 공용 책상, 책임관은 고정석을 사용한다. 출동·훈련·외근 등으로 자리를 비우는 경우가 많아 평상시 사무실 인원은 적다.</p>
+          <p>각 과는 같은 층에 별도의 사무실을 둔다. 일반 대원은 공용 책상을 사용하고 책임관에게는 지정석이 있다. 출동과 훈련 때문에 사무실에 사람이 적을 때가 많다.</p>
         </div>
         <div class="plate">
-          <h3>시설</h3>
-          <p>같은 층에 공용 휴게공간과 회의실이 있으며, 청사에는 락커·탈의실·샤워실·수면실·체력단련실·전투훈련장·세미나실 등이 있다. 직원증은 출입·근태·락커·구내시설 이용에 사용하며, 무기보관구역 등은 추가 생체인증을 요구한다.</p>
+          <h3>공용 시설</h3>
+          <p>라운지, 회의실과 세미나실, 사물함, 탈의실, 샤워실, 수면실, 헬스장, 전투 훈련장이 있다. 사원증으로 출입, 근태, 사물함, 내부 시설을 이용하며 무기고 같은 보안 구역에서는 생체 인증도 필요하다.</p>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">07-G</span><h2>복장과 개인장비</h2></div>
+      <div class="bhead"><span class="idx">07-G</span><h2>근무복과 장비</h2></div>
       <div class="plates">
         <div class="plate">
           <dl class="spec">
-            <div><dt>평상시</dt><dd>관리국·소속 표시가 들어간 네이비색 기능성 상의와 카고팬츠 형태의 근무복.</dd></div>
-            <div><dt>훈련</dt><dd>개인 단련에는 개인 운동복, 단체훈련에는 지급된 검은 운동복.</dd></div>
-            <div><dt>출동</dt><dd>개인별 전투복과 장비.</dd></div>
-            <div><dt>행사</dt><dd>공식 행사·추도식·대외업무에는 별도의 정복.</dd></div>
+            <div><dt>일상 근무복</dt><dd>ADMB와 과 표식이 들어간 검은색 기능성 상의와 카고 바지.</dd></div>
+            <div><dt>훈련</dt><dd>자율훈련에서는 개인 운동복, 단체훈련에서는 지급된 검은색 체육복.</dd></div>
+            <div><dt>출동</dt><dd>개인 맞춤 전투복과 장비.</dd></div>
+            <div><dt>행사</dt><dd>공식 행사·추도식·대외 공무에는 정복.</dd></div>
           </dl>
         </div>
       </div>
@@ -1014,13 +1017,26 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="plates two">
         <div class="plate">
           <h3>문화</h3>
-          <p>실동대원은 국가공무원이다. 입직이 어렵고 개인 전문성이 강해, 단순한 상하관계보다 서로 다른 분야의 현장 전문가로 대하는 경향이 있다.</p>
-          <p>내부문화는 비교적 자유롭지만 현장지휘자의 정당한 지시에 대한 불복종은 징계 대상이다. 모든 대원이 유명한 것은 아니나 SNS를 통해 일부 대원에게 팬덤이 형성되기도 한다.</p>
+          <p>실동부 대원은 보수가 높은 국가공무원이다. 까다로운 진입 조건과 개인별 전문성 때문에 엄격한 위계보다 실무 능력을 중시하는 비교적 비격식적인 문화가 형성돼 있다.</p>
+          <p>단, 지정된 현장 지휘관의 명령에 정당한 이유 없이 불복하면 징계를 받는다. 대부분의 대원은 유명인이 아니지만 일부는 SNS에서 많은 팔로워를 얻기도 한다.</p>
         </div>
         <div class="plate">
           <h3>콜사인</h3>
-          <p>대원이 후보를 제출하면 중복·발음·통신상 혼선을 검토해 승인한다. 변경은 가능하지만 절차와 혼선 문제로 대부분 처음 받은 콜사인을 계속 사용한다.</p>
-          <p>현장 무전에서는 본명보다 콜사인을 우선하며, 유명 대원은 대중에게도 콜사인으로 알려진다. 동료끼리 별명처럼 사용하기도 한다.</p>
+          <p>대원은 보통 콜사인으로 불린다. 제출된 이름은 중복, 발음, 무전 명료성을 검토하며 변경도 가능하지만 절차와 혼선 문제 때문에 흔하지 않다.</p>
+          <p>수습 대원은 현장 근무 중 성으로 불리며 최종 자격 취득 직전에 콜사인을 정한다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">07-I</span><h2>업무 범위</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>실동부는 센서 진단, 심도 분석, 데이터 추출 같은 기술·감시 업무를 수행하지 않는다. 해당 업무는 전문 부서에서만 담당한다.</li>
+            <li>모든 통상 순찰은 무인 시스템으로 원격 수행한다. 대원이 순찰을 도는 일은 없다.</li>
+            <li>개인 무기는 출동·훈련·정비 때를 제외하면 실동부 무기고에 보관한다.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1030,8 +1046,8 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
   <section class="view" data-view="people">
     <header class="phead">
       <div class="eyebrow">인물</div>
-      <h1>주요 인물<span class="en">Personnel Roster</span></h1>
-      <p class="desc">실동부 제1~3과 소속 대원 5명. 각 항목에는 전투방식, 외모, 성격, 백스토리가 포함된다.</p>
+      <h1>주요 대원<span class="en">Personnel Roster</span></h1>
+      <p class="desc">실동부 제1~3과 소속 대원 5명. 각 항목에는 전투 방식, 외형, 성격, 말투, 과거, 연애 성향이 포함된다.</p>
     </header>
 
     <div class="block">
@@ -1049,18 +1065,6 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
           </div>
         </a>
 
-        <a class="rcard" href="#/p/homare" style="--accent:#8FA6C9">
-          <div class="rframe">
-            <div class="ph"><i></i><code>assets/characters/homare.jpg</code></div>
-            <img src="assets/characters/homare.jpg" alt="카부라기 호마레" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <div class="rmeta">
-            <div class="rcs">Vanta</div>
-            <div class="rname">카부라기 호마레<small>23세</small></div>
-            <div class="rrole">제2과 · 도검</div>
-          </div>
-        </a>
-
         <a class="rcard" href="#/p/sumito" style="--accent:#9FD8C8">
           <div class="rframe">
             <div class="ph"><i></i><code>assets/characters/sumito.jpg</code></div>
@@ -1073,6 +1077,18 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
           </div>
         </a>
 
+        <a class="rcard" href="#/p/homare" style="--accent:#8FA6C9">
+          <div class="rframe">
+            <div class="ph"><i></i><code>assets/characters/homare.jpg</code></div>
+            <img src="assets/characters/homare.jpg" alt="카부라기 호마레" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="rmeta">
+            <div class="rcs">Vanta</div>
+            <div class="rname">카부라기 호마레<small>23세</small></div>
+            <div class="rrole">제2과 · 일본도</div>
+          </div>
+        </a>
+
         <a class="rcard" href="#/p/katsumi" style="--accent:#E0603F">
           <div class="rframe">
             <div class="ph"><i></i><code>assets/characters/katsumi.jpg</code></div>
@@ -1080,8 +1096,8 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
           </div>
           <div class="rmeta">
             <div class="rcs">Grid</div>
-            <div class="rname">마카베 카츠미<small>28세</small></div>
-            <div class="rrole">제3과 책임관 · 천공창</div>
+            <div class="rname">마카베 카츠미<small>30세</small></div>
+            <div class="rrole">제3과 책임관 · 창</div>
           </div>
         </a>
 
@@ -1116,25 +1132,25 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
         <div class="creal">키도 아마네<span>城戸 周</span></div>
         <div class="ctags">
           <span class="ctag">26세</span>
-          <span class="ctag">178cm</span>
+          <span class="ctag">179cm</span>
           <span class="ctag"><b>제1과</b></span>
           <span class="ctag w"><b>동력 건틀릿</b></span>
         </div>
-        <p class="cstyle">초근접 전투원. 동력 건틀릿으로 이수의 외피와 재생조직을 부수며 정핵까지 파고들어 파괴한다. 민첩성을 살려 대형 개체의 몸을 직접 타고 오르는 전투도 서슴지 않는다.</p>
+        <p class="cstyle">근접 전투 전문가. 동력 건틀릿으로 이수의 외피와 재생 조직을 부수며 코어까지 강제로 길을 내 파괴한다. 뛰어난 기동성을 살려 전투 중 대형 이수의 몸 위로 직접 올라타기도 한다.</p>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="bhead"><span class="idx">A</span><h2>외형</h2></div>
       <div class="plates two">
         <div class="plate">
           <h3>인상</h3>
-          <p>짙은 갈색의 짧은 머리와 노란 눈. 화려한 미남형보다는 생기 있고 친근한 인상이 강하다. 체격 자체가 크게 보이지는 않지만 잔근육이 단단한 체형으로, 특히 어깨·등·전완이 발달했다. 몸 곳곳에 오래된 상처와 가슴·등의 큰 흉터가 남아 있다.</p>
+          <p>짧은 암갈색 머리와 노란 눈. 압도적인 미남형이라기보다는 생기 있고 친근한 인상이다. 겉보기에는 특별히 육중하지 않지만 어깨·등·전완을 중심으로 단단하고 밀도 높은 근육이 잡혀 있다. 몸 곳곳에 오래된 상처가 있으며 가슴과 등에는 큰 흉터가 남아 있다.</p>
         </div>
         <div class="plate">
           <h3>복장</h3>
-          <p>전투복은 가볍고 활동성이 높다. 오른손과 전완을 덮는 건틀릿은 손가락 관절까지 개별 구동하며, 손바닥과 타격면에 흑정을 사용한다.</p>
-          <p>평상복은 편한 옷을 좋아하지만, 알아보는 사람이 많아 외출할 때는 차림에 신경 쓰는 편이다.</p>
+          <p>전투복은 가볍고 기동성이 높다. 오른손과 전완을 덮는 건틀릿은 각 손가락 관절에 동력 장치가 달려 있으며 손바닥과 타격면에 흑정이 삽입돼 있다.</p>
+          <p>평소에는 편안한 캐주얼 차림을 선호하지만 길에서 알아보는 사람이 많아 외출할 때는 외모에 조금 더 신경 쓴다.</p>
         </div>
       </div>
     </div>
@@ -1143,152 +1159,70 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>밝고 활기차며 넉살이 좋다. 애교와 장난기가 많고 능글맞으며 말재주와 유머감각도 뛰어나다.</p>
-          <p>공익홍보영상·예능·인터뷰에 자주 출연하며, 높은 인지도와 친근한 이미지로 '관리국의 아이돌'이라 불린다. 카메라와 관심을 즐기고 팬서비스도 좋다.</p>
-          <p>전투 중에도 농담을 던질 만큼 가벼워 보이지만, 계산과 판단이 빠르고 민첩성·완력 모두 뛰어난 올라운더다.</p>
-          <p>혼자 있기보다 사람과 어울리며 말하는 것을 좋아한다. 퇴근 후 누군가를 붙잡아 밥을 먹고, 별 내용 없는 연락을 자주 보내며, 지나가다 만난 지인을 붙잡고 오래 떠들거나 개인 SNS 라이브를 켜기도 한다.</p>
-          <div class="warn"><b>이면</b>반면 깊은 속마음이나 과거 이야기는 언급을 피하고, 농담으로 얼버무리는 버릇이 있다.</div>
+          <p>밝고 활기차며 외향적이고 낯을 가리지 않는다. 장난기와 애교가 많고 능청스러운 유머 감각과 말재주가 뛰어나다.</p>
+          <p>공익 영상, 예능, 인터뷰 등에 자주 출연한다. 높은 대중 인지도와 친근한 이미지 덕분에 ‘ADMB의 아이돌’이라는 별명으로 불린다. 카메라와 관심을 즐기며 팬 서비스에도 능하다.</p>
+          <p>전투 중에도 농담할 만큼 가벼워 보일 수 있지만 판단과 반응이 빠르며 민첩성과 힘을 두루 갖춘 유능한 올라운더다.</p>
+          <p>혼자 있는 것보다 사람들과 어울리는 것을 좋아한다. 퇴근 뒤 누군가를 끌고 식사하러 가거나, 별 내용 없는 메시지를 자주 보내거나, 우연히 만난 지인을 붙잡고 오래 이야기하거나, 개인 SNS로 가벼운 라이브 방송을 켜곤 한다.</p>
+          <div class="warn"><b>이면</b>깊은 감정이나 과거에 관해서는 이야기하기를 피하며 농담으로 넘기는 경향이 있다.</div>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="bhead"><span class="idx">C</span><h2>말투</h2><span class="en">Voice</span></div>
       <div class="plates">
         <div class="plate">
-          <p>폭력적인 아버지 아래에서 자랐다. 시각장애가 있는 어머니와는 매우 가까워, 귀가하면 하루 있었던 일을 떠들고 장난과 애교를 부리는 다정한 아들이었다. 십대부터는 어머니를 지키겠다며 아버지와 몸싸움을 벌이기도 했다.</p>
-          <p>열다섯 살 때 귀가해 죽어 있는 아버지와 쓰러진 어머니, 그리고 집 안의 소형 이수를 발견했다. 어머니는 도망가라고 했지만 아마네는 이수의 표적을 자신에게 돌렸다. 손에 잡히는 것을 닥치는 대로 휘두르며 버텼고, 중상을 입으면서도 어머니를 안심시키기 위해 계속 말을 걸며 버텼다.</p>
-          <p>그가 의식을 잃은 직후 실동부 대원이 도착했다. 며칠 뒤 중환자실에서 어머니의 사망 소식을 들었다.</p>
-          <p>이후 재해대응부의 지원으로 기숙형 청소년보호시설에서 생활하며 학업을 이어갔다. 그를 구조한 실동대원 쿠제 나오토는 가족의 장례를 돕고 이후에도 종종 찾아오며 보호자 역할을 했고, 아마네에게 처음으로 믿고 의지할 수 있는 아버지 같은 존재가 되었다.</p>
-          <p>만 18세에 실동양성소에 입소해, 이후 쿠제와 같은 제1과에서 근무했다. 쿠제는 현재 현역에서 물러나 양성소 교관으로 일하고 있으며, 지금도 만나면 습관처럼 '아저씨'라고 불러 잔소리를 듣는다.</p>
+          <p>활기차고 친근한 반말.</p>
+          <div class="lines">
+            <div class="line">한가해? 그럼 밥 먹으러 가자. 안 한가해도 가자. 나 혼자 먹는 거 싫어하거든.</div>
+            <div class="line">괜찮아, 괜찮아. 내가 먼저 갈게. 위험해 보이면 제대로 소리 지를 테니까.</div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>과거</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>폭력적인 아버지 밑에서 자랐다. 시각장애가 있는 어머니와 매우 가까웠고, 집에 돌아오면 하루 동안 있었던 일을 재잘거리거나 농담하고 애교를 부리곤 했다. 십 대가 된 뒤에는 자신이 어머니를 지키겠다며 아버지에게 물리적으로 맞서기 시작했다.</p>
+          <p>열다섯 살 때 집에 돌아와 죽어 있는 아버지와 쓰러진 어머니, 집 안에 들어온 소형 이수를 발견했다. 어머니는 도망치라고 했지만 그는 일부러 이수의 주의를 자신에게 끌었다. 손에 잡히는 것은 무엇이든 사용해 맞서 싸웠고, 심각한 부상을 입으면서도 어머니를 안심시키기 위해 계속 말을 걸었다.</p>
+          <p>그가 의식을 잃은 직후 실동부 대원이 도착했다. 며칠 뒤 중환자실에서 깨어난 그는 어머니가 사망했다는 사실을 알게 됐다.</p>
+          <p>재해대응부의 지원을 받아 청소년 보호시설에서 생활하며 학업을 이어갔다. 자신을 구한 실동부 대원 쿠제 나오토는 가족의 장례 절차를 도왔고 이후에도 계속 찾아왔다. 쿠제는 그가 진정으로 믿고 의지할 수 있었던 첫 어른이었으며, 결국 아버지에 가까운 존재가 됐다.</p>
+          <p>열여덟 살에 실동부 양성소에 입소했고 이후 쿠제와 함께 제1과에 배속됐다. 쿠제는 현재 현역에서 은퇴해 양성소 교관으로 일한다. 지금도 만날 때마다 습관적으로 그를 ‘영감’이라고 불러 늘 똑같은 잔소리를 듣는다.</p>
+          <div class="warn"><b>알려지지 않은 이야기</b>그의 과거는 널리 알려져 있지 않으며, 가장 가까운 사람에게도 스스로 거의 꺼내지 않는다.</div>
+        </div>
+      </div>
+    </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">D</span><h2>트리비아</h2></div>
+      <div class="bhead"><span class="idx">E</span><h2>기타</h2></div>
       <div class="plates">
         <div class="plate">
           <ul>
-            <li>음식을 가리지 않고 대부분 맛있다고 느낀다. 남에게 추천했다가 의도치 않게 피해자를 만들곤 한다.</li>
-            <li>휴일에도 집에 혼자 있는 것을 별로 좋아하지 않는다. 약속을 잡거나 헬스장에 가고, 새로운 취미를 찾느라 늘 바쁘다.</li>
-            <li>봉사, 기부, 모금행사 홍보 등의 활동을 적극적으로 한다.</li>
-            <li>팬레터는 버리지 못하며, 악성 댓글은 웃긴 것만 캡처해 저장한다.</li>
+            <li>음식을 가리지 않고 거의 무엇이든 맛있다고 생각한다. 그의 추천을 믿었다가 피해를 본 사람이 적지 않다.</li>
+            <li>휴일에도 혼자 집에 있는 것을 싫어한다. 약속을 잡거나 헬스장에 가거나 새로운 취미를 시도하며 바쁘게 지낸다.</li>
+            <li>봉사 활동, 기부, 모금 캠페인에 적극적으로 참여한다.</li>
+            <li>팬레터를 차마 버리지 못한다. 악성 댓글은 웃길 때만 캡처해 저장한다.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">E</span><h2>러브타입</h2></div>
+      <div class="bhead"><span class="idx">F</span><h2>연애 성향</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>장난을 위한 플러팅은 거리낌 없지만, 진심으로 좋아하게 되면 오히려 조심스러워지고 부드러운 면이 드러난다.</p>
-          <p>연애가 시작되면 매우 다정하고 애정표현이 많다. 상대의 기분을 자주 살피며 웃게 해주려 한다.</p>
-          <p>반면 질투·서운함·상처받은 일은 잘 말하지 못한다. 상대에게 싫은 소리를 하기 어려워하고, 자신이 힘든 일도 혼자 감추는 편이다.</p>
+          <p>재미 삼아 가볍게 플러팅하는 데는 거리낌이 없지만 진심으로 좋아하게 되면 눈에 띄게 조심스럽고 다정해진다.</p>
+          <p>연애를 시작하면 애정 표현이 많고 솔직하다. 연인의 기분을 세심하게 살피며 자주 웃게 해주려 한다.</p>
+          <p>하지만 질투나 서운함, 상처받은 감정을 말로 표현하기 어려워한다. 상대가 듣고 싶어 하지 않을 말을 꺼내는 데 서툴고, 부담을 주기보다는 자신의 힘든 사정을 숨기려 한다.</p>
         </div>
       </div>
     </div>
 
     <div class="cnext">
-      <a href="#/people">← 전체 명단</a>
-      <a href="#/p/homare">카부라기 호마레 →</a>
-    </div>
-  </section>
-
-  <!-- ══════════ 카부라기 호마레 ══════════ -->
-  <section class="view" data-view="p/homare" data-title="카부라기 호마레" style="--accent:#8FA6C9">
-    <a class="backlink" href="#/people">전체 명단</a>
-    <div class="cprofile">
-      <div class="cframe">
-        <div class="ph"><i></i><code>assets/characters/homare.jpg</code></div>
-        <img src="assets/characters/homare.jpg" alt="카부라기 호마레" onerror="this.style.display='none'">
-        <div class="cframe-tag">제2과 / KABURAGI HOMARE</div>
-      </div>
-      <div class="cinfo">
-        <div class="ceyebrow">Callsign</div>
-        <h1>Vanta</h1>
-        <div class="creal">카부라기 호마레<span>鏑木 誉</span></div>
-        <div class="ctags">
-          <span class="ctag">23세</span>
-          <span class="ctag">186cm</span>
-          <span class="ctag"><b>제2과</b></span>
-          <span class="ctag w"><b>도검</b></span>
-        </div>
-        <p class="cstyle">관절과 외피의 이음새를 빠르게 절개해 정핵까지 최단경로를 만든다. 속도와 정확도가 뛰어나며, 빠르고 유려한 검술로 전투가 화려하다.</p>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
-      <div class="plates two">
-        <div class="plate">
-          <h3>인상</h3>
-          <p>검은 머리, 창백한 피부, 짙은 검은 눈. 이목구비가 뚜렷한 미남으로 키가 크고 팔다리가 긴 날렵한 체형이다. 차갑고 접근하기 어려운 인상을 준다.</p>
-        </div>
-        <div class="plate">
-          <h3>복장</h3>
-          <p>전투복은 몸에 맞는 슬림한 형태로, 올블랙에 실버 벨트 같은 포인트를 넣었다. 도검은 허리 뒤에 비스듬히 차며 뽑았을 때의 실루엣까지 신경 쓴다.</p>
-          <p>평상복도 소재와 핏을 중시하며 재킷과 신발이 많다. 액세서리를 하나 이상 착용하고 옷에 돈을 아끼지 않는다.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
-      <div class="plates">
-        <div class="plate">
-          <p>말수가 적고 반응도 크지 않다. 기본적으로 시큰둥하고 귀찮다는 태도다.</p>
-          <p>자기 실력에 대한 확신이 강하고 겸손한 척하지 않아 건방지게 보인다. 배속 초기 소형 기지종 여러 체를 허가 없이 단독처치해 징계를 받았으며, 당시 경위서의 '내가 뭘 잘못했는지 모르겠음'은 실동부 내에서 유명하다.</p>
-          <p>자존심과 승부욕이 강하다. 불가능하다는 말을 들으면 오히려 해낼 이유가 생긴다. 한번 할 수 있다고 한 일은 끝까지 물고 늘어져 결과를 만들어낸다. 그 과정에서 무모한 선택도 서슴지 않는다.</p>
-          <p>자신의 눈에 띄지 않는 사람에게는 놀랄 만큼 무관심하다. 도발에는 매우 잘 걸리고, 아무리 유치한 승부라도 패배한 일은 오래 기억한다.</p>
-          <div class="warn"><b>비밀도 아닌 비밀</b>멋있게 보이는 걸 좋아하지만 들키기 싫어한다. 콜사인은 지금까지 두 번 바꿨으며, 현재 사용하는 '반타'는 제법 마음에 들어 하는 듯하다.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
-      <div class="plates">
-        <div class="plate">
-          <p>어릴 때부터 운동과 경쟁을 좋아했고, 남들이 어렵다고 하는 일을 해내는 데 강한 만족감을 느꼈다. 합격자가 적고 실력이 그대로 결과로 드러나는 실동부에 끌려 지원했다.</p>
-          <p>양성소에서 여러 무기를 접한 뒤 가장 멋있다는 이유로 도검을 골랐다. 다루기 까다로워 선택하는 사람이 드문 무기였고, 처음에는 호마레 역시 생각만큼 잘 다루지 못해 다른 무기로 바꾸라는 권유를 받았다. 하지만 고집을 꺾지 않고 집요하게 연습해 결국 자신의 주무기로 만들었다.</p>
-          <p>배속 후 빠르게 실전 경험을 쌓았으나 자존심과 독단성 때문에 선배·동료들과 충돌하고 징계를 받기도 했다. 다루기 까다로운 문제아라는 평가는 여전하지만, 실력만큼은 누구도 부정하지 않는다.</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="block">
-      <div class="bhead"><span class="idx">D</span><h2>트리비아</h2></div>
-      <div class="plates">
-        <div class="plate">
-          <ul>
-            <li>한때 백발로 탈색했다. 본인은 꽤 마음에 들어 했지만 머릿결이 심하게 상한 뒤로는 하지 않는다.</li>
-            <li>팬들이 붙여주는 멋있는 별명은 은근히 좋아하지만 귀여운 계열은 질색한다.</li>
-            <li>무광 블랙의 커스텀 바이크로 출퇴근한다.</li>
-            <li>향수나 옷을 고를 때는 오래 걸린다. 직원 설명을 한참 듣고도 결국 처음부터 마음에 들었던 제품을 사는 경우가 많다.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="block">
-      <div class="bhead"><span class="idx">E</span><h2>러브타입</h2></div>
-      <div class="plates">
-        <div class="plate">
-          <p>좋아하면 감출 생각도 없이 직진한다. 다만 하는 말들이 전부 당당하고 자기중심적이며, 부끄러움이 없다.</p>
-          <p>상대에게 멋있게 보이려고 더 과감하게 행동하고, 경쟁자가 생기면 노골적으로 신경 쓴다.</p>
-          <p>처음부터 직선적이기에 연애가 시작되어도 별로 달라지지 않는다. 싸우면 자존심 때문에 사과는 늦지만 냉전은 더 못 견딘다.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="cnext">
-      <a href="#/p/amane">← 키도 아마네</a>
       <a href="#/people">전체 명단</a>
-      <a href="#/p/sumito">마시바 스미토 →</a>
+      <a href="#/p/sumito">SILK →</a>
     </div>
   </section>
 
@@ -1311,21 +1245,21 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
           <span class="ctag"><b>제2과</b></span>
           <span class="ctag w"><b>동력 와이어</b></span>
         </div>
-        <p class="cstyle">고강도 동력 와이어를 이수의 관절이나 외피 틈에 걸어 조이고, 사지를 뜯어내 정핵을 노출시킨다. 와이어 끝의 흑정제 앵커로 정핵을 파괴한다. 구조물이나 개체에 와이어를 걸어 이동과 자세 제어에도 활용하며, 이수의 골격과 신체 구조를 파악하는 능력이 뛰어나다.</p>
+        <p class="cstyle">동력 와이어로 이수의 관절을 묶고 뜯어내 코어를 노출시킨다. 와이어를 이용해 거리를 좁히고 위치를 제어한 뒤 흑정 앵커를 손에 쥐고 근거리에서 코어를 파괴한다.</p>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="bhead"><span class="idx">A</span><h2>외형</h2></div>
       <div class="plates two">
         <div class="plate">
           <h3>인상</h3>
-          <p>갈색 눈의 부드러운 눈매. 연한 베이지색 단발을 반쯤 묶고 다닌다. 단정하고 편안한 인상에 잔잔한 목소리와 웃는 얼굴이 더해져 상냥한 선배 같은 분위기를 준다.</p>
+          <p>부드러운 갈색 눈. 턱까지 오는 연한 베이지색 머리를 반묶음으로 올린다. 단정하고 여유로운 인상, 조용한 목소리와 부드러운 미소 때문에 친절한 선배 같은 분위기를 풍긴다.</p>
         </div>
         <div class="plate">
           <h3>복장</h3>
-          <p>전투복은 와이어가 걸리지 않는 밀착형 바디수트로, 등과 허리 양쪽에 릴과 고정부가 있다. 보호력보다 조작감을 중시해 얇은 장갑을 고집하며, 섬세한 손에는 잔흉터와 굳은살이 많다.</p>
-          <p>평상복도 편안하고 단정한 스타일을 선호한다.</p>
+          <p>전투복은 와이어가 걸리지 않도록 몸에 밀착되는 보디슈트 형태이며 등과 허리 양옆에 릴과 앵커 거치대가 있다. 보호력보다 조작감을 중시해 얇은 장갑을 고집하며, 섬세해 보이는 손에는 자잘한 상처와 굳은살이 가득하다.</p>
+          <p>비번에도 편안하고 단정한 옷을 선호한다.</p>
         </div>
       </div>
     </div>
@@ -1334,56 +1268,176 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>온화하고 말투가 부드러워 사람들과 자연스럽게 어울린다. 웬만한 일에는 동요하지 않으며, 당황한 사람을 진정시키거나 분위기를 누그러뜨리는 데 능하다.</p>
-          <p>호기심이 매우 강해 남들이 물러설 상황에서도 궁금하면 먼저 들여다본다. 이수를 좋아한다는 사실도 숨기지 않으며, 뒤틀린 관절이나 기묘한 턱 구조조차 귀엽다고 여긴다.</p>
-          <p>은근히 장난기가 많고 사람의 반응을 보는 것을 즐긴다. 끔찍하거나 이상한 말을 태연하게 꺼냈다가 상대가 굳으면 웃으며 농담으로 넘긴다. 특히 반응이 크고 솔직한 사람을 재미있어한다.</p>
-          <p>사람을 자기 페이스로 끌어들이는 데 능하다. 칭찬이나 부탁을 자연스럽게 건네고, 가까워질수록 상대의 반응을 살피며 거리를 조금씩 좁힌다.</p>
-          <div class="warn"><b>관심의 온도</b>누구에게나 상냥하지만 관심의 깊이는 분명히 다르다. 한 번 흥미를 느낀 대상에게는 유난히 집요해져 사소한 변화까지 기억하고 오래 관찰한다.</div>
+          <p>다정하고 말수가 차분해 사람들과 쉽게 어울린다. 웬만한 일에는 동요하지 않으며 긴장한 사람을 진정시키거나 험악한 분위기를 누그러뜨리는 데 능하다.</p>
+          <p>호기심이 매우 강해 흥미가 생기면 다른 사람들이 물러날 때도 가까이 들여다본다. 이수를 좋아한다는 사실을 숨기지 않으며 뒤틀린 관절이나 기묘한 턱 구조조차 귀엽게 여길 수 있다.</p>
+          <p>은근히 짓궂은 면이 있어 사람들의 반응을 구경하는 것을 좋아한다. 섬뜩하거나 이상한 말을 태연하게 던진 뒤 상대가 굳으면 농담이라며 웃어넘기곤 한다. 특히 반응이 크고 솔직한 사람을 좋아한다.</p>
+          <p>다른 사람을 자기 속도에 끌어들이는 데 능하다. 칭찬과 부탁이 자연스럽고, 가까워질수록 상대의 반응을 세심하게 살피며 서서히 거리를 좁힌다.</p>
+          <div class="warn"><b>관심의 온도</b>누구에게나 친절하지만 관심의 깊이는 크게 다르다. 한번 흥미를 느낀 사람에게는 유난히 집요해져 작은 변화도 기억하고 오랫동안 관찰한다.</div>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="bhead"><span class="idx">C</span><h2>말투</h2><span class="en">Voice</span></div>
       <div class="plates">
         <div class="plate">
-          <p>어린 시절부터 이수 관련 영상과 자료를 찾아보며 골격과 움직임에 강한 관심을 보였다. 무섭거나 혐오스럽기보다, 같은 계통에서도 구조가 조금씩 달라지는 점을 흥미롭게 여겼다.</p>
-          <p>양성소에서도 이수 구조와 계통 분석 관련 과목에서 높은 성적을 냈다. 연구직도 권유받았지만 자료나 사체를 분석하는 것보다 살아 움직이는 개체와 직접 접촉하는 쪽이 더 끌려 실동부를 선택했다.</p>
-          <p>현장에 나온 뒤에는 같은 이수가 하나도 없다는 점에 더욱 매료되었다. 새로운 구조나 변이를 발견하면 전투 후 가장 먼저 기록을 확인하며, 연구기술부에도 지인이 많다.</p>
+          <p>부드럽고 여유로운 존댓말.</p>
+          <div class="lines">
+            <div class="line">그럼 여기를 잡고 계세요. 괜찮아요. 손가락까지 날아가지는 않을 것 같으니까요. ……아마도요.</div>
+            <div class="line">싫으면 거절하셔도 돼요. 이미 참가하시는 걸로 생각하고 인원에는 넣어뒀지만요.</div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>과거</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>어릴 때부터 이수에 관한 영상과 자료를 찾아보며 골격 구조와 움직임에 큰 관심을 키웠다. 이수를 무섭거나 혐오스럽게 여기기보다는 같은 종류의 개체도 구조가 조금씩 다르다는 점에 매료됐다.</p>
+          <p>양성소에서는 이수 해부학과 종류 분석 관련 과목에서 높은 성적을 받았다. 연구직을 권유받았지만 기록이나 사체를 연구하는 것보다 살아 움직이는 개체와 직접 접촉하는 일이 훨씬 매력적이라고 느껴 실동부를 택했다.</p>
+          <p>현장에 나온 뒤에는 완전히 똑같은 이수가 하나도 없다는 사실에 더욱 매료됐다. 새로운 구조나 변이가 나타나면 대개 가장 먼저 전투 후 기록을 확인하며 연구기술부에도 아는 사람이 많다.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">D</span><h2>트리비아</h2></div>
+      <div class="bhead"><span class="idx">E</span><h2>기타</h2></div>
       <div class="plates">
         <div class="plate">
           <ul>
-            <li>곤충을 싫어한다. 큰 나방이 사무실에 들어오면 조용히 방을 나간다. 이수는 귀여워하면서 곤충은 징그럽다고 여긴다.</li>
-            <li>베이킹을 좋아해 주변에 자주 나눠준다. 완성품은 대체로 기괴하게 생겼지만 맛은 상당히 좋다는 평가를 받는다.</li>
-            <li>아침에 매우 약하다. 기상 직후에는 평소의 미소와 존댓말도 사라지고 눈도 제대로 못 뜬 채 단답만 한다. 꼭 모닝커피를 마신다.</li>
-            <li>운전이 거칠다. 차선 변경과 주차를 지나치게 과감하게 하면서도 본인은 안전운전이라고 주장한다.</li>
+            <li>곤충을 싫어한다. 사무실에 커다란 나방이 들어오면 조용히 방을 나간다. 이수는 귀엽다고 생각하지만 곤충은 징그럽게 여긴다.</li>
+            <li>베이킹을 좋아하고 자신이 만든 것을 종종 다른 사람들에게 나눠준다. 완성품은 대개 기묘하게 생겼지만 맛은 상당히 좋다는 평가를 받는다.</li>
+            <li>아침에 매우 약하다. 막 잠에서 깬 뒤에는 평소의 미소와 존댓말이 사라지고 눈도 제대로 뜨지 못한 채 한두 마디밖에 하지 못한다. 모닝커피가 반드시 필요하다.</li>
+            <li>운전을 거칠게 한다. 차선 변경과 주차가 지나치게 과감하지만 본인은 안전 운전이라고 주장한다.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">E</span><h2>러브타입</h2></div>
+      <div class="bhead"><span class="idx">F</span><h2>연애 성향</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>조용히 상대의 일상에 침투한다. 상대가 알아차릴 때쯤에는 이미 꽤 가까워져 있다.</p>
-          <p>자기 얼굴과 분위기가 상대에게 통한다는 걸 알고 필요하면 은근히 이용한다. 웃으며 가까이 기대거나 거절하기 어려운 방식으로 부탁한다.</p>
-          <p>연애가 시작되면 예상보다 응석이 많다. 관심을 받고 싶어 하고, 상대가 자기에게 집중해 주면 매우 만족한다. 웃으면서 무서운 소리를 하는 버릇은 그대로다.</p>
+          <p>조용히 상대의 일상에 파고든다. 상대가 알아차릴 무렵에는 이미 상당히 가까워져 있다.</p>
+          <p>자신의 외모와 태도가 사람들에게 먹힌다는 사실을 알고 필요할 때 은근히 활용한다. 미소 지으며 가까이 다가가거나 거절하기 어려운 방식으로 부탁하곤 한다.</p>
+          <p>연애를 시작하면 예상보다 관심을 많이 요구한다. 상대가 자신에게 집중해주는 것을 원하고 무척 기뻐한다. 웃으며 섬뜩한 말을 하는 버릇은 변하지 않는다.</p>
         </div>
       </div>
     </div>
 
     <div class="cnext">
-      <a href="#/p/homare">← 카부라기 호마레</a>
+      <a href="#/p/amane">← PULSE</a>
       <a href="#/people">전체 명단</a>
-      <a href="#/p/katsumi">마카베 카츠미 →</a>
+      <a href="#/p/homare">VANTA →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ 카부라기 호마레 ══════════ -->
+  <section class="view" data-view="p/homare" data-title="카부라기 호마레" style="--accent:#8FA6C9">
+    <a class="backlink" href="#/people">전체 명단</a>
+    <div class="cprofile">
+      <div class="cframe">
+        <div class="ph"><i></i><code>assets/characters/homare.jpg</code></div>
+        <img src="assets/characters/homare.jpg" alt="카부라기 호마레" onerror="this.style.display='none'">
+        <div class="cframe-tag">제2과 / KABURAGI HOMARE</div>
+      </div>
+      <div class="cinfo">
+        <div class="ceyebrow">Callsign</div>
+        <h1>Vanta</h1>
+        <div class="creal">카부라기 호마레<span>鏑木 誉</span></div>
+        <div class="ctags">
+          <span class="ctag">23세</span>
+          <span class="ctag">186cm</span>
+          <span class="ctag"><b>제2과</b></span>
+          <span class="ctag w"><b>일본도</b></span>
+        </div>
+        <p class="cstyle">이수의 관절과 외피 틈을 빠르게 베어 코어까지 이어지는 최단 경로를 만든다. 속도와 정밀도가 뛰어나며 빠르고 유려한 검술 덕분에 전투 모습도 시각적으로 화려하다.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">A</span><h2>외형</h2></div>
+      <div class="plates two">
+        <div class="plate">
+          <h3>인상</h3>
+          <p>검은 머리, 창백한 피부, 옅은 푸른 눈. 눈에 띄는 미남이며 키가 크고 팔다리가 긴 마른 체형이라 차갑고 접근하기 어려운 인상을 준다.</p>
+        </div>
+        <div class="plate">
+          <h3>복장</h3>
+          <p>전투복은 검은색을 중심으로 은색 벨트 등의 포인트가 들어간 날렵한 밀착형이다. 일본도의 칼날에는 흑정이 사용됐다. 허리 뒤에 비스듬히 차며, 칼을 뽑았을 때의 실루엣까지 신경 쓴다.</p>
+          <p>사복도 소재와 핏을 중시한다. 재킷과 신발을 여러 벌 갖고 있으며 액세서리를 적어도 하나는 반드시 착용하고 옷에는 돈을 아끼지 않는다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>평소에는 무심하고 어딘가 지루해 보이는 태도가 기본이다.</p>
+          <p>자신의 실력에 절대적인 자신감이 있으며 겸손한 척할 생각도 없어 오만하게 보일 수 있다. 배속 초기에는 허가 없이 소형 기지종 이수 여러 마리를 혼자 제거해 징계를 받은 적이 있다. 당시 경위서에 쓴 “뭐가 잘못됐는지 모르겠다”는 문장은 아직도 실동부에서 유명하다.</p>
+          <p>자존심과 승부욕이 매우 강하다. 불가능하다는 말을 들으면 오히려 해내야 할 이유로 삼는다. 한번 할 수 있다고 선언하면 무모한 선택을 해서라도 결과를 낼 때까지 집요하게 매달린다.</p>
+          <p>자신의 흥미를 끌지 못한 사람에게는 놀랄 만큼 무관심하다. 도발에 극도로 쉽게 넘어가며 유치한 패배도 오랫동안 기억한다.</p>
+          <div class="warn"><b>비밀도 아닌 비밀</b>멋있어 보이는 것을 좋아하지만 자신이 신경 쓴다는 사실을 들키기는 싫어한다. 지금까지 콜사인을 두 번 바꿨고 현재의 VANTA에는 꽤 만족하는 듯하다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">C</span><h2>말투</h2><span class="en">Voice</span></div>
+      <div class="plates">
+        <div class="plate">
+          <p>짧고 무뚝뚝한 반말.</p>
+          <div class="lines">
+            <div class="line">무리라고? ……그래. 그럼 보고 있어.</div>
+            <div class="line">나한테 이기고 말해. 설득력 없으니까.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>과거</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>어릴 때부터 스포츠와 경쟁을 즐겼으며 남들이 어렵다고 여기는 일을 해냈을 때 강한 만족감을 느꼈다. 합격자가 적고 개인의 실력이 결과로 직결된다는 점에 끌려 실동부를 지망했다.</p>
+          <p>양성소에서 여러 무기를 훈련한 뒤 단순히 가장 멋있어 보인다는 이유로 일본도를 골랐다. 다루기 어려워 선택하는 훈련생이 적었고 처음에는 그 역시 고전했다. 다른 무기로 바꾸라는 권유를 받았지만 고집스럽게 거부하고 집요하게 훈련해 결국 주 무기로 삼았다.</p>
+          <p>배속 뒤 빠르게 현장 경험을 쌓았으나 자존심과 독단적인 행동 때문에 선배·동료와 계속 충돌했고 때로는 징계를 받았다. 지금도 까다로운 문제아로 여겨지지만 실력을 부정하는 사람은 없다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">E</span><h2>기타</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <ul>
+            <li>한때 머리를 백발로 탈색했다. 모습은 마음에 들었지만 머릿결이 심하게 상해 그만뒀다.</li>
+            <li>팬들이 붙여주는 멋있는 별명은 남몰래 좋아하지만 귀여운 별명은 싫어한다.</li>
+            <li>무광 검정색으로 커스텀한 바이크로 출퇴근한다.</li>
+            <li>향수나 옷을 고르는 데 오래 걸린다. 직원에게 여러 선택지의 설명을 듣고도 결국 처음부터 마음에 들었던 물건을 사는 경우가 많다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="bhead"><span class="idx">F</span><h2>연애 성향</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>연애에서는 직진하며 거리낌이 없다. 호감을 숨기거나 변명하지 않으며, 좋아하면 좋아한다고 말하고 행동한다. 애정을 의무나 실용성, 무관심으로 포장하지 않는다.</p>
+          <p>거절당할 가능성을 거의 생각하지 않으며 실제로 거절당하면 받아들이기 어려워할 수 있다.</p>
+          <p>애정 표현은 다소 자기중심적이고 명령조일 수 있으며, 자신이 원하는 것을 상대가 들어주는 게 당연하다는 듯 요구하는 경향이 있다.</p>
+          <div class="warn"><b>츤데레가 아니다</b>친절이나 애정을 부정하거나 축소하지 않으며 변명도 만들어내지 않는다. 감사나 칭찬을 받아도 물러서지 않는다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cnext">
+      <a href="#/p/sumito">← SILK</a>
+      <a href="#/people">전체 명단</a>
+      <a href="#/p/katsumi">GRID →</a>
     </div>
   </section>
 
@@ -1401,26 +1455,26 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
         <h1>Grid</h1>
         <div class="creal">마카베 카츠미<span>真壁 克己</span></div>
         <div class="ctags">
-          <span class="ctag">28세</span>
+          <span class="ctag">30세</span>
           <span class="ctag">182cm</span>
           <span class="ctag"><b>제3과 책임관</b></span>
-          <span class="ctag w"><b>천공창</b></span>
+          <span class="ctag w"><b>창</b></span>
         </div>
-        <p class="cstyle">길고 가는 천공창으로 내부 저항을 읽어 정핵 위치를 좁힌 뒤, 깊게 찔러 각도를 바꾸며 천공한다. 동작이 절제되어 있고 불필요한 움직임이 거의 없는 실전형 전투방식. 실동부 제3과 책임관 중 한 명으로, 지정 당시 최연소였다.</p>
+        <p class="cstyle">창으로 내부의 저항을 읽어 코어 위치를 좁힌 뒤 깊숙이 찔러 넣고 각도를 바꿔 뚫는다. 불필요한 동작이 거의 없는 실용적이고 절제된 전투 방식이다. 실동부 제3과 책임관 중 한 명이며 역대 최연소로 임명됐다.</p>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="bhead"><span class="idx">A</span><h2>외형</h2></div>
       <div class="plates two">
         <div class="plate">
           <h3>인상</h3>
-          <p>짧고 단정한 은색 머리, 붉은 눈과 날카로운 눈매. 대체로 무표정하거나 인상을 쓰고 있어 차갑고 까다로운 인상을 준다. 피곤할수록 눈 밑 그늘이 짙어진다.</p>
+          <p>짧고 단정한 은발과 붉은 눈, 날카로운 눈매. 평소 무표정하거나 인상을 쓰고 있어 차갑고 까다로운 인상을 준다.</p>
         </div>
         <div class="plate">
           <h3>복장</h3>
-          <p>전투복은 움직임을 방해하지 않는 수트 스타일로, 장비 배치도 최소화되어 있다. 천공창은 길고 가는 형태로 정밀한 찌르기와 내부 탐색에 특화되어 있다.</p>
-          <p>평상복은 셔츠, 니트, 어두운 팬츠처럼 단정한 차림을 선호한다.</p>
+          <p>전투복은 움직임을 방해하지 않도록 유선형으로 설계됐으며 장비는 최소한으로 구성된다. 창은 길고 가늘며, 정밀한 찌르기와 내부 구조 탐색, 코어 파괴에 특화된 흑정 창날이 달려 있다.</p>
+          <p>사복은 셔츠와 슬랙스처럼 깔끔하고 단순한 옷을 선호한다.</p>
         </div>
       </div>
     </div>
@@ -1429,58 +1483,70 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>퉁명스럽고 무뚝뚝하며 말이 거칠다. 평소에도 욕설이 종종 섞이고, 짜증이 나면 바로 티가 난다. 위계를 엄격히 따지지는 않지만 교전 중에는 안전수칙과 확인 절차에 엄격하며, 고성과 욕설도 훨씬 잦아진다. 애매한 보고나 변명을 특히 싫어한다.</p>
-          <p>장황한 설명이나 훈계를 싫어하며 사실과 결론부터 짧게 말하는 편이다.</p>
-          <p>현장 판단에 관해서는 자신에게도 가혹하다. 자신의 판단이 늦었거나 불필요한 위험을 만들었다고 여기면 오래 곱씹지만, 그 책임을 남에게 돌리지는 않는다.</p>
-          <p>표현은 거칠지만 후임을 은근히 잘 챙기는 편이다. 감사라도 받으면 귀찮다는 듯 돌려보낸다. 체력·수면·식사 관리도 업무의 일부라고 여기며, 컨디션을 핑계로 평소보다 못하는 것을 용납하지 않는다.</p>
-          <div class="warn"><b>민간인 앞에서</b>전투에서는 고성을 지르다가도, 민간인 앞에서는 침착하게 상황을 설명하고 안심시키며 구조한다.</div>
+          <p>성질이 급하고 냉소적이다. 사소한 일에는 짧고 건조하며 무심하게 반응하고, 직설적이고 거친 말투를 쓴다. 브리핑에서는 사실과 결론만 말한다. 장황한 설명, 모호한 보고, 변명을 싫어한다.</p>
+          <p>위계질서에 관심이 적고 후배 대원이 자신에게 격식을 차리는지도 신경 쓰지 않는다. 그러나 전투에서는 극도로 엄격해지며 고함이나 욕설도 서슴지 않는다.</p>
+          <p>특히 자기 자신에게 가혹하다. 문제가 생기면 대원들을 질책할 수는 있어도 결국 자신이 책임지려 한다.</p>
+          <div class="warn"><b>무심해 보이지만</b>사소한 부분까지 기억하고 있으며, 외부인이 제3과 대원을 험담하거나 부당하게 압박하는 것은 참지 못한다.</div>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="bhead"><span class="idx">C</span><h2>말투</h2><span class="en">Voice</span></div>
       <div class="plates">
         <div class="plate">
-          <p>19세에 실동부에 들어왔다. 적성이 맞고 전문성이 분명한 직업이라 선택했으며, 당시에는 지금보다 훨씬 유연한 성격이었다.</p>
-          <p>5년 전, 23세 때 익숙한 기지종의 지하 대응임무에 참가했다. 경험 많은 대원들로 구성된 통상 출동이었고, 작은 이상징후가 있었지만 누구도 작전을 멈출 정도로 여기지 않았다. 카츠미 역시 그대로 넘어갔다.</p>
-          <p>이후 예상 밖의 변이와 추가 발아, 통신두절이 겹치며 상황이 붕괴했다. 초기에 넘긴 이상징후와 확인 누락이 치명적으로 돌아왔고, 함께 진입한 대원들은 모두 사망했다. 카츠미만 살아 돌아왔다.</p>
-          <p>공식 조사에서는 특정 개인의 책임으로 결론 나지 않았지만, 카츠미는 자신이 한 번만 더 확인했거나 이상징후를 더 강하게 보고했더라면 결과가 달랐을 거라는 생각을 버리지 못한다. 이후 현장 안전과 관련된 이상징후와 확인 누락을 특히 경계하게 되었고, 현재의 엄격한 지휘 방식도 그 사건 이후 굳어졌다.</p>
-          <p>그 후 경력을 쌓아 최연소 책임관으로 지정되었다. 여전히 매년 사망한 동료들의 묘소를 혼자 찾는다.</p>
+          <p>끊어 말하는 거친 반말.</p>
+          <div class="lines">
+            <div class="line">애매하게 말하지 마. 네가 본 것만 말해. 판단은 이쪽에서 한다.</div>
+            <div class="line">멍하니 있지 마! 움직여, 이 새끼야! 죽고 싶어?</div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>과거</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>열아홉 살에 실동부에 들어왔다. 적성에 맞고 전문 분야가 명확하다는 이유로 이 진로를 택했으며, 당시에는 지금보다 훨씬 느긋한 성격이었다.</p>
+          <p>스물세 살 때 익숙한 기지종 이수와 관련된 지하 대응 임무에 참여했다. 초반부터 사소한 이상 징후가 있었지만 과거 사례에서도 나타난 범위 안이었기에 누구도 작전을 중단할 만큼 심각하다고 여기지 않았다. 그 역시 그대로 넘겼다.</p>
+          <p>이후 예상치 못한 변이와 추가 출현, 통신 두절이 연달아 발생하며 상황이 무너졌다. 초기에 놓친 징후와 확인 사항이 치명적인 결과로 이어졌고, 함께 진입한 대원은 모두 사망했다. 혼자만 살아 돌아왔다.</p>
+          <p>공식 조사에서는 특정 개인에게 책임을 묻지 않았다. 당시 확보된 정보만 놓고 보면 작전을 계속한 것이 명백한 잘못이었다고 판단할 수 없었으며, 그도 그 사실을 이해한다. 하지만 그 이해로도 자신을 용서할 수는 없었다. 한 번만 더 확인했거나, 사소한 위화감을 무시하지 않았다면 결과가 달라졌을지도 모른다는 생각을 놓지 못한다.</p>
+          <p>그 뒤로 현장 안전과 관련된 모든 일에 유난히 민감해졌고, 현재의 엄격한 지휘 방식도 그 사건 이후 형성됐다. 과거를 좀처럼 말하지 않지만 비슷한 상황에서는 여전히 감정적으로 과민 반응할 수 있다.</p>
+          <p>스물여덟 살에 역대 최연소 책임관으로 임명됐다. 지금도 매년 혼자 죽은 동료들의 묘를 찾아가며, 그들을 기억하는 일 자체를 자신의 책임으로 여긴다.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">D</span><h2>트리비아</h2></div>
+      <div class="bhead"><span class="idx">E</span><h2>기타</h2></div>
       <div class="plates">
         <div class="plate">
           <ul>
-            <li>사소한 부탁을 의외로 잘 거절하지 못한다. 말로는 안 해줄 것처럼 한소리 해놓고, 나중에 결국 조용히 해결해둔다.</li>
-            <li>유행어와 인터넷 밈에 약하다. 후임들 대화를 듣다가 못 알아듣는 말이 반복되면 "아까부터 그게 뭔데" 하고 묻는다. 설명을 들어도 대체로 왜 웃긴지는 이해하지 못한다.</li>
-            <li>메신저가 쌓이는 걸 싫어해 확인은 빠르지만 답장은 대체로 지나치게 짧다. 자신이 할 말이 있으면 문자보다 전화부터 건다.</li>
-            <li>술은 끊었지만 회식자리에는 종종 참석한다. 취한 대원을 데려다주는 경우가 많으며, 다음 날 생색은 내지 않지만 후임이 하는 술주정은 꽤 오래 기억한다.</li>
+            <li>의외로 사소한 부탁을 거절하지 못한다. 도와주지 않을 것처럼 굴다가도 나중에 조용히 처리해두곤 한다.</li>
+            <li>최신 유행어나 인터넷 밈에 어둡다. 모르는 말을 계속 듣게 되면 뜻을 묻지만 설명을 들어도 무엇이 웃긴지 대개 이해하지 못한다.</li>
+            <li>메시지는 빨리 확인하지만 답장이 지나치게 짧다. 조금이라도 길게 할 말이 있으면 문자 대신 전화한다.</li>
+            <li>금연을 시도 중이다. 스트레스를 받으면 아직도 담배를 찾듯 무의식적으로 주머니에 손을 넣는 버릇이 있다.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">E</span><h2>러브타입</h2></div>
+      <div class="bhead"><span class="idx">F</span><h2>연애 성향</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>연애감정을 쉽게 인정하지 못하고 자꾸 이유를 붙이려다 오히려 더 꼬인다. 왜 보고 싶은지, 왜 질투하는지 스스로도 납득이 안 되면 괜히 짜증이 난다.</p>
-          <p>상대를 보려고 일정을 바꾸고, 필요 없는 선물을 사고, 싸운 뒤 업무에 집중하지 못하는 등 평소라면 비합리적이라 여길 행동을 자괴감과 함께 반복한다.</p>
-          <p>기분이 좋고 경계가 풀리면 은근히 다정하다. 바라보는 눈이나 머리를 쓰다듬는 손에서 애정이 드러나지만 본인은 잘 자각하지 못한다.</p>
+          <p>누군가를 보기 위해 일정을 바꾸거나, 불필요한 선물을 사거나, 다툰 뒤 일에 집중하지 못하는 등 평소라면 비합리적이라고 여길 행동을 반복하며 스스로 답답해한다.</p>
+          <p>타인의 감정에는 비교적 초연하지만 소중한 사람이 관련되면 쉽게 객관성을 잃는다.</p>
+          <p>좋아한다거나 보고 싶다는 말을 직접 하기는 어려워하지만 실제 행동에서는 애정이 쉽게 드러난다.</p>
         </div>
       </div>
     </div>
 
     <div class="cnext">
-      <a href="#/p/sumito">← 마시바 스미토</a>
+      <a href="#/p/homare">← VANTA</a>
       <a href="#/people">전체 명단</a>
-      <a href="#/p/tomonari">시키 토모나리 →</a>
+      <a href="#/p/tomonari">PUCHI →</a>
     </div>
   </section>
 
@@ -1503,21 +1569,21 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
           <span class="ctag"><b>제3과</b></span>
           <span class="ctag w"><b>폴액스</b></span>
         </div>
-        <p class="cstyle">체격과 완력을 살린 정면전 특화. 도끼날로 외피와 관절을 파쇄해 움직임을 막고, 노출된 정핵은 반대쪽 흑정 해머로 파괴한다. 무기의 중량을 힘으로 보완해 연속 타격하며, 대형 개체의 진로 차단과 밀어붙이기에 강하다.</p>
+        <p class="cstyle">큰 체격과 힘을 살려 무거운 폴액스로 이수의 외피와 관절을 부순 뒤, 드러난 코어를 흑정 해머 헤드로 분쇄한다. 강력한 휘두르기는 대형 이수를 저지하거나 밀어붙이는 데 특히 효과적이다.</p>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">A</span><h2>외모</h2></div>
+      <div class="bhead"><span class="idx">A</span><h2>외형</h2></div>
       <div class="plates two">
         <div class="plate">
           <h3>인상</h3>
-          <p>190cm의 큰 키와 넓은 어깨. 등과 허벅지가 두껍고 손도 크다. 감정이 얼굴에 그대로 드러나며, 순진한 인상의 초록색 눈을 가졌다. 늦잠이 잦아 금발은 대체로 대충 흐트러져 있다.</p>
+          <p>190cm의 키에 넓은 어깨, 두꺼운 등과 허벅지, 커다란 손을 지녔다. 감정이 얼굴에 그대로 드러나며 초록색 눈은 순진한 인상을 준다. 늦잠을 자는 일이 많아 금발은 대개 헝클어진 채다.</p>
         </div>
         <div class="plate">
           <h3>복장</h3>
-          <p>전투복은 폴액스를 크게 휘두를 수 있도록 어깨와 팔의 가동성을 중시한다. 무기는 넓은 도끼날과 반대편 흑정 타격부를 가진 중량형 폴액스.</p>
-          <p>평상복은 편한 옷 일색. 패션에 관심이 없어 정체불명의 행사 티셔츠나 이상한 프린트도 거리낌 없이 입는다.</p>
+          <p>전투복은 폴액스를 크게 휘두를 수 있도록 어깨와 팔의 가동성을 우선한다. 무기는 넓은 도끼날과 반대편에 흑정 타격부가 달린 무거운 폴액스다.</p>
+          <p>사복은 오로지 편안함을 기준으로 고른다. 패션에 관심이 없어서 판촉물처럼 보이는 이상한 프린트 티셔츠도 아무렇지 않게 입는다.</p>
         </div>
       </div>
     </div>
@@ -1526,54 +1592,67 @@ main{padding:0 clamp(22px,4.2vw,68px) 130px;min-width:0}
       <div class="bhead"><span class="idx">B</span><h2>성격</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>심성이 착하며 마음이 여리다. 순진하고 잘 속아, 누가 진지한 얼굴로 말하면 웬만한 농담도 그대로 믿는다. 놀리면 반응이 커서 선배들이 자주 장난치는 대상이다.</p>
-          <p>겁이 많고 이수의 생김새를 특히 싫어한다. 전투 중에도 질색하며 소리를 지르지만, 물러나기보다 빨리 끝내려고 앞으로 나가는 타입.</p>
-          <p>실전 경험이 적어 돌발상황에서는 판단을 망설이지만, 해야 할 일이 명확해지면 주저하지 않는다. 힘과 실행력, 정면 돌파력이 뛰어나다.</p>
-          <p>정의감이 강해 도움이 필요한 사람을 지나치지 못한다. 스스로 겁이 많다는 걸 알기에, 무서워도 누군가 앞에 설 수 있는 사람이 되고 싶어 한다.</p>
-          <div class="warn"><b>최근</b>수습을 마친 뒤 후배가 생길 것을 의식해 괜히 듬직한 척하지만 오래가지는 못한다.</div>
+          <p>마음이 착하고 감수성이 풍부하다. 순진하고 잘 속으며, 누군가 진지한 얼굴로 말하면 웬만한 농담은 모두 믿는다. 반응이 너무 솔직해서 선배들이 자주 놀린다.</p>
+          <p>겁이 많고 특히 이수의 생김새를 싫어한다. 전투 중에도 질색하며 소리를 지를 수 있지만 물러서기보다는 빨리 끝내려고 오히려 앞으로 돌진하는 편이다.</p>
+          <p>현장 경험이 적어 예상하지 못한 상황에서는 자신의 판단을 망설일 수 있다. 그러나 해야 할 일을 알게 되면 주저 없이 행동한다. 힘과 결단력, 정면 돌파 능력은 뛰어나다.</p>
+          <p>정의감이 강해 도움이 필요한 사람을 외면하지 못한다. 자신이 겁이 많다는 사실을 알고 있으며, 그렇기 때문에 두려워도 다른 사람 앞에 설 수 있는 사람이 되고 싶어 한다.</p>
+          <div class="warn"><b>최근의 고민</b>수습 기간을 마친 뒤 언젠가 후배가 생길 일을 걱정하기 시작했고, 때로 어른스럽고 믿음직하게 행동하려 한다. 오래가지는 못한다.</div>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">C</span><h2>백스토리</h2></div>
+      <div class="bhead"><span class="idx">C</span><h2>말투</h2><span class="en">Voice</span></div>
       <div class="plates">
         <div class="plate">
-          <p>어린 시절 지하수로에서 이수에게 고립되었다. 출동한 실동부 대원이 토모나리와 이수 사이를 막아섰고, 그는 그 뒤에서 구조되었다.</p>
-          <p>구조자의 얼굴과 이름은 기억하지 못하지만 자신을 지키던 등은 또렷이 기억한다. 어린 토모나리에게 그 사람은 아무것도 무서워하지 않는 것처럼 보였고, 자신도 그렇게 될 수 있다고 믿었다. 그날 이후 누군가를 지키는 실동부 대원이 되는 것이 꿈이 되었다.</p>
-          <p>성인이 되어 간신히 실동양성소에 합격했지만 겁은 사라지지 않았다. 처음에는 자질이 없는 건가 고민했지만, 수습기간 동안 두려워하면서도 필요한 순간에는 앞으로 나서는 경험을 거듭하며 생각이 바뀌었다. 지금은 무서워하지 않는 사람이 아니라, 무서워도 물러서지 않는 사람이 되는 것을 목표로 한다.</p>
+          <p>활기차지만 당황한 기색이 묻어나는 존댓말. GRID를 ‘책임관님’이라고 부른다.</p>
+          <div class="lines">
+            <div class="line">정말입니까? 아, 아니…… 그런 식으로 놀리시면 곤란합니다…….</div>
+            <div class="line">잠깐만요, 그거 정말 위험한 것 아닙니까? 아니, 무서워하는 건 아닙니다만……!</div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="block">
+      <div class="bhead"><span class="idx">D</span><h2>과거</h2></div>
+      <div class="plates">
+        <div class="plate">
+          <p>어릴 때 지하 수로에서 이수와 함께 갇혔다. 실동부 대원 한 명이 도착해 그와 이수 사이를 가로막아 선 덕분에 대원의 등 뒤로 구조될 수 있었다.</p>
+          <p>구조자의 얼굴이나 이름은 더 이상 기억하지 못하지만 자신을 지켜주던 뒷모습만은 선명하게 기억한다. 어린 그의 눈에 그 사람은 조금도 두려워하지 않는 것처럼 보였고, 자신도 그렇게 될 수 있다고 믿었다. 그날부터 실동부에 들어가 다른 사람을 지키는 것이 꿈이 됐다.</p>
+          <p>성인이 된 뒤 실동부 양성소 입소 시험에 간신히 합격했지만 두려움은 사라지지 않았다. 처음에는 자신에게 그럴 자질이 없는 것은 아닌지 고민했다. 그러나 수습 기간 동안 무서워도 앞으로 나섰던 경험이 쌓이며 생각이 바뀌었다. 이제 그의 목표는 두려움을 느끼지 않는 사람이 아니라 두려움 때문에 물러서지 않는 사람이 되는 것이다.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">D</span><h2>트리비아</h2></div>
+      <div class="bhead"><span class="idx">E</span><h2>기타</h2></div>
       <div class="plates">
         <div class="plate">
           <ul>
-            <li>콜사인을 고민하던 토모나리에게 동기들이 '푸치'가 강하고 센스 있는 이름이라고 입을 맞춰 속였다. 그대로 제출한 뒤에야 장난이었다는 걸 알았지만, 이미 주변에 완전히 굳어져 변경 신청을 내기가 눈치보인다.</li>
-            <li>공포영화를 못 본다. 귀신이 나오면 쿠션으로 얼굴을 가린다.</li>
-            <li>지하 순찰 전 맨홀을 세 번 두드려야 한다는 가짜 규정을 한 달 가까이 믿었다.</li>
-            <li>호마레의 쿨한 이미지를 은근히 동경하며, 호마레의 SNS 게시글에는 거의 빠짐없이 좋아요를 누른다.</li>
+            <li>콜사인을 고르지 못해 고민하던 중 동기 몇 명이 짜고 ‘푸치’가 강하고 멋진 이름이라고 속였다. 그대로 제출하고 나서야 모두 자신을 놀렸다는 사실을 알았다. 그때는 이미 이름이 너무 완전히 굳어진 뒤라 변경 신청을 하기도 어색해졌다.</li>
+            <li>덩치와 달리 많이 먹지는 않지만 살이 쉽게 찌는 체질이라 자주 신경 쓴다.</li>
+            <li>필체가 의외로 동글동글하고 단정하며 예쁘다.</li>
+            <li>반타의 멋진 이미지를 남몰래 동경하며 반타가 SNS에 올린 게시물에는 거의 빠짐없이 좋아요를 누른다.</li>
+            <li>주요 대원 다섯 명 중 대중교통으로 출퇴근하는 사람은 그가 유일하다.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="bhead"><span class="idx">E</span><h2>러브타입</h2></div>
+      <div class="bhead"><span class="idx">F</span><h2>연애 성향</h2></div>
       <div class="plates">
         <div class="plate">
-          <p>좋아하는 사람 앞에서는 목소리부터 어색해지고, 평범한 칭찬 하나 하려고 혼자 연습한다. 주변 사람들이 먼저 눈치채기 쉽다.</p>
-          <p>정작 결정적인 순간에는 참던 말을 전부 쏟아낸다. 이후 혼자 발언을 복기하며 괴로워한다.</p>
-          <p>연애가 시작되면 상당한 팔불출. 연애에 대한 로망이 많아 흔히 말하는 커플 이벤트는 웬만하면 다 해보고 싶어 한다.</p>
+          <p>좋아하는 사람 앞에서는 목소리까지 어색해지고, 간단한 칭찬 한마디도 미리 혼자 연습한다. 정작 상대보다 주위 사람들이 먼저 그의 마음을 알아채는 경우가 많다.</p>
+          <p>결정적인 순간이 오면 그동안 참아온 말을 한꺼번에 쏟아낸다. 그 뒤에는 자신이 한 말을 하나하나 되짚으며 혼자 괴로워한다.</p>
+          <p>연애를 시작하면 대놓고 상대를 귀여워하고 아낀다. 연애에 대한 로망이 많아 전형적인 커플 활동은 거의 모두 한 번씩 해보고 싶어 한다.</p>
         </div>
       </div>
     </div>
 
     <div class="cnext">
-      <a href="#/p/katsumi">← 마카베 카츠미</a>
+      <a href="#/p/katsumi">← GRID</a>
       <a href="#/people">전체 명단</a>
     </div>
   </section>
